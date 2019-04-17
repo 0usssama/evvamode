@@ -7,8 +7,8 @@
 
 var_dump($_POST);
 
-    $sql = "INSERT INTO `client` ( `nom_client`, `prenom_client`,`email_client`,`tel_client`,`password_client`, `id_admin`)
-     VALUES (:nomclient, :prenomclient, :emailclient, :telclient,  :passwordclient,  :idadmin)";
+    $sql = "INSERT INTO `client` ( `nom_client`, `prenom_client`,`email_client`,`tel_client`,`password_client`)
+     VALUES (:nomclient, :prenomclient, :emailclient, :telclient,  :passwordclient)";
    
 
 //Prepare our statement.
@@ -33,7 +33,7 @@ $statement = $pdo->prepare($sql);
    $statement->bindValue(':emailclient', $emailClient);
    $statement->bindValue(':telclient', $adresseClient);
    $statement->bindValue(':passwordclient', $motpasseClient);
-   $statement->bindValue(':idadmin', $id_admin);
+   //$statement->bindValue(':idadmin', $id_admin);
    
 
   // function validation{
@@ -48,7 +48,7 @@ $inserted = $statement->execute();
 //verifier si on a des résultats (true or false)
 if($inserted){
     echo ' Youpiiiiiii<br>';
-    header('location: ../../evvamode/login.php');
+    header('location: ../login.php');
 }else{
     echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 }

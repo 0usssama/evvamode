@@ -14,7 +14,7 @@ if(isset($_POST['ajouter'])){
     `adresse_event`,
     `descri_event`,
     `url_img_event`,
-    `id_admin`,
+   
     `id_styls`)
      VALUES (:titreevent,
       :dateevent, 
@@ -22,7 +22,7 @@ if(isset($_POST['ajouter'])){
       :adresseevent,
       :descrievent, 
       :urlimg,
-      :idadmin,
+      
       :idstyls)";
 
 
@@ -46,12 +46,13 @@ $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);//yjib la taille ta3H
         $uploadOk = 0;
     }
 }
+/*
 // Check if file already exists
 if (file_exists($target_file)) {
 
     echo "Sorry, file already exists.";
     $uploadOk = 0;
-}
+}*/
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
@@ -90,7 +91,7 @@ if ($uploadOk == 0) {
    $statement->bindValue(':heureevent', $heureevent);
    $statement->bindValue(':adresseevent', $adresseevent);
    $statement->bindValue(':descrievent', $descrievent);
-   $statement->bindValue(':idadmin', $id_admin);
+  // $statement->bindValue(':idadmin', $id_admin);
    $statement->bindValue(':idstyls', $id_styls);
    $statement->bindValue(':urlimg', $_FILES["fileToUpload"]["name"]);
 

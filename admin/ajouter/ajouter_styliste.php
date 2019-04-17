@@ -44,10 +44,10 @@ if(isset($_FILES["url_logo_styls"]["name"]))
         `tel_styls`,
         `url_photo_styls`,
         `url_logo_styls`,
-        `descri_styls`,
+        `descri_styls`
 
-        `id_admin`)
-     VALUES (:nomstyls, :prenomstyls,:telstyls,:urlphoto, :urllogo,:decristyls,:idadmin)";
+       )
+     VALUES (:nomstyls, :prenomstyls,:telstyls,:urlphoto, :urllogo,:decristyls)";
 
 
 
@@ -73,7 +73,7 @@ echo $urllogo.''.$urlphoto;
    $statement->bindValue(':urllogo', $urllogo);
    $statement->bindValue(':decristyls', $decristyls);
   
-   $statement->bindValue(':idadmin', $id_admin);
+  //  $statement->bindValue(':idadmin', $id_admin);
 
 
 

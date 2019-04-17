@@ -255,8 +255,9 @@
 					<h2 class="text-center text-uppercase title-under">NOS ÉVENEMENTS</h2>
 				
 					<?php
-								$sql = "SELECT * FROM `evenement`
-								 order by `id_event` DESC LIMIT 1";
+								$sql = "SELECT titre_event,date_event,heure_event,adresse_event,
+								descri_event,url_img_event,nom_styls ,prenom_styls FROM evenement JOIN styliste ON
+								 evenement.id_styls = styliste.id_styls  order by `id_event` DESC LIMIT 1 ; ";
 								if($pdo->query($sql)){
 									foreach  ($pdo->query($sql) as $row) {
 							?>
@@ -265,7 +266,7 @@
 
 							<div  class="banner zoom-in">
 								<span class="figure">
-									<img src="<?php echo '../admin/uploads/'.$row['url_img_event'] ;?>" " width="250" height="500"  alt="" />
+									<img src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_event'] ;?>" " width="250" height="500"  alt="" />
 									<span class="figcaption">
 									
 												<figure class="snip0015" >
@@ -273,14 +274,14 @@
 	                                               <figcaption>
                                                     <h1 style="color: #ffffff"><?php echo $row['titre_event'] ; ?></h1>
 													<h2 style="color: #ffffff"> <?php echo $row['date_event'] ; ?> </h2>
-													<h2 style="color: #ffffff"><?php echo $row['heure_event'] ; ?></h2>
+													<h2 style="color: #ffffff"><?php echo $row['heure_event'] ."h"; ?></h2>
 													<h2 style="color: #ffffff"><?php echo $row['adresse_event'] ; ?></h2>
 													
                                                    <p> 
 												   <?php echo $row['descri_event'] ; ?>
 												   </p>
-    
-													
+													<br><br><br><br><br><br>
+													<p  style="color: #ffffff"> <i>le styliste :</i><?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?>  </p>
 													<a href="#"></a>
 	                                                   </figcaption>			
                                                    </figure>

@@ -11,7 +11,7 @@ if(isset($_POST['supprimer'])){
        $resultat=  $pdo->query($sql);
 
        if($resultat){
-           header('location: ../produit.php');
+           header('location: ../article.php');
        }else{
 echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 

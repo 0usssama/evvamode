@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id_art` int(11) NOT NULL AUTO_INCREMENT,
   `nom_art` varchar(30) NOT NULL,
-  `prix_art` decimal(6,4) NOT NULL,
+  `prix_art` decimal NOT NULL,
   `url_img_art` varchar(100) NOT NULL,
   `descri_art` varchar(100) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
