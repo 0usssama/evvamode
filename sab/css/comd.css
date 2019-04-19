@@ -275,6 +275,7 @@ input[type="submit"] {
 }
 button[disabled],
 html input[disabled] {
+  color:red;
   cursor: default;
 }
 button::-moz-focus-inner,
@@ -1451,8 +1452,9 @@ pre code {
     width: 33.33333333%;
   }
   .col-lg-3  {
-    width: 23%;
-    margin-left:20px;
+    width: 20%;
+    margin-top:20px;
+    
   }
   
   .col-lg-2 {
@@ -11169,7 +11171,7 @@ footer.layout-7 .footer-copyright .row {
   margin: 0 0 0.6em 0;
   font-size: 1.875em;
   line-height: 1em;
-  color: #fff;
+  color: #000;
   font-family: Ubuntu, sans-serif;
   font-weight: 400;
   text-align: center;
@@ -26028,10 +26030,10 @@ body:not(.index) #pageContent > .container {
 /* product
 ==================================== */
 .product__inside {
-  background: #202020;
+  background: #1112;
 }
 .product__inside__name h2 {
-  color: #ff4c29;
+  color: #cd111a;
 }
 .product__inside__name h2 a {
   color: #ff4c29;
