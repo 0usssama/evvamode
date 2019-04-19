@@ -515,20 +515,18 @@
 			<span class="btn-next"></span> </div>
 	  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos partenaires </h2>
 				<div class="content section-indent-bottom">
-				
-					
+		
+				<?php
+                         $sql = "SELECT url_logo_styls FROM styliste ";
+                      	 ?>
+					     <?php 
+         			     if($pdo->query($sql)){
+          				  foreach  ($pdo->query($sql) as $row) { ?>
 						<div class="brands-carousel">
-							<div><a href="#"><img src="images/custom/1.jpg" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/9.png" alt=""  width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/10.png" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/2.png" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/11.jpg" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/12.jpg" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/8.jpg" alt="" width="120" height="120"></a></div>
-							<div><a href="#"><img src="images/custom/13.png" alt="" width="120" height="120"></a></div>
+							<div><a href="#"><img  width="120" height="120" src="" alt=""></a>"<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>"  >										</div> 
 							
 						</div>
-					
+						<?php  } }?>
 			</div>
 			
 			<!-- /brands-carousel -->

@@ -59,7 +59,6 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                       
                           <tr>
                               <th>ID</th>
-                              <th>type slider</th>
                               <th>url slider</th>
                               <th>titre slider</th>
                               <th class="text-center">Action</th>
@@ -72,7 +71,6 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
                 <td><?php echo $row['id_slider'] ;?></td>
-                <td><?php echo $row['type_slider'] ;?></td>
                 <td><?php echo $row['url_img_slider'] ;?></td>
                 <td><?php echo $row['titre_slider'] ;?></td>
                
@@ -86,7 +84,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal titre</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">skider</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -118,36 +116,29 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">ajouter slider</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
            
-            <form method="POST" action="ajouter/ajouter_category.php" >
+            <form method="POST" action="ajouter/ajouter_slider.php" >
                 
-                 
-                <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="type_slider" name="type_slider" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="type_slider">type slider</label>
-                    </div>
-                  </div>
                     
                  
                   
                 <div class="form-group">
                     <div class="form-label-group">
-                      <input type="file" id="url_img_slider" name="url_img_slider" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="url_img_slider">url img</label>
+                      <input type="file" id="fileToUpload" name="fileToUploadr" class="form-control" placeholder="famille" required="required" accept="image/*">
+                      <label for="fileToUpload">url img</label>
                     </div>
                   </div>
                     
                   <div class="form-group">
                     <div class="form-label-group">
-                      <input type="text" id="titre_slide" name="titre_slide" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="titre_slide">titre slider</label>
+                      <input type="text" id="titre_slider" name="titre_slide" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="titre_slider">titre slider</label>
                     </div>
                   </div>
               
