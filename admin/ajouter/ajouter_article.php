@@ -16,7 +16,7 @@ if(isset($_POST['ajouter'])){
         `url_img_art`,
     `descri_art`,
     `id_catg`,
-    `id_admin`,
+   
     `id_styls`,
     `id_styl`)
      VALUES (
@@ -25,7 +25,7 @@ if(isset($_POST['ajouter'])){
      :url_img_art,
      :descri_art,
      :id_catg,
-     :id_admin,
+     
      :id_styls,
     
      :id_styl)";
@@ -52,11 +52,12 @@ $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);//yjib la taille ta3H
     }
 }
 // Check if file already exists
+/*
 if (file_exists($target_file)) {
 
     echo "Sorry, file already exists.";
     $uploadOk = 0;
-}
+}*/
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
@@ -100,7 +101,7 @@ if ($uploadOk == 0) {
     //  var_dump($idstyl);
    $statement->bindValue(':nom_art', $nomart);
    $statement->bindValue(':prix_art', $prixart);
-   $statement->bindValue(':id_admin', $id_admin);
+  // $statement->bindValue(':id_admin', $id_admin);
    $statement->bindValue(':id_styls', $id_styls);
    $statement->bindValue(':id_catg', $idcatg);
    $statement->bindValue(':id_styl', $idstyl);

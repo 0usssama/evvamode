@@ -184,9 +184,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                         <div class="form-group">
                     <div >
                     <label for="">votre description</label>
-                      <textarea cols="70" type="text" id="descri_art" name="descri_art" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus">
-                     
-                       </textarea>
+                      <textarea cols="70" type="text" id="descri_art" name="descri_art" class="form-control" placeholder="Déscription" required="required" autofocus="autofocus"></textarea>
 
                     </div>
                   </div>
@@ -203,7 +201,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   
                     <div class="form-group">
                     <div class="form-label-group">
-                     <select name="id_styl" id="id_styl" class="form-control">
+                     <select name="id_styl" id="id_styl" class="form-control" required="required">
                         <option value="">Style</option>
                         <option value="1">traditionnel</option>
                         <option value="2">moderne</option>
@@ -222,7 +220,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                          ?>
                   <div class="form-group">
                     <div class="form-label-group">
-                     <select name="id_catg" id="id_catg" class="form-control">
+                     <select name="id_catg" id="id_catg" class="form-control" required="required">
                          <option value="">categories</option>
                          <?php 
                          if($pdo->query($sql)){
@@ -244,7 +242,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                          ?>
                   <div class="form-group">
                     <div class="form-label-group">
-                     <select name="id_styls" id="id_styls" class="form-control">
+                     <select name="id_styls" id="id_styls" class="form-control" required="required">
                          <option value="">Styliste</option>
                          <?php 
                          if($pdo->query($sql)){

@@ -64,7 +64,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         ?>
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter un evenement</button>
        
-                  <table class="table  table-responsive">
+                  <table class="table ">
                       <thead>
                       
                           <tr>
@@ -91,7 +91,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <td class="col"><?php echo $row['heure_event'] ;?></td>
                 <td class="col"><?php echo $row['adresse_event'] ;?></td>
                 <td class="col"><?php echo $row['descri_event'] ;?></td>
-                <td class="col"><img   src="<?php echo 'uploads/'.$row['url_img_event'] ;?>" alt="" width="100px"> </td>
+                <td class="col"><img   src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_event'] ;?>" alt="" width="100px"> </td>
                 <td class="col"><?php echo $row['nom_styls'].' '.$row['prenom_styls'] ;?></td>
                 
                
@@ -111,7 +111,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_category.php?id_event=<?php echo $row['id_event'] ;?> " method="post">
+                            <form action="supprimer/supprimer_evenement.php?id_event=<?php echo $row['id_event'] ;?> " method="post">
                                 <h1 class="mb-5">voulez-vous supprimer evenement n°<?php echo $row['id_event'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
@@ -184,12 +184,14 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   </div>
 
                   <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="descri_event" name="descri_event" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="descri_event">Description</label>
-                    </div>
+                  <div>
+                    <label for="">votre description</label>
+                      <textarea cols="70" type="text" id="descri_event" name="descri_event" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus"></textarea>
+                       </div>
                   </div>
 
+
+                  
 
                   <div class="form-group">
                     <div class="form-label-group">

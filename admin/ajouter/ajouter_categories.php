@@ -7,8 +7,8 @@ var_dump($_POST);
 if(isset($_POST['ajouter'])){
 
 
-    $sql= "INSERT INTO categories (`id_catg`,`desi_catg`,`id_admin`)
-     VALUES (NULL, :desicatg, :idadmin)";
+    $sql= "INSERT INTO categories (`id_catg`,`desi_catg`)
+     VALUES (NULL, :desicatg)";
 
 
 
@@ -22,7 +22,7 @@ $desicatg = ($_POST['desi_catg']);
 
 
    $statement->bindValue(':desicatg', $desicatg);
-   $statement->bindValue(':idadmin', $id_admin);
+   //$statement->bindValue(':idadmin', $id_admin);
    
 
 

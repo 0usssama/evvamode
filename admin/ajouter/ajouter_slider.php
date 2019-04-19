@@ -7,8 +7,8 @@ var_dump($_POST);
 if(isset($_POST['ajouter'])){
 
 
-    $sql= "INSERT INTO slider (`type_slider`,`url_img_slider`,`titre_slider`,`id_admin`)
-     VALUES (:typesld, :urlsld,:titresld,:idadmin)";
+    $sql= "INSERT INTO slider (`type_slider`,`url_img_slider`,`titre_slider`)
+     VALUES (:typesld, :urlsld,:titresld)";
 
 
 
@@ -27,7 +27,7 @@ $statement = $pdo->prepare($sql);
    $statement->bindValue(':typesld', $typesld);
    $statement->bindValue(':urlsld', $urlsld);
    $statement->bindValue(':$titresld', $titresld);
-   $statement->bindValue(':idadmin', $id_admin);
+  // $statement->bindValue(':idadmin', $id_admin);
    
 
 

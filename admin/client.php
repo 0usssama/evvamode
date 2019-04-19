@@ -45,7 +45,7 @@
                     <th>telephone</th>
                     
 
-                  <th class="text-center"><h3><h3>Action</h3></h3></th>
+                  <th class="text-center">Action</th>
                 </tr>
             </thead>
             <?php 
