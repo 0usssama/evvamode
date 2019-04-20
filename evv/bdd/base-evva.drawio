@@ -33,6 +33,7 @@ foreign key (id_admin) references admin (id_admin)  ON DELETE CASCADE
 
 
 
+
 CREATE TABLE style (
 id_styl int(1) not null primary key auto_increment,
 type_styl varchar (12)not null
@@ -92,7 +93,7 @@ foreign key (id_styls) references styliste (id_styls)  ON DELETE CASCADE
 CREATE TABLE article(
 id_art int(11) not null primary key auto_increment,
 nom_art varchar (30)not null,
-prix_art decimal(6,4) not null,
+prix_art decimal not null,
 url_img_art VARCHAR(100) not null,
 descri_art VARCHAR(100) not null,
 id_admin int,

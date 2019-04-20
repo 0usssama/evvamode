@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php require_once('../includes/config.php') ;?>
+
 <html lang="Fr">
 	<head>
 		<!-- Basic -->
@@ -523,7 +525,9 @@
          			     if($pdo->query($sql)){
           				  foreach  ($pdo->query($sql) as $row) { ?>
 						<div class="brands-carousel">
-							<div><a href="#"><img  width="120" height="120" src="" alt=""></a>"<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>"  >										</div> 
+							<div>
+							<a href="#"><img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
+							</a> 										</div> 
 							
 						</div>
 						<?php  } }?>
