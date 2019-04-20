@@ -124,9 +124,10 @@
                                             
                                                     </div>
                                                     <div class=" mt-auto ml-auto pr-4 pb-3 d-flex align-content-center">
-                                                            <input type="text" class="product-quantity h-100" name="quantity" value="0" size="2" />
-                                                        <form action="achat/index.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
-                                                        <button type="button" class="btn btn-danger ml-2 h-100">commander</button>
+                                                        <form action="index.php?id_art=<?php echo $produit['id_art'] ;?> " method="post">
+                                                        <input type="text" class="product-quantity h-100" name="quantity" value="0" size="2" />
+                                                          <input type="submit" name="commander" value="commander" class="btn btn-danger ml-2 h-100">              
+                                                       
                                                         </form>
                                                     </div>
                                                   </div>

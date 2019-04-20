@@ -517,6 +517,7 @@
 			<span class="btn-next"></span> </div>
 	  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos partenaires </h2>
 				<div class="content section-indent-bottom">
+				<div class="brands-carousel">
 		
 				<?php
                          $sql = "SELECT url_logo_styls FROM styliste ";
@@ -524,14 +525,15 @@
 					     <?php 
          			     if($pdo->query($sql)){
           				  foreach  ($pdo->query($sql) as $row) { ?>
-						<div class="brands-carousel">
 							<div>
-							 <a href="#"><img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
-							 </a> 
+							 <img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
+							
 						    </div> 
 							
-						</div>
 						<?php  } }?>
+
+						</div>
+
 			</div>
 			
 			<!-- /brands-carousel -->
