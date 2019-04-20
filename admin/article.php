@@ -70,8 +70,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         <button type="button" class="btn btn-primary mb-3" 
         data-toggle="modal" data-target="#exampleModalScrollable">Ajouter un article</button>
 
-
-        <table class="table table-striped custab">
+        <div class="table-responsive">
+        <table class="table">
             <thead>
             
                 <tr>
@@ -142,7 +142,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                    
                    
             </table>
-
+        </div>
 
 
 
