@@ -44,7 +44,7 @@
           <ul class="navbar-nav  ml-auto">
             
             <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i>&nbsp;0 articles </a>
+              <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i>&nbsp; 0 articles </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
@@ -72,7 +72,9 @@
 
             ?>
   <li class="nav-item">
-    <a class="nav-link <?php if($show == 1){echo 'active';}; ?>" id="showall-tab" data-toggle="pill" href="#cat<?php echo $categorie['id_catg']; ?>" role="tab" aria-controls="showall" aria-selected="true"><?php echo $categorie['desi_catg']; ?></a>
+    <a class="nav-link <?php if($show == 1){echo 'active';}; ?>"
+     id="showall-tab" data-toggle="pill" href="#cat<?php echo $categorie['id_catg']; ?>" 
+     role="tab" aria-controls="showall" aria-selected="true"><?php echo $categorie['desi_catg']; ?></a>
   </li>
 
 <?php
@@ -123,8 +125,9 @@
                                                     </div>
                                                     <div class=" mt-auto ml-auto pr-4 pb-3 d-flex align-content-center">
                                                             <input type="text" class="product-quantity h-100" name="quantity" value="0" size="2" />
+                                                        <form action="achat/index.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
                                                         <button type="button" class="btn btn-danger ml-2 h-100">commander</button>
-        
+                                                        </form>
                                                     </div>
                                                   </div>
                                                 </div>

@@ -111,7 +111,7 @@
 								
 								<ul>
 									<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-									<li><a href="login_form.php"><span class="icon icon-lock"></span>espace client</a></li>
+									<li><a href="../admin/loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
 								</ul>
 							</div>
 							<!-- /fin de menu inscrire -->
@@ -526,8 +526,9 @@
           				  foreach  ($pdo->query($sql) as $row) { ?>
 						<div class="brands-carousel">
 							<div>
-							<a href="#"><img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
-							</a> 										</div> 
+							 <a href="#"><img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
+							 </a> 
+						    </div> 
 							
 						</div>
 						<?php  } }?>
@@ -537,7 +538,7 @@
 		<!--	
 			
 		
-		<!-- End CONTENT section -->
+		<!- End CONTENT section -->
 		<!-- FOOTER section -->
 				
 		<footer class="layout-4 fill-bg">

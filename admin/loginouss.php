@@ -15,7 +15,8 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
-  <link href="css/login.css" rel="stylesheet">
+  
+  <link href="css/sb-admin.css" rel="stylesheet">
 
 
 </head>
@@ -42,10 +43,10 @@
             </div>
           </div>
           
-          <a class="btn btn-primary btn-block" href="index.html">Connecter</h3> </a>
+          <a class="btn btn-primary btn-block" href="../achat/index.php">Connecter</h3> </a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">s'inscrire</a>
+          <a class="d-block small mt-3" href="register.php">s'inscrire</a>
         </div>
       </div>
     </div>
