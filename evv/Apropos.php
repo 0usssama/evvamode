@@ -97,7 +97,7 @@
 			</nav>
 		</div>	
 	    <!-- /mobile menu -
-		<!-- HEADER section -->
+		<!-- /HEADER section -->
 		<div class="header-wrapper">
 			<header id="header" class="header-layout-03 fill-bg-dark">
 				<div class="container">

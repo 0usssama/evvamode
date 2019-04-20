@@ -7,7 +7,10 @@ var_dump($_POST);
 if(isset($_POST['ajouter'])){
 
 
-    $sql= "INSERT INTO slider (`url_img_slider`,`titre_slider`,`id_admin`)
+    $sql= "INSERT INTO slider (
+    `url_img_slider`,
+    `titre_slider`,
+    `id_admin`)
      VALUES (:urlsld,:titresld,:idadmin)";
 
 

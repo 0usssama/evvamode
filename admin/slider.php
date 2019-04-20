@@ -31,7 +31,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                          
                           <!--end of col-->
                           <div class="col">
-                              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Rechercher une famille">
+                              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Recherche">
                           </div>
                           <!--end of col-->
                           <div class="col-auto">
@@ -71,7 +71,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
                 <td><?php echo $row['id_slider'] ;?></td>
-                <td><?php echo $row['url_img_slider'] ;?></td>
+                <td class="col"><img   src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>" alt="" > </td>
                 <td><?php echo $row['titre_slider'] ;?></td>
                
 
@@ -84,13 +84,13 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">skider</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">slider</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_category.php?id_slider=<?php echo $row['id_slider'] ;?> " method="post">
+                            <form action="supprimer/supprimer_slider.php?id_slider=<?php echo $row['id_slider'] ;?> " method="post">
                                 <h1 class="mb-5">voulez-vous supprimer slider n°<?php echo $row['id_slider'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
