@@ -54,8 +54,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         ?>
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" 
         data-target="#exampleModalScrollable">Ajouter  styliste</button>
-         
-                  <table class="table table-striped custab">
+        <div class="table-responsive">
+                  <table class="table">
                       <thead>
                       
                           <tr>
@@ -65,6 +65,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                               <th>photo styliste</th>
                               <th>logo styliste</th>
                               <th>description </th>
+                              <th>Email </th>
                               <th class="text-center">Action</th>
                              
                            
@@ -83,7 +84,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <td>    <img  width="80" height="80" src="<?php echo 'ajouter/uploads/'. $row['url_logo_styls']; ;?>" alt=""  > </td>
 
                 <td><?php echo $row['descri_styls'] ;?></td>
-              
+                <td><?php echo $row['email_styls'] ;?></td>
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
@@ -119,7 +120,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                    
                    
             </table>
-   
+        </div>
 
        
 <!-- Modal -->
@@ -183,14 +184,20 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
 
                      <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="descri_styls" name="descri_styls" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="descri_styls"> description </label>
-                    </div>
+                     <div >
+                    <label for="">votre description</label>
+                      <textarea cols="50" type="text" id="descri_styls" name="descri_styls" class="form-control" placeholder="Déscription" required="required" autofocus="autofocus"></textarea>
+                    </div> 
                   </div>
                     
 
-                 
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" id="email_styls" name="email_styls" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="email_styls"> email de styliste </label>
+                    </div>
+                  </div>
+                    
                     
                
                 <input type="submit" class="btn btn-primary btn-block" value="ajouter" name="ajouter">

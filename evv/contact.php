@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once('../includes/config.php') ;?>
 <html lang="Fr">
 	<head>
 		<!-- Basic -->
@@ -107,7 +108,7 @@
 								
 								<ul>
 									<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-									<li><a href="login_form.php"><span class="icon icon-lock"></span>espace client</a></li>
+									<li><a href="../admin/loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
 								</ul>
 							</div>
 							<!-- /fin de menu inscrire -->
@@ -253,68 +254,32 @@
 
 		<div class="content">
 			<div class="container">
-
-
-
-
-
-
+			
 
 
 				<div class="row">
-
-
-
-
-				<div class="title-with-button">
-								<div class="carousel-products__button pull-right"> </div>
-								<h2 class="text-center text-uppercase title-under">CONTACTER LE GROUPE EVVAMODE</h2>
-							</div>
-					<div class="col-md-4">
-						
-						<ul>
-						<b>	<li > Ben ounesse Oussama</li></b>
-						  </ul>
-					</div>
-					<div class="divider divider--md visible-sm visible-xs"></div>
-					<div class="col-md-4">
-						
-						<ul>
-                          <li>0557.88.99.47</li>
-						 
-						</ul>
-					</div>
-					<div class="divider divider--md visible-sm visible-xs"></div>
-					<div class="col-md-4">
-						
-					<p class="icon  icon-email">  ousssa123@gmail.com </p>
-						 
-					</div>
-					<div class="divider divider--lg visible-sm visible-xs"></div>
-				</div>
-
-				<br><br><br>
-
-
-
-
+	
 						<div class="title-with-button">
 								<div class="carousel-products__button pull-right"> </div>
 								<h2 class="text-center text-uppercase title-under">CONTACTER LES STYLISTES </h2>
 							</div>
+							
 					<div class="col-md-4">
 						<h4 class="title-icon text-uppercase">
 							<span class="icon color icon-person ">
 
 							</span>Nom </h4>
+							<?php
+								$sql = "SELECT * FROM styliste";
+								if($pdo->query($sql)){
+									foreach  ($pdo->query($sql) as $row) {
+							?>
 						<ul>
-						<b>	<li> Ben ounesse Oussama</li>
-							<li>Ouadjaout Sabrina </li>
-							<li>Selmati Yasmine </li>
-							<li>Noussa Khauid</li>
-							<li>Doudou Dayana</li>
+						<b>	<li><?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?></li>
+							
 						</b>
 						  </ul>
+						  <?php } }; ?>
 					</div>
 					<div class="divider divider--md visible-sm visible-xs"></div>
 					<div class="col-md-4">
@@ -322,28 +287,35 @@
 							<span class="icon color icon-call">
 
 							</span>Telephone</h4>
+							<?php
+								$sql = "SELECT * FROM styliste";
+								if($pdo->query($sql)){
+									foreach  ($pdo->query($sql) as $row) {
+							?>
 						<ul>
-                          <li>0557.88.99.47</li>
-						  <li>0553.12.13.54</li>
-						  <li>0778.25.89.65</li>
-						  <li>0725.85.36.96</li>
-						  <li>0660.15.85.74</li>
+                          <li><?php echo $row['tel_styls'] ; ?></li>
+						 
 						</ul>
+						<?php } }; ?>
 					</div>
 					<div class="divider divider--md visible-sm visible-xs"></div>
 					<div class="col-md-4">
 						<h4 class="title-icon text-uppercase">
 							<span class="icon color icon-email"></span>Email</h4>
+							<?php
+								$sql = "SELECT * FROM styliste";
+								if($pdo->query($sql)){
+									foreach  ($pdo->query($sql) as $row) {
+							?>
 						<ul>
-							<li>ousssa123@gmail.com</li>
-							<li>ousssa123@gmail.com</li>
-							<li>ousssa123@gmail.com</li>
-							<li>ousssa123@gmail.com</li>
-							<li>ousssa123@gmail.com</li>
+							<li><?php echo $row['email_styls'] ; ?></li>							
 						  </ul>
+						  <?php } }; ?>
 					</div>
 					<div class="divider divider--lg visible-sm visible-xs"></div>
 				</div>
+
+
 			</div>
 		</div>
 	</div>

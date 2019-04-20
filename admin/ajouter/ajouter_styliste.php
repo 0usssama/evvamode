@@ -44,10 +44,11 @@ if(isset($_FILES["url_logo_styls"]["name"]))
         `tel_styls`,
         `url_photo_styls`,
         `url_logo_styls`,
-        `descri_styls`
+        `descri_styls`,
+        `email_styls`
 
        )
-     VALUES (:nomstyls, :prenomstyls,:telstyls,:urlphoto, :urllogo,:decristyls)";
+     VALUES (:nomstyls, :prenomstyls,:telstyls,:urlphoto, :urllogo,:decristyls,:emailstyls)";
 
 
 
@@ -61,6 +62,7 @@ $statement = $pdo->prepare($sql);
     $urlphoto = $_FILES["url_photo_styls"]["name"];
     $urllogo = $_FILES["url_logo_styls"]["name"];
     $decristyls = $_POST['descri_styls'];
+    $emailstyls = $_POST['email_styls'];
    $id_admin = 1;
 
 echo $urllogo.''.$urlphoto;
@@ -72,7 +74,7 @@ echo $urllogo.''.$urlphoto;
    $statement->bindValue(':urlphoto', $urlphoto);
    $statement->bindValue(':urllogo', $urllogo);
    $statement->bindValue(':decristyls', $decristyls);
-  
+   $statement->bindValue(':emailstyls', $emailstyls);
   //  $statement->bindValue(':idadmin', $id_admin);
 
 

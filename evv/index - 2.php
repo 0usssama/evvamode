@@ -27,9 +27,11 @@
 		<!-- Modernizr -->
 		<script src="external/modernizr/modernizr.js"></script>
 	</head>
-	<body class="index" style="">
-		<span style="text-align: center"></span>
-		
+	<body class="index" style="text-align: left;">
+			<span style="text-align: center"></span>
+		<div id="loader-wrapper">
+			
+		</div>
 		<!-- Back to top couleur de background -->	  
 		<div class="back-to-top"> <span class="icon-keyboard_arrow_up"></span></div>
 		<!-- /Back to top -->
@@ -97,7 +99,7 @@
 			</nav>
 		</div>	
 	    <!-- /mobile menu -
-		<!-- /HEADER section -->
+		<!-- HEADER section -->
 		<div class="header-wrapper">
 			<header id="header" class="header-layout-03 fill-bg-dark">
 				<div class="container">
@@ -239,121 +241,300 @@
 			</header>
 	
 	</div>
-		
-		
-
-
-	<div class="container-fluid container-fluid-large container-no-col-indent">
-							<div class="row">
-								<div class="pull-left col-xs-12 col-sm-12 col-md-6">
-									<img src="logo sabrina majoda.jpg" class="img-responsive" alt="" >
-								</div>
-								<div class="pull-right col-xs-12 col-sm-12 col-md-6">
-									<div class="product-data-big">
-										<h5 class="text-center text-uppercase title-under" style="color: #000000">Evvamode</h5>
-										<p> 
-										Evvamode, est un nom choisi par des stylistes 
-										qui veulent exposer leurs modèles de vêtements 
-										traditionnelle et moderne et qui offre la chance
-										 a des couturières débutantes la possibilité de 
-										 progresser et marquer leurs présences dans le domaine.
-										</p>
-										
-									</div>
-								</div>
-								
-							</div>
-						</div>	
-		
-		
-		
-		<div class="container-fluid  container-fluid-large  container-no-col-indent" >
-							<div class="row">
-								<div class="pull-right col-xs-12 col-sm-12 col-md-6">
-									<img src="styliste.jpg" class="img-responsive" alt="">
-								</div>
-								<div class="pull-left col-xs-12 col-sm-12 col-md-6">
-									<div class="product-data-big">
-										<h5 class="text-center text-uppercase title-under" style="color: #000000">STYLE EVVAMODE</h5>
-								
-										<p> le style de evvamode 
-										est un mélange moderne de cultures
-										 occidentale et orientale. C'est une tentative 
-										 de combiner les goûts avec la haute couture.
-										  Choisissez des matières nobles 
-										  (taffetas, organza, soie ...) associées 
-										  aux matières les plus lisses et les plus légères
-										   (gaze ...) ou fines (dentelle, tulle ...). 
-										   La plupart des tissus utilisés proviennent 
-										   de différents pays et sont utilisés par les
-										    plus grands créateurs et grandes marques.
-										</p>
-									</div>
-								</div>
-
-								
-							</div>
-						</div>	
-		
-
-
-
-
-
-
-
-
-
-			
-		<div class="content fixed-bg">
-				<div class="container">		
-				
-				<!-- hna nzide dakhel  -->	
-			
-					<div class="row">
-						
-						<h2 class="text-center text-uppercase title-under">stylistes</h2>
-						<div class="slider-blog slick-arrow-bottom">
-							<!-- slide-->
 					
-							<!-- /slide-->
-							<!-- slide-->
-							<?php
-								$sql = "SELECT * FROM styliste";
-								if($pdo->query($sql)){
-									foreach  ($pdo->query($sql) as $row) {
-							?>
+		
+		
+					
+		<!-- End HEADER section -->
+		<!-- Slider section --> 
+		<section class="content offset-top-0 tp-banner-button1 slider-layout-3" id="slider">
+			<!--
+			
+			<!-- START REVOLUTION SLIDER 3.1 rev5 fullwidth mode -->
+			<h2 class="hidden">Slider Section</h2>
+			<div class="tp-banner-container">
+				<div class="tp-banner">
+					<ul>
+						<!-- SLIDE -1 -->
+						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
+							<!-- MAIN IMAGE --> 
+							<img src="images/custom/layout10/slides/kara1.jpg" width="2048" height="855"  > 
+							<div class="tp-caption lfl stb" 
+								data-x="205"              
+								data-y="center"    
+								data-voffset="60" 
+								data-speed="600" 
+								data-start="700" 
+								data-easing="Power1.easeOut" 
+								data-endeasing="Power1.easeIn" 
+								style="z-index: 2;">
+					
+								<div class="tp-caption1--wd-3">EvvaMode <br>groube de styliste</div>
+							</div>
+							<!-- LAYERS --> 
 
-						
-								<div class="slider-blog__item">
-									<div class="row">
-
-										<div class="col-xs-12 col-sm-2 col-sm-offset-3 box-foto">
-										<img  width="150" height="150" src="<?php echo '../admin/ajouter/uploads/'.$row['url_photo_styls'] ;?>"  >										</div> 
-										<div class="col-xs-12 col-sm-5 col-xl-4 box-data">
-											<h6><?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?>  </h6> 
-											<p>
-												<?php echo $row['descri_styls'] ; ?>	
-											</p>
-										</div>
-									</div>
-								</div>
+						</li>
+						<!-- /SLIDE -1 -->
+						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
+							<!-- MAIN IMAGE --> 
+							<img src="images/custom/layout10/slides/robe.jpg" width="2048" height="855"  > 
 							
-							<?php }
-            }; ?>
+							<!-- LAYERS --> 
 
-
-
+						</li>
+						<!-- SLIDE 2  -->            
+						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
+							<!-- MAIN IMAGE --> 
+							<img src="images/custom/layout10/slides/cafi.jpg"   width="2048" height="855"> 
 							
+							<!-- LAYERS -->										
+						</li>
+						<!-- /SLIDE 2  -->
+						<!-- SLIDE 3  -->
+						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
+							<!-- MAIN IMAGE --> 
+							<img src="images/custom/layout10/slides/caftan.jpg" width="2048" height="855"  > 
 							
-							<!-- /slide-->
-						</div>
-					</div>
+							<!-- LAYERS --> 
+
+						</li>
+						<!-- /SLIDE 3  -->
+						<!-- SLIDE 4  -->
+					
+						<!-- /SLIDE 5  -->
+					</ul>
 				</div>
 			</div>
+		</section>
+		<!-- END REVOLUTION SLIDER --> 
+		<!-- CONTENT section -->
+		<div id="pageContent">
+	<div class="content">
+	<div class="container">
+					<!-- title -->
+	  <div class="title-with-button">
+			<span class="btn-next"></span> </div>
+	  <h2 class="text-center text-uppercase title-under" style="color: #000000">la Mode </h2>
+		<p style="color: #000000; font-size: 20px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center;">Des stylistes algériens de la haute couture décline dans les matiéres les plus noble et les plus rares,les collections precieuse a portée dans la mode traditionnelle et moderne qui fait de l'elegance une harmonie qui s'ambolise la femme </p>
 		
 		
 		
+					<div class="row">
+						<div class="category-carousel">
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<a  href="moderne.html"  class="banner zoom-in" >
+								
+									<span class="figure">
+										<img src="images/custom/ig.jpg" alt=""/>
+										<span class="figcaption">
+											<span class="block-table">
+												<span class="block-table-cell">
+													<span class="banner__title size5">Moderne</span>
+													<span class="btn btn--ys btn--xl">voir!</span>
+												</span>
+											</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<a href="images/custom/ig1.jpg" class="banner zoom-in">
+								<span class="figure">
+									<img src="images/custom/ig1.jpg" alt=""/>
+									<span class="figcaption">
+										<span class="block-table">
+											<span class="block-table-cell">
+												<span class="btn btn--ys btn--xl">voir!</span>
+											
+											</span>
+										</span>
+									</span>
+								</span>
+								</a>
+							</div>
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<a href="traditionnel.html" class="banner zoom-in">
+								<span class="figure">
+									<img src="images/custom/ig3.jpg" alt=""/>
+									<span class="figcaption">
+										<span class="block-table">
+											<span class="block-table-cell">
+												<span class="banner__title size5">Traditionnel</span>
+												<span class="btn btn--ys btn--xl">voir!</span>
+											</span>
+										</span>
+									</span>
+								</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				
+			
+					</div>
+					</div>
+			
+			
+			
+			
+			
+			</div>
+			
+				
+								
+			<!--=== box-baners ===-->
+			<div class="container box-baners content">
+				<div class="row">					
+					<div class="col-xs-12">
+				<div class="title-with-button" style="color: #fff">
+				  <h2 class="text-center text-uppercase title-under"><strong>top modele</strong></h2>
+				</div>
+						<!-- banner des top modele-->
+					<div class="content carusel--parallax"  data-image="images/custom/layout11/tof.jpg">
+						<div class="title-with-button">
+								<h2 class="text-center text-uppercase title-under"></h2>
+								
+								
+					  </div>
+								
+					<div class="row">
+						<div class="col-lg-12">
+							<!-- title -->
+							
+							<!-- /title -->
+							<!-- carousel-new -->
+							<div class="carousel-products row" id="postsCarousel">
+								<!-- slide-->
+								<div class="col-sm-3 col-xl-6">
+									<!--  -->
+									<div class="recent-post-box">
+										<div class="col-lg-12 col-xl-6">
+											<a href="blog-post-right-column.html">
+												<span class="figure">
+													<img src="images/custom/layout11/ig8.jpg" alt="">
+													<span class="figcaption label-top-left">
+														<span>
+															<b>top</b>
+															<em>model</em>
+														</span>
+													</span>
+												</span>
+											</a>
+										</div>
+										<div class="col-lg-12 col-xl-6">
+											<div class="recent-post-box__text">
+											</div>
+										</div>
+									</div>
+									<!-- / -->
+								</div>
+								<!-- /slide -->
+								<!-- slide -->
+								<div class="col-sm-3 col-xl-6">
+									<!--  -->
+									<div class="recent-post-box">
+										<div class="col-lg-12 col-xl-6">
+											<a href="blog-post-right-column.html">
+											<span class="figure">
+											<img src="images/custom/layout11/ig7.jpg" alt="">
+											<span class="figcaption label-top-left">
+											<span>
+											<b>top</b>
+											<em>model</em>
+											</span>
+											</span>
+											</span>
+											</a>
+										</div>
+										
+									</div>
+									<!-- / -->
+								</div>
+								<!-- /slide -->
+								<!-- slide-->
+								<div class="col-sm-3 col-xl-6">
+									<!--  -->
+									<div class="recent-post-box">
+										<div class="col-lg-12 col-xl-6">
+											<a href="blog-post-right-column.html">
+												<span class="figure">
+													<img src="images/custom/layout11/ig4.jpg" alt="">
+													<span class="figcaption label-top-left">
+														<span>
+															<b>top</b>
+															<em>model</em>
+														</span>
+													</span>
+												</span>
+											</a>
+										</div>
+										
+									</div>
+									
+								</div>
+								<!-- /slide -->
+								<!-- slide -->
+								<div class="col-sm-3 col-xl-6">
+									<!--  -->
+									<div class="recent-post-box">
+										<div class="col-lg-12 col-xl-6">
+											<a href="blog-post-right-column.html">
+											<span class="figure">
+											<img src="images/custom/layout11/ig3.jpg" alt="">
+											<span class="figcaption label-top-left">
+											<span>
+											<b>top</b>
+											<em>model</em>
+											</span>
+											</span>
+											</span>
+											</a>
+										</div>
+										
+									</div>
+									
+								</div>
+								
+								
+							</div>
+							
+						</div>
+					</div>
+				
+			</div>
+						</div>
+			</div>
+			</div>
+		
+						<!-- /banner  fin de top modele-->						
+					
+			
+			
+	  <!--=== /box-baners ===-->			
+	  <!-- brands-carousel nos partenaire -->
+		<br><br>
+		<div class="title-with-button">
+		<span class="btn-next"></span> </div>
+  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos partenaires </h2>
+			<div class="content section-indent-bottom">
+			
+				
+					<div class="brands-carousel">
+						<div><a href="#"><img src="images/custom/1.jpg" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/9.png" alt=""  width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/10.png" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/2.png" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/11.jpg" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/12.jpg" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/8.jpg" alt="" width="120" height="120"></a></div>
+						<div><a href="#"><img src="images/custom/13.png" alt="" width="120" height="120"></a></div>
+						
+					</div>
+				
+		</div>
+			<!-- /brands-carousel -->
+		<!--	
+			
 		
 		<!-- End CONTENT section -->
 		<!-- FOOTER section -->
