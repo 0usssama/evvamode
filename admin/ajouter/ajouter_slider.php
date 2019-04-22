@@ -6,6 +6,7 @@
 var_dump($_POST);
 if(isset($_POST['ajouter'])){
 
+    echo "it works";
 
     $sql= "INSERT INTO slider (
     `url_img_slider`,
@@ -33,9 +34,7 @@ $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);//yjib la taille ta3H
     }
 
 
-    
-}
-/*
+   /*
 // Check if file already exists
 if (file_exists($target_file)) {
 
@@ -91,6 +90,7 @@ if($inserted){
 }
 
 
+} 
 }
 
 
