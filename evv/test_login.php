@@ -40,7 +40,7 @@ if(isset($_POST['connecter'])){
         
 
         $_SESSION['erreurs'] = $erreurs;
-        //header('location: loginouss.php');
+        header('location: loginouss.php');
     }
        
     }else{
