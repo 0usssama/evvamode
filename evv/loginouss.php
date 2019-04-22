@@ -1,3 +1,11 @@
+
+<?php 
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,22 +36,23 @@
       <div class="card-header"><img src="log.png" width="60" height="80">se connecter </div>
 		
       <div class="card-body">
-        <form>
+        <form method="post" action="">
           <div class="form-group">
             <div class="form-label-group">
-             <input type="pseudo" id="inputEmail" class="form-control" placeholder="pseudo" required="required" autofocus="autofocus">
-              <label for="inputEmail">Pseudo</label>
+             <input type="pseudo" id="email_client" name="email_client" class="form-control" placeholder="pseudo" required="required" autofocus="autofocus">
+              <label for="email_client">Pseudo</label>
             </div>
 			  
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Mot de passe</label>
+              <input type="password" id="password_client" name="password_client" class="form-control" placeholder="Password" required="required">
+              <label for="password_client">Mot de passe</label>
             </div>
           </div>
           
-          <a class="btn btn-primary btn-block" href="../achat/index.php">Connecter</h3> </a>
+          <input type="submit" value="connecter" class="btn btn-primary btn-block">
+          <a class="" href="../achat/index.php"></h3> </a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">s'inscrire</a>
