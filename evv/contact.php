@@ -20,6 +20,7 @@
 		<link rel="stylesheet" type="text/css" href="external/rs-plugin/css/settings.css" media="screen" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style-layout10.css">
+		
 		<!-- Icon Fonts  -->
 		<link rel="stylesheet" href="font/style.css">
 		<!-- Head Libs -->	
@@ -255,65 +256,41 @@
 		<div class="content">
 			<div class="container">
 			
+			<div class="row">
 
-
-				<div class="row">
-	
-						<div class="title-with-button">
+			<div class="title-with-button">
 								<div class="carousel-products__button pull-right"> </div>
-								<h2 class="text-center text-uppercase title-under">CONTACTER LES STYLISTES </h2>
+								<h2 class="text-center text-uppercase title-under">Nos stylistes </h2>
 							</div>
-							
-					<div class="col-md-4">
-						<h4 class="title-icon text-uppercase">
-							<span class="icon color icon-person ">
+						
+							<div class="row" >
+							<?php
+								$sql = "SELECT * FROM styliste";
+                                if ($pdo->query($sql)) {
+                                    foreach ($pdo->query($sql) as $row) {
+                                        ?>
 
-							</span>Nom </h4>
-							<?php
-								$sql = "SELECT * FROM styliste";
-								if($pdo->query($sql)){
-									foreach  ($pdo->query($sql) as $row) {
-							?>
-						<ul>
-						<b>	<li><?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?></li>
-							
-						</b>
-						  </ul>
-						  <?php } }; ?>
-					</div>
-					<div class="divider divider--md visible-sm visible-xs"></div>
-					<div class="col-md-4">
-						<h4 class="title-icon text-uppercase">
-							<span class="icon color icon-call">
+										<div class="col-sm-3 " style=" display: flex !important;  flex-flow: row wrap;justify-content:center !important; ">
+										<img src="../admin/ajouter/uploads/<?php echo $row['url_photo_styls'] ; ?>"  width="150" height="150" style=" border-radius: 50%;">
+								
+										<div class="row " style="margin: 6% !important">
 
-							</span>Telephone</h4>
-							<?php
-								$sql = "SELECT * FROM styliste";
-								if($pdo->query($sql)){
-									foreach  ($pdo->query($sql) as $row) {
-							?>
-						<ul>
-                          <li><?php echo $row['tel_styls'] ; ?></li>
-						 
-						</ul>
-						<?php } }; ?>
-					</div>
-					<div class="divider divider--md visible-sm visible-xs"></div>
-					<div class="col-md-4">
-						<h4 class="title-icon text-uppercase">
-							<span class="icon color icon-email"></span>Email</h4>
-							<?php
-								$sql = "SELECT * FROM styliste";
-								if($pdo->query($sql)){
-									foreach  ($pdo->query($sql) as $row) {
-							?>
-						<ul>
-							<li><?php echo $row['email_styls'] ; ?></li>							
-						  </ul>
-						  <?php } }; ?>
-					</div>
-					<div class="divider divider--lg visible-sm visible-xs"></div>
-				</div>
+									<h5><i class="fa fa-1x icon-person"></i>&nbsp;<?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?></h5>
+										<h5><i class="fa fa-1x fa-phone"></i>&nbsp;<?php echo $row['tel_styls'] ; ?></h5>
+										<h5><i class="fa fa-1x icon-email"></i>&nbsp;<?php echo $row['email_styls'] ; ?></h5>
+									</div>
+									
+
+
+										</div>
+										
+									<?php
+                                    }
+                                } ?>
+
+							</div>
+
+			</div>
 
 
 			</div>
