@@ -28,7 +28,7 @@
         </div>
   
   </header> -->
-
+<?php session_start(); ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-light " style=" background: #cd111a !important;">
        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
               <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;Benounnas</a>
+              <a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;<?php echo  $_SESSION['nom_client'] ?? 'utilisateur'; ?></a>
             </li>
             <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-1x fa-sign-out-alt ml-1"></i></a>

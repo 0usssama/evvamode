@@ -30,7 +30,7 @@ if(isset($_POST['connecter'])){
         $_SESSION['nom_client']=$trouv['nom_client'];
         $_SESSION['prenom_client']=$trouv['prenom_client'];
         $_SESSION['id_client']=$trouv['id_client'];
-        header('location: index.php');
+        header('location: ../achat/index.php');
        
 
         
