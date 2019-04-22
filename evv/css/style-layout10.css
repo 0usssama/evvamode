@@ -12936,7 +12936,7 @@ table .input-counter .plus-btn:before {
   }
 }
 .slider-blog .box-data h6 {
-  color: #fff;
+  color: #cd111a;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 1.375em;
@@ -26576,7 +26576,7 @@ input[type=text],
   color: #333;
 }
 .slider-blog .box-data h6 {
-    color: #000000;
+    color: #cd111a;
 }
 .slider-blog .box-data h6 em {
   color: #333;
