@@ -1,7 +1,7 @@
 <?php 
-include 'includes/config.php';
+include '../includes/config.php';
 session_start();
-if($_POST['connecter']){
+if(isset($_POST['connecter'])){
 
     $erreurs = [];
     $email = strip_tags($_POST['inputEmail']);
@@ -41,7 +41,7 @@ if($_POST['connecter']){
           ///pas trouvé
         $erreurs[] = 'votre email n\'existe pas dans notre base de données, veuillez s\'inscrire svp ';
         $_SESSION['erreurs'] = $erreurs;
-        header('location: login.php');
+        header('location: loginouss.php');
 
     }
 

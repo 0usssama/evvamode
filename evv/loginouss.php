@@ -58,7 +58,7 @@
          <?php 
          if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs']) ){
          echo '<ul>';
-         var_dump($_SESSION);
+         //var_dump($_SESSION);
           foreach ($_SESSION['erreurs'] as $erreur) {
            echo '<li>' . $erreur . '</li>';
           }
