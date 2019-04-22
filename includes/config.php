@@ -2,9 +2,15 @@
 //MySQL connection details.
 $host = 'localhost';
 $user = 'root';
-$pass = '';
+//$pass = 'LinuxMate2019:D';
 $database = 'evvamode';
 
+if(PHP_OS == 'WINNT'){//working on different OS
+    $pass = '';//dynamically
+  }else{
+    $pass = 'LinuxMate2019:D';//well this one 
+  
+  }
  
 //Custom PDO options.
 $options = array(
