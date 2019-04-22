@@ -1,15 +1,4 @@
 
-<<<<<<< HEAD
-=======
-<?php 
-if(isset($_POST['connecter'])){
-  echo 'it works';
-}
-
-?>
-
-
->>>>>>> b02348662b7924930557df033713213aa6b7fb87
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -69,6 +58,7 @@ if(isset($_POST['connecter'])){
          <?php 
          if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs']) ){
          echo '<ul>';
+         var_dump($_SESSION);
           foreach ($_SESSION['erreurs'] as $erreur) {
            echo '<li>' . $erreur . '</li>';
           }
@@ -93,6 +83,6 @@ if(isset($_POST['connecter'])){
 
 </html>
 <?php 
-$_SESSION['erreurs'] = 'sabrina';
+$_SESSION['erreurs'] = '';
 unset($_SESSION);
 ?>
