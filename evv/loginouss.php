@@ -35,15 +35,15 @@
         <form method="post" action=" test_login.php">
           <div class="form-group">
             <div class="form-label-group">
-             <input type="pseudo" id="email_client" name="inputEmail" class="form-control" placeholder="pseudo" required="required" autofocus="autofocus">
-              <label for="email_client">Email</label>
+             <input type="pseudo" id="inputEmail" name="inputEmail" class="form-control" placeholder="" required="required" autofocus="autofocus">
+              <label for="inputEmail">Email</label>
             </div>
 			  
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="password_client" name="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="password_client">Mot de passe</label>
+              <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="" required="required">
+              <label for="inputPassword">Mot de passe</label>
             </div>
           </div>
           

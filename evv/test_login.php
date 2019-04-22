@@ -4,8 +4,10 @@ session_start();
 if(isset($_POST['connecter'])){
 
     $erreurs = [];
-    $email = strip_tags($_POST['inputEmail']);
-    $password = strip_tags($_POST['inputPassword']);
+    $email = strip_tags(trim($_POST['inputEmail']));
+    $password = strip_tags(trim($_POST['inputPassword']));
+
+    
     
     $sql = 'SELECT * FROM client WHERE email_client LIKE :email LIMIT 1';
     $statement = $pdo->prepare($sql);
@@ -15,11 +17,13 @@ if(isset($_POST['connecter'])){
    $statement->execute();
    $trouv =  $statement->fetch();
 
+   var_dump($trouv);
+
   
     if($trouv){
        // echo 'trouvé';
        
-       $password_bdd = $trouv['motpass_client'];
+       $password_bdd = $trouv['password_client'];
     
        if (password_verify($password, $password_bdd)) {
         // Succèss!
@@ -33,8 +37,10 @@ if(isset($_POST['connecter'])){
     }else {
         // Invalide mot de passe
         $erreurs[] = 'mot de passe invalide';
+        
+
         $_SESSION['erreurs'] = $erreurs;
-        header('location: login.php');
+        //header('location: loginouss.php');
     }
        
     }else{
