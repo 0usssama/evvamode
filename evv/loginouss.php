@@ -1,14 +1,10 @@
 
-<?php 
-
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
+<?php session_start(); 
 
+?>
 <head>
 
   <meta charset="utf-8">
@@ -17,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>admin</title>
+  <title>login</title>
 
   <!-- Custom fonts for this template-->
   <link href="../admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,17 +32,17 @@
       <div class="card-header"><img src="log.png" width="60" height="80">se connecter </div>
 		
       <div class="card-body">
-        <form method="post" action="">
+        <form method="post" action=" test_login.php">
           <div class="form-group">
             <div class="form-label-group">
-             <input type="pseudo" id="email_client" name="email_client" class="form-control" placeholder="pseudo" required="required" autofocus="autofocus">
-              <label for="email_client">Pseudo</label>
+             <input type="pseudo" id="email_client" name="inputEmail" class="form-control" placeholder="pseudo" required="required" autofocus="autofocus">
+              <label for="email_client">Email</label>
             </div>
 			  
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="password_client" name="password_client" class="form-control" placeholder="Password" required="required">
+              <input type="password" id="password_client" name="inputPassword" class="form-control" placeholder="Password" required="required">
               <label for="password_client">Mot de passe</label>
             </div>
           </div>
@@ -56,6 +52,17 @@
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">s'inscrire</a>
+        </div>
+        <div class="<?php if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs']))
+        {echo 'alert alert-danger mt-4';} ?>" role="alert">
+         <?php 
+         if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs']) ){
+         echo '<ul>';
+          foreach ($_SESSION['erreurs'] as $erreur) {
+           echo '<li>' . $erreur . '</li>';
+          }
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -74,3 +81,7 @@
 </body>
 
 </html>
+<?php 
+$_SESSION['erreurs'] = 'sabrina';
+unset($_SESSION);
+?>

@@ -350,7 +350,7 @@
 															<!-- /product name -->                 <!-- product description --> 
 															<!-- visible only in row-view mode -->
 															<!-- /product description -->                 <!-- product price -->
-															<div class="product__inside__price price-box"><?php echo $article['prix_art']; ?></div>
+															<div class="product__inside__price price-box"><?php echo $article['prix_art']; ?> DA</div>
 															<!-- /product price -->                 <!-- product review --> 
 															<!-- visible only in row-view mode -->
 															
@@ -395,7 +395,7 @@
 							<h2><?php echo $article['nom_art']; ?></h2>
 						</div>
 						<div class="price-box product-info__price">
-							<span class="price-box__new"><?php echo $article['prix_art']; ?></span> 
+							<span class="price-box__new"><?php echo $article['prix_art']; ?> DA</span> 
 						</div>
 						
 						<div class="divider divider--xs product-info__divider">
@@ -411,13 +411,15 @@
 							<?php echo $article['descri_art']; ?>
 						</div>
 
-						<div class="divider divider--xs product-info__divider"></div>
+						<div class="divider divider--xs product-info__divider"> </div>
 				
 					
 						<br>
 						<div class="wrapper">
 						 <div class="pull-left">
-						<button type="submit" class="btn btn--ys btn--xxl"> Devis</button></div>
+						 <a href="loginouss.php">	<button type="submit" class="btn btn--ys btn--xxl">Commande</button>
+						 </a>
+						</div>
 						</div>
 					 
 					</div>
