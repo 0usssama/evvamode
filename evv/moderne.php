@@ -276,10 +276,11 @@
 							foreach  ($pdo->query($sql) as $categorie) {
 							  $show++;
 			  
-						  ?>
+							?>
+							
 				<li class="nav-item">
 				  <a class="nav-link <?php if($show == 1){echo 'active';}; ?>"
-				   id="showall-tab" data-toggle="pill" href="#cat<?php echo $categorie['id_catg']; ?>" 
+				   href="#carouselRelated<?php echo $categorie['id_catg']; ?>" 
 				   role="tab" aria-controls="showall" aria-selected="true"><?php echo $categorie['desi_catg']; ?></a>
 				</li>
 			  
@@ -314,7 +315,7 @@
 			$id_catg = $row['id_catg'];
 	
 	?>
-<div class="carousel-products row" id="carouselRelated<?php echo  $row['id_catg']; ?>">
+<div class="carousel-products row pt-5" id="carouselRelated<?php echo  $row['id_catg']; ?>">
 								<div class="title-with-button"></div>
 								<h2 id="3" class="title-underm"><?php echo  $row['desi_catg'] ; ?></h2>
 											<?php 

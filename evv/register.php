@@ -23,7 +23,7 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Créer un compte</div>
+      <div class="card-header"> Créer un compte</div>
       <div class="card-body">
         <form method="post" action="../admin/ajouter/ajouter_client.php" class="needs-validation">
           <div class="form-group">
@@ -76,7 +76,7 @@
          <input type="submit" value="s'inscrire" class="btn btn-primary btn-block" name="inscrire">
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">se connecter?</a>
+          <a class="d-block small mt-3" href="loginouss.php">se connecter?</a>
         </div>
       </div>
     </div>
