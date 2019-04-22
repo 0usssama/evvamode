@@ -1,6 +1,8 @@
 
 <?php 
-
+if(isset($_POST['connecter'])){
+  echo 'it works';
+}
 
 ?>
 
@@ -51,7 +53,7 @@
             </div>
           </div>
           
-          <input type="submit" value="connecter" class="btn btn-primary btn-block">
+          <input type="submit" name="connecter" value="connecter" class="btn btn-primary btn-block">
           <a class="" href="../achat/index.php"></h3> </a>
         </form>
         <div class="text-center">
