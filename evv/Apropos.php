@@ -329,7 +329,7 @@
 									<div class="row">
 
 										<div class="col-xs-12 col-sm-2 col-sm-offset-3 box-foto">
-										<img  width="150" height="150" src="<?php echo '../admin/ajouter/uploads/'.$row['url_photo_styls'] ;?>"  >										</div> 
+										<img  width="150" height="150" src="<?php echo '../admin/ajouter/uploads/'.$row['url_photo_styls'] ;?>"></div> 
 										<div class="col-xs-12 col-sm-5 col-xl-4 box-data">
 											<h6><?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?>  </h6> 
 											<p>

@@ -60,7 +60,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                           <tr>
                               <th>ID</th>
                               <th>url slider</th>
-                              <th>titre slider</th>
+                              
                               <th class="text-center">Action</th>
                              
                            
@@ -71,8 +71,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
                 <td><?php echo $row['id_slider'] ;?></td>
-                <td class="col"><img   src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>" alt="" > </td>
-                <td><?php echo $row['titre_slider'] ;?></td>
+                <td class="col"><img  width="80" height="80"   src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>" alt="" > </td>
+              
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
@@ -123,27 +123,19 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         </div>
         <div class="modal-body">
            
-            <form method="POST" action="ajouter/ajouter_slider.php" >
+            <form method="POST" action="ajouter/ajouter_slider.php" enctype="multipart/form-data"  >
                 
                     
                  
                   
                 <div class="form-group">
                     <div class="form-label-group">
-                      <input type="file" id="fileToUpload" name="fileToUploadr" class="form-control" placeholder="famille" required="required" accept="image/*">
+                      <input type="file" id="fileToUpload" name="fileToUpload" class="form-control" placeholder="famille" required="required" accept="image/*">
                       <label for="fileToUpload">url img</label>
                     </div>
                   </div>
                     
-                  <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="titre_slider" name="titre_slide" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="titre_slider">titre slider</label>
-                    </div>
-                  </div>
-              
-               
-               
+                 
                 <input type="submit" class="btn btn-primary btn-block" value="ajouter" name="ajouter">
               </form>
         </div>

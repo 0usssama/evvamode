@@ -253,12 +253,19 @@
 			<!-- START REVOLUTION SLIDER 3.1 rev5 fullwidth mode -->
 			<h2 class="hidden">Slider Section</h2>
 			<div class="tp-banner-container">
+		
 				<div class="tp-banner">
 					<ul>
 						<!-- SLIDE -1 -->
+						<?php
+								$sql = "SELECT * FROM slider";
+								if($pdo->query($sql)){
+									foreach  ($pdo->query($sql) as $row) {
+							?>
 						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
 							<!-- MAIN IMAGE --> 
-							<img src="images/custom/layout10/slides/kara1.jpg" width="2048" height="855"  > 
+							<img   width="2048" height="855"  src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>">  
+            
 							<div class="tp-caption lfl stb" 
 								data-x="205"              
 								data-y="center"    
@@ -268,42 +275,17 @@
 								data-easing="Power1.easeOut" 
 								data-endeasing="Power1.easeIn" 
 								style="z-index: 2;">
-					
-								<div class="tp-caption1--wd-3">EvvaMode <br>groube de styliste</div>
+					     
+								<div class="tp-caption1--wd-3" >EvvaMode <br>groube de styliste</div>
+							
 							</div>
-							<!-- LAYERS --> 
-
-						</li>
-						<!-- /SLIDE -1 -->
-						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
-							<!-- MAIN IMAGE --> 
-							<img src="images/custom/layout10/slides/robe.jpg" width="2048" height="855"  > 
-							
-							<!-- LAYERS --> 
-
-						</li>
-						<!-- SLIDE 2  -->            
-						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
-							<!-- MAIN IMAGE --> 
-							<img src="images/custom/layout10/slides/cafi.jpg"   width="2048" height="855"> 
-							
-							<!-- LAYERS -->										
-						</li>
-						<!-- /SLIDE 2  -->
-						<!-- SLIDE 3  -->
-						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
-							<!-- MAIN IMAGE --> 
-							<img src="images/custom/layout10/slides/caftan.jpg" width="2048" height="855"  > 
-							
-							<!-- LAYERS --> 
-
-						</li>
-						<!-- /SLIDE 3  -->
-						<!-- SLIDE 4  -->
-					
-						<!-- /SLIDE 5  -->
+					</li>
+					<?php }
+            }; ?>
 					</ul>
 				</div>
+			
+
 			</div>
 		</section>
 		<!-- END REVOLUTION SLIDER --> 

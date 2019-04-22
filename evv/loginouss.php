@@ -35,7 +35,7 @@ if(isset($_POST['connecter'])){
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header"><img src="log.png" width="60" height="80">se connecter </div>
+      <div class="card-header "   style="color:#ffffff;" ><img src="log.png" width="60" height="80"  >  se connecter </div>
 		
       <div class="card-body">
         <form method="post" action="">
