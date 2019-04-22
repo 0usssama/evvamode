@@ -76,7 +76,7 @@
 <ul class="sidebar navbar-nav">
 <li class="nav-item">
     <a class="nav-link" href="admin.php">
-      <i class="fas fa-fw fa-2x fa-user"></i>
+      <i class="fas fa-fw fa-2x fa-user-lock"></i>
       <span>Admins</span>
     </a>
   </li>
@@ -89,43 +89,43 @@
 
   <li class="nav-item">
     <a class="nav-link" href="article.php">
-      <i class="fas fa-fw fa-2x fa-cubes"></i>
+    <i class="far fa-2x fa-id-card"></i>    
       <span>Article</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="categories.php">
-      <i class="fas fa-fw fa-2x fa-layer-group"></i>
+    <i class="fas fa-2x fa-align-justify"></i>
       <span>categories</span></a>
   </li>
 
   <li class="nav-item">
       <a class="nav-link" href="styliste.php">
-        <i class="fas fa-fw fa-2x fa-user-circle"></i>
+      <i class="fas fa-2x  fa-address-book"></i>
         <span>Stylistes</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="commandes.php">
-          <i class="fas fa-fw fa-2x fa-cart-arrow-down"></i>
+        <i class="fas fa-2x fa-shopping-cart"></i>
           <span>Commandes</span></a>
       </li>
 
       <li class="nav-item">
           <a class="nav-link" href="point_de_ventes.php">
-            <i class="fas fa-fw fa-2x fa-map-marker"></i>
+          <i class="fas fa-2x fa-map-marker-alt"></i>
             <span>Points de ventes</span></a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="slider.php">
-              <i class="fas fa-fw fa-2x fa-th"></i>
+            <i class="far fa-2x fa-images"></i>
               <span>Slider</span></a>
           </li>
 
 
           <li class="nav-item">
               <a class="nav-link" href="evenement.php">
-                <i class="fas fa-fw fa-2x fa-newspaper"></i>
+              <i class="fas fa-2x fa-camera-retro"></i>
                 <span>Evenement</span></a>
             </li>
 
@@ -138,7 +138,7 @@
                 
                 <li class="nav-item">
                     <a class="nav-link" href="votes.php">
-                      <i class="fas fa-fw fa-2x fa-star"></i>
+                    <i class="fas  fa-2x fa-star-half-alt"></i>
                       <span>Votes</span></a>
                   </li>
 

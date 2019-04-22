@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
  require_once('../../includes/config.php');
 
 //var_dump($_POST);
@@ -6,12 +6,12 @@
 var_dump($_POST);
 if(isset($_POST['ajouter'])){
 
+    echo "it works";
 
     $sql= "INSERT INTO slider (
     `url_img_slider`,
-    `titre_slider`,
     `id_admin`)
-     VALUES (:urlsld,:titresld,:idadmin)";
+     VALUES (:urlsld,:idadmin)";
 
 
 
@@ -32,8 +32,9 @@ $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);//yjib la taille ta3H
         echo "File is not an image.";
         $uploadOk = 0;
     }
-}
-/*
+
+
+   /*
 // Check if file already exists
 if (file_exists($target_file)) {
 
@@ -41,10 +42,10 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }*/
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
+// if ($_FILES["fileToUpload"]["size"] > 500000) {
+//     echo "Sorry, your file is too large.";
+//     $uploadOk = 0;
+// }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
@@ -55,7 +56,9 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
-} else {
+} else
+
+{
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     } else {
@@ -64,15 +67,14 @@ if ($uploadOk == 0) {
   
 
 
-
-    $titresld = $_POST['titre_slider'];
+   
    $id_admin = 1;
 
 
    
-   $statement->bindValue(':$titresld', $titresld);
-  // $statement->bindValue(':idadmin', $id_admin);
-  $statement->bindValue(':urlimg', $_FILES["fileToUpload"]["name"]);
+ 
+  $statement->bindValue(':idadmin', $id_admin);
+  $statement->bindValue(':urlsld', $_FILES["fileToUpload"]["name"]);
    
 
 
@@ -88,8 +90,9 @@ if($inserted){
 }
 
 
+} 
 }
 
 
 
-?>
+?> -->

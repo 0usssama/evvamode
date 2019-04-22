@@ -1,4 +1,15 @@
 
+<<<<<<< HEAD
+=======
+<?php 
+if(isset($_POST['connecter'])){
+  echo 'it works';
+}
+
+?>
+
+
+>>>>>>> b02348662b7924930557df033713213aa6b7fb87
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +40,7 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header"><img src="log.png" width="60" height="80">se connecter </div>
+      <div class="card-header "   style="color:#ffffff;" ><img src="log.png" width="60" height="80"  >  se connecter </div>
 		
       <div class="card-body">
         <form method="post" action=" test_login.php">
@@ -47,7 +58,7 @@
             </div>
           </div>
           
-          <input type="submit" value="connecter" class="btn btn-primary btn-block">
+          <input type="submit" name="connecter" value="connecter" class="btn btn-primary btn-block">
           <a class="" href="../achat/index.php"></h3> </a>
         </form>
         <div class="text-center">
