@@ -72,7 +72,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                <tr>
                 <td><?php echo $row['id_slider'] ;?></td>
                 <td class="col"><img  width="80" height="80"   src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>" alt="" > </td>
-                <td><?php echo $row['titre_slider'] ;?></td>
+              
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"

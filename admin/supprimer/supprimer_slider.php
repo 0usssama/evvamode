@@ -5,7 +5,7 @@ if(isset($_POST['supprimer'])){
     // need to sanitize
     $idsld = $_GET['id_slider'] ?? NULL ;
 
-    if(!is_null($idcatg)){
+    if(!is_null($idsld)){
         $sql = "DELETE FROM slider WHERE id_slider= " . $idsld;
 
        $resultat=  $pdo->query($sql);
