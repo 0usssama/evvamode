@@ -268,11 +268,25 @@
 						<div class="container-fluid">
 						 
 						  <ul class="nav navbar-nav">
-							 <li><a href="#1">Caftan</a></li> 
-							 <!-- lazem trécupérer men bdd les catégoriesw dynamisé had el ul
-							oui -->
-							 <li><a href="#2">Robe</a></li>
-							<li><a href="#3">Karakou</a></li>
+						  <?php 
+						  $sql ="SELECT * FROM categories;";
+				$show = 0;
+			  
+						  if($pdo->query($sql)){
+							foreach  ($pdo->query($sql) as $categorie) {
+							  $show++;
+			  
+						  ?>
+				<li class="nav-item">
+				  <a class="nav-link <?php if($show == 1){echo 'active';}; ?>"
+				   id="showall-tab" data-toggle="pill" href="#cat<?php echo $categorie['id_catg']; ?>" 
+				   role="tab" aria-controls="showall" aria-selected="true"><?php echo $categorie['desi_catg']; ?></a>
+				</li>
+			  
+			  <?php
+							};
+						  };
+			   ?>
 						  </ul>
 						</div>
 					  </nav>
@@ -303,24 +317,14 @@
 <div class="carousel-products row" id="carouselRelated<?php echo  $row['id_catg']; ?>">
 								<div class="title-with-button"></div>
 								<h2 id="3" class="title-underm"><?php echo  $row['desi_catg'] ; ?></h2>
-
-		
-				
-		
 											<?php 
-												
-										
 											$sql2 = "SELECT * FROM article WHERE id_catg = " . $id_catg;
 											$sql2 .= " AND id_styl = 2 ";
-
-
 											$resultat = $pdo->query($sql2);
 											if(!$resultat->fetch()){
 												echo 'aucun article trouvé';
 											}
 											foreach ($pdo->query($sql2) as $article) {
-												
-											
 											?>
 		
 											<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-one-six">
@@ -364,7 +368,8 @@
 													</div>
 													<!-- /product --> 
 												</div>
-												<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
+												
+<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
 
 <div class="modal-dialog white-modal">
 	<div class="modal-content container">
