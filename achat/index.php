@@ -1,5 +1,12 @@
 
 <?php include '../../evvamode/includes/config.php'; ?>
+
+<?php 
+
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +35,10 @@
         </div>
   
   </header> -->
-<?php session_start(); ?>
+<?php session_start();
+
+
+?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-light " style=" background: #cd111a !important;">
        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +54,7 @@
           <ul class="navbar-nav  ml-auto">
             
             <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i>&nbsp; 0 articles </a>
+              <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle">0</span> articles </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
@@ -92,6 +102,8 @@
 
 <!-- Page Content -->
 <div class="container">
+
+
 <div class="tab-content" id="pills-tabContent">
   
 <?php 
@@ -124,11 +136,13 @@
                                             
                                                     </div>
                                                     <div class=" mt-auto ml-auto pr-4 pb-3 d-flex align-content-center">
-                                                        <form action="index.php?id_art=<?php echo $produit['id_art'] ;?> " method="post">
+                                                     
+                                                    <form id="myform<?php echo $produit['id_art']; ?>" method="post" ><!--changge-->
                                                         <input type="text" class="product-quantity h-100" name="quantity" value="0" size="2" />
-                                                          <input type="submit" name="commander" value="commander" class="btn btn-danger ml-2 h-100">              
-                                                       
-                                                        </form>
+                                                      <button class="btn btn-danger ml-2 h-100" id="<?php echo $produit['id_art'] ;?>" data-formId="<?php echo $produit['id_art']; ?>">
+                                                      commander
+                                                      </button>
+                                                      </form>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -166,5 +180,36 @@
    <script type="text/javascript" src="../admin/vendor/jquery/jquery.js"></script>
    <script type="text/javascript" src="bootstrap/js/popper.js"></script>
    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+
+<script>
+$(document).ready(function(){
+
+$('button').click(function(e){
+  e.preventDefault();
+let id = $(this).attr('id');
+let form_id = $(this).data('formid');
+
+//console.log(form_id);
+
+
+$.ajax({
+      url:'traitement.php?action=ajouter&id_art='+ id,
+      method:'post',
+      data : $('#myform'+ form_id).serialize(),
+      success:function(data)
+     {
+      var obj = JSON.parse(data);
+      let size = Object.keys(obj).length
+       $('#nbrArticle').html('' + size);
+       
+      
+     } 
+})
+
+
+
+})
+});
+</script>
 </body>
 </html>
