@@ -54,7 +54,7 @@
           <ul class="navbar-nav  ml-auto">
             
             <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle">0</span> articles </a>
+              <a class="nav-link" href="pannier.php"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle"></span> articles </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
@@ -183,6 +183,12 @@
 
 <script>
 $(document).ready(function(){
+
+  $('#nbrArticle').html('<?php 
+      if(isset($_SESSION['produits'])){
+        echo count( $_SESSION['produits']);
+      };
+    ?>')
 
 $('button').click(function(e){
   e.preventDefault();
