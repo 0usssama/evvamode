@@ -2,8 +2,11 @@
 <?php include '../../evvamode/includes/config.php'; ?>
 
 <?php 
+ session_start();
 
-
+ if(!isset($_SESSION['id_client'])){
+  header('location: ../evv/loginouss.php');
+ }
 
 
 ?>
@@ -35,7 +38,7 @@
         </div>
   
   </header> -->
-<?php session_start();
+<?php
 
 
 ?>
@@ -54,7 +57,7 @@
           <ul class="navbar-nav  ml-auto">
             
             <li class="nav-item active">
-              <a class="nav-link" href="pannier.php"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle"></span> articles </a>
+              <a class="nav-link" href="pannier.php"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle"><?php echo count($_SESSION['produits']); ?></span> articles </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
@@ -63,7 +66,7 @@
               <a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;<?php echo  $_SESSION['nom_client'] ?? 'utilisateur'; ?></a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-1x fa-sign-out-alt ml-1"></i></a>
+                    <a class="nav-link" href="logout.php"><i class="fas fa-1x fa-sign-out-alt ml-1"></i></a>
                   </li>
           </ul>
          
@@ -138,7 +141,7 @@
                                                     <div class=" mt-auto ml-auto pr-4 pb-3 d-flex align-content-center">
                                                      
                                                     <form id="myform<?php echo $produit['id_art']; ?>" method="post" ><!--changge-->
-                                                        <input type="text" class="product-quantity h-100" name="quantity" value="0" size="2" />
+                                                        <input type="text" class="product-quantity h-100" name="quantity" value="1"  size="2" />
                                                       <button class="btn btn-danger ml-2 h-100" id="<?php echo $produit['id_art'] ;?>" data-formId="<?php echo $produit['id_art']; ?>">
                                                       commander
                                                       </button>
@@ -190,12 +193,39 @@ $(document).ready(function(){
       };
     ?>')
 
+
+    $('.product-quantity').on('keyup', function(){
+     
+      if($(this).val() != "") {
+    var value = $(this).val().replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    var intRegex = /^\d+$/;
+    if(!intRegex.test(value)) {
+        //errors += "Field must be numeric.<br/>";
+        $(this).val('1');
+        $(this).addClass('border border-danger');
+   console.log('not integer');
+
+        //success = false;
+    }
+} else {
+   // errors += "Field is blank.</br />"; 
+   $(this).removeClass('border border-danger');
+   //$(this).val('1');
+
+   console.log('empty input');
+   
+    //success = false;
+}
+      
+    })
+
 $('button').click(function(e){
   e.preventDefault();
 let id = $(this).attr('id');
 let form_id = $(this).data('formid');
 
 //console.log(form_id);
+
 
 
 $.ajax({

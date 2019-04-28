@@ -1,6 +1,5 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -12,6 +11,10 @@
 <?php 
 require_once('../includes/config.php');
 session_start();
+
+if(!isset($_SESSION['id_client'])){
+ header('location: ../evv/loginouss.php');
+}
 
 
 ?>
@@ -34,7 +37,7 @@ session_start();
               <a class="nav-link" href="client.php"><i class="fas fa-user"></i>&nbsp;<?php echo  $_SESSION['nom_client'] ?? 'utilisateur'; ?></a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="deconnexion.php"><i class="fas fa-1x fa-sign-out-alt ml-1"></i></a>
+                    <a class="nav-link" href="logout.php"><i class="fas fa-1x fa-sign-out-alt ml-1"></i></a>
                   </li>
           </ul>
 
@@ -48,7 +51,12 @@ session_start();
 
 
 <div class="card">
-<table class="table table-hover shopping-cart-wrap">
+
+
+
+
+
+<table class="table table-hover shopping-cart-wrap mb-5">
 <thead class="text-muted">
 <tr>
   <th scope="col">Produit</th>
@@ -63,6 +71,8 @@ session_start();
 
 <?php 
 //var_dump($_SESSION['produits']);
+$totaleQuantite = 0;
+$totalePrix = 0;
 
 if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
 
@@ -93,12 +103,17 @@ if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
 </figure>
 	</td>
 	<td>
-    <h6><?php echo $quantite; ?></h6>
+    <h6><?php echo $quantite;
+      $totaleQuantite += $quantite;
+    ?></h6>
 
 	</td>
 	<td>
 		<div class="price-wrap">
-			 <h6><?php echo $row['prix_art']." DA" ;?></h6>
+       <h6><?php echo $row['prix_art']." DA" ;
+      $totalePrix += $quantite * $row['prix_art'];
+
+       ?></h6>
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right">
@@ -118,8 +133,8 @@ if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_article.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer article n°<?php echo $row['id_art'] ;?> </h1>
+                            <form action="supp_article.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
+                                <h4 class="mb-5">voulez-vous supprimer <?php echo $row['nom_art'];?> </h4>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -136,10 +151,63 @@ if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
 }//fin foreach session
 }//fin if session
 ?>
+<tr>
+  <td scope="col">
+  <h3>  <b>Totale</b></h3>
+  </td>
+  <td scope="col" width="120">  <br> <b><?php if(isset($totaleQuantite)){echo $totaleQuantite;}else{echo '0';} ?> <small>piéces</small></b> </td>
+  <td scope="col" width="120"> <br> <b><?php if(isset($totalePrix)){echo $totalePrix;}else{echo '0';} ?> <small>DA</small></b> </td>
+  <td scope="col" width="200" class="text-right"></td>
+</tr>
 
+
+
+<tr>
+  <td scope="col">
+  <form action="validation.php" method="post">
+
+<div class="form-group">
+                    <div class="form-label-group">
+                      <select name="point_de_vente" id="" class="form-control " required>
+                      <option value="">point de vente</option>
+                      <?php
+        $sql = "SELECT * FROM point_de_vente";
+        if($pdo->query($sql)){
+          foreach  ($pdo->query($sql) as $row) {
+        ?>
+                      <option value="<?php echo $row['id_pv'] ;?>"><?php echo $row['id_pv']. '-'. $row['adresse_pv'] ;?></option>
+                      <?php }
+            }; ?>
+                      </select>
+
+                   
+                    </div>
+                  </div>
+
+  </td>
+  <td scope="col" width="120">
+    </td>
+  <td scope="col" width="120">
+    </td>
+  <td scope="col" width="200" class="text-right">
+    <input type="text" name="totaleQuantite" value="<?php if(isset($totaleQuantite)){echo $totaleQuantite;}else{echo '';} ?>" id="" hidden>
+    <input type="text" name="totalePrix" value="<?php if(isset($totalePrix)){echo $totalePrix;}else{echo '';} ?>" id="" hidden>
+
+  <input type="submit" class="btn btn-danger btn-block" value="commander" name="commander">
+
+  </td>
+  </form>
+
+</tr>
 </tbody>
 </table>
+
+
+
 </div> <!-- card.// -->
 
 </div>
 <!--container end.//-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

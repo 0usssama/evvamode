@@ -48,7 +48,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         <hr>
         
         <?php
-        $sql = "SELECT * FROM point_de_ventes";
+        $sql = "SELECT * FROM point_de_vente";
        
         ?>
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une category</button>
@@ -59,11 +59,10 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                           <tr>
                               <th>ID</th>
                               <th>adresse_pv</th>
-                              <th>nom_res_pv</th>
-                              <th>prenom_res_pv </th>
-                              <th>email_res_pv</th>
-                              <th>coordone_pv</th>
-                              <th>tel_pv</th>
+                              <th>nom prénom responsable</th>
+                              
+                              <th>email responsable</th>
+                              <th>tel responsable</th>
                               <th class="text-center">Action</th>
                              
                            
@@ -76,9 +75,9 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <td><?php echo $row['id_pv'] ;?></td>
                 <td><?php echo $row['adresse_pv'] ;?></td>
                 <td><?php echo $row['nom_res_pv'] ;?></td>
-                <td><?php echo $row['prenom_res_pvt'] ;?></td>
+                <td><?php echo $row['prenom_res_pv'] ;?></td>
                 <td><?php echo $row['email_res_pv'] ;?></td>
-                <td><?php echo $row['coordone_pv'] ;?></td>
+             
                 <td><?php echo $row['tel_pv'] ;?></td>
                 
                
@@ -131,24 +130,45 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         </div>
         <div class="modal-body">
            
-            <form method="POST" action="ajouter/ajouter_point_de_ventes.php" >
+            <form method="POST" action="ajouter/ajouter_pv.php" >
                 
                  
                 <div class="form-group">
                     <div class="form-label-group">
-                      <input type="text" id="desi_catg" name="desi_catg" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="desi_catg">Nom </label>
+                      <input type="text" id="nom_res_pv" name="nom_res_pv" class="form-control" placeholder="Nom..." required="required" autofocus="autofocus">
+                      <label for="nom_res_pv">Nom du responsable </label>
+                    </div>
+                  </div>
+                    
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" id="prenom_res_pv" name="prenom_res_pv" class="form-control" placeholder="prenom..." required="required" autofocus="autofocus">
+                      <label for="prenom_res_pv">Nom </label>
                     </div>
                   </div>
                     
                  
                   
-                <div class="form-group">
+                  <div class="form-group">
                     <div class="form-label-group">
-                      <input type="text" id="styl_cat" name="styl_cat" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="styl_cat">style de category</label>
+                      <input type="text" id="email_res_pv" name="email_res_pv" class="form-control" placeholder="mail@mail.com" required="required" autofocus="autofocus">
+                      <label for="email_res_pv">email responsable </label>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" id="adresse_pv" name="adresse_pv" class="form-control" placeholder="adresse.." required="required" autofocus="autofocus">
+                      <label for="adresse_pv">Adresse point de vente </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" id="tel_pv" name="tel_pv" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="tel_pv">Téléphone responsable</label>
+                    </div>
+                  </div>
+                    
+
                     
                  
               
