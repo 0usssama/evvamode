@@ -1,4 +1,24 @@
-<?php include 'head.php' ;?>
+<?php include 'head.php' ;
+ if(isset($_POST['supprimer'])){
+
+    // need to sanitize
+    $idadmin = $_GET['desig_date'] ?? NULL ;
+
+    if(!is_null($desigdate)){
+        $sql = "DELETE FROM admin WHERE desig_date= " . $desigdate;
+
+       $resultat=  $pdo->query($sql);
+
+       if($resultat){
+           header('location:date.php');
+       }else{
+echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
+
+       }
+    }
+
+}
+?>
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -10,7 +30,7 @@
                          
                           <!--end of col-->
                           <div class="col">
-                              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Rechercher une marque">
+                              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Rechercher une famille">
                           </div>
                           <!--end of col-->
                           <div class="col-auto">
@@ -24,79 +44,114 @@
           </div>
 
         <!-- Page Content -->
-        <h1>marques</h1>
+        <h1>les dates </h1>
         <hr>
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une marque</button>
+        
+        <?php
+        $sql = "SELECT * FROM dates ";
+        ?>
 
+<!-- SELECT *FROM  dates WHERE date_db < NOW() AND date_fn > NOW() -->
 
-        <table class="table table-striped custab">
-            <thead>
-            
-                <tr>
-                    <th>ID</th>
-                    <th>Nom marque</th>
-                    <th>Etat</th>
-                    <th>Image</th>
-                 
-                  <th></th>
-                 
-                 
-                </tr>
-            </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>Air max</td>
-                        <td>en stock</td>
-                        <td>
-                            <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                        </td>
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une date</button>
+       
+                  <table class="table  custab">
+                      <thead>
                       
-                        <td>
-        <a  class="btn btn-danger btn-block " href="#">Supprimer</a>
+                          <tr>
+                              <th>désignation</th>
+                              <th>date début</th>
+                              <th>date de fin</th>
+                              <th class="text-center">Action</th>
+                             
+                           
+                          </tr>
+                      </thead>
+                      <?php 
+            if($pdo->query($sql)){
+            foreach  ($pdo->query($sql) as $row) { ?>
+               <tr>
+                <td><?php echo $row['desig_date'] ;?></td>
+                <td><?php echo $row['date_db'] ;?></td>
+                <td><?php echo $row['date_fn'] ;?></td>
+                
+               
 
-                        </td>
-                        
+                <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
+                        data-target="#m<?php echo $row['desig_date'] ;?>">Supprimer</button></td>
+            </tr>
+       
+            <div class="modal fade" id="m<?php echo $row['desig_date'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['desig_date'] ;?>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">soldes</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="supprimer/supprimer_solde.php?desig_date=<?php echo $row['desig_date'] ;?> " method="post">
+                                <h1 class="mb-5">voulez-vous supprimer la date n°<?php echo $row['desig_date'] ;?> </h1>
+                                <input type="submit" name="supprimer" class="btn btn-block btn-danger"
+                                    value="supprimer">
+                            </form>
 
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <?php }
+            }; ?>
                        
-                    </tr>
+                   
                    
                    
             </table>
+   
+
+       
 <!-- Modal -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">date soldes</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
            
-            <form>
+            <form method="POST" action="ajouter/ajouter_date.php" >
                 
                  
                 <div class="form-group">
                     <div class="form-label-group">
-                      <input type="text" id="titre_marq" name="titre_marq" class="form-control" placeholder="marque" required="required" autofocus="autofocus">
-                      <label for="titre_marq">Nom de la marque</label>
+                      <input type="text" id="desig_date" name="desig_date" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="desig_date">désignation </label>
                     </div>
                   </div>
+                    
+                 
+                  
                   <div class="form-group">
-                      <div class="form-label-group">
-                        <input type="text" id="etat_marq" name="etat_marq" class="form-control" placeholder="etat en stock" required="required" autofocus="autofocus">
-                        <label for="etat_marq">Etat</label>
-                      </div>
+                    <div class="form-label-group">
+                      <input type="date" id="date_db" name="date_db" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="date_db">date début  </label>
                     </div>
-                    <div class="form-group">
-                        <div class="form-label-group">
-                          <input type="file" id="image_marq" name="image_marq" class="form-control" required="required" autofocus="autofocus">
-                          <label for="image_marq">Image</label>
-                        </div>
-                      </div>
-                
-                <input type="submit" class="btn btn-primary btn-block" value="Ajouter">
+                  </div>  
+                 
+           <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="date" id="date_fn" name="date_fn" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="date_fn">date fin </label>
+                    </div>
+                  </div>
+          
+                <input type="submit" class="btn btn-primary btn-block" value="ajouter" name="ajouter">
               </form>
         </div>
               
@@ -111,5 +166,5 @@
 
     </div>
     <!-- /.content-wrapper -->
+    <?php include 'foot.php' ;?>
 
-    <?php include 'foot.php'; ?>

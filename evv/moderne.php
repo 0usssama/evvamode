@@ -116,7 +116,7 @@
 							
 							<ul>
 								<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-								<li><a href="../admin/loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
+								<li><a href="loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
 							</ul>
 						</div>
 						<!-- /fin de menu inscrire -->
@@ -256,7 +256,7 @@
 			
 			<div id="pageContent">
 
-			<section class="content">
+		    	<section class="content">
 				<div class="container">
 					<!-- title -->
 					<div class="title-with-button">
@@ -270,7 +270,7 @@
 						  <ul class="nav navbar-nav">
 						  <?php 
 						  $sql ="SELECT * FROM categories;";
-				$show = 0;
+			             	$show = 0;
 			  
 						  if($pdo->query($sql)){
 							foreach  ($pdo->query($sql) as $categorie) {
@@ -334,7 +334,7 @@
 														<div class="product__inside">
 															<!-- product image -->
 															<div class="product__inside__image">
-																<a href="#"> <img src="../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>" alt=""> </a> 
+																<img src="../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>" alt="">
 																<!-- quick-view --> 
 																<a href="#" data-toggle="modal" data-target="#quickViewModal<?php echo $article['id_art']; ?>"
 																 class="quick-view"><b><span class="icon icon-visibility">
@@ -368,7 +368,13 @@
 														</div>
 													</div>
 													<!-- /product --> 
-												</div>
+											</div>
+												
+
+
+
+
+
 												
 <div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
 

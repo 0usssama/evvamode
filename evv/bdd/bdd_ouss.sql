@@ -1,3 +1,17 @@
+﻿CREATE TABLE `dates` (
+    `desig_date` varchar(40) NOT NULL PRIMARY KEY,
+  `date_db` date NOT NULL,
+    `date_fn` date NOT NULL,
+ `id_admin` int,
+FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/

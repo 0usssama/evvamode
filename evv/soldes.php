@@ -24,6 +24,8 @@
 		<!-- Head Libs -->	
 		<!-- Modernizr -->
 		<script src="external/modernizr/modernizr.js"></script>
+
+		<?php require_once('../includes/config.php') ;?>
 	</head>
 	<body class="index" style="text-align: left;">
 			<span style="text-align: center"></span>
@@ -243,301 +245,75 @@
 
 
 
-
-
-
-					
-		<!-- End HEADER section -->
-		<!-- Slider section --> 
-		
-		<div class="content">
+	<div class="content">
 				<div class="container">
-					<div class="row">
+					<!-- title -->
+					<div class="title-with-button">
+						<div class="carousel-products__button pull-right"> <span class="btn-prev"></span> <span class="btn-next"></span> </div>
+						<h2 class="text-center text-uppercase title-under">LES SOLDES</h2>
+					</div>
+					<!-- /title --> 
+					<!-- carousel -->
+					<div class="carousel-products row" id="carouselFeatured">
+					
 
+		
+							<?php 
+								$sql2 = "
+								SELECT `date_db`,`date_fn`,`nom_art`,`prix_art`,`url_img_art`,`descri_art`,`pourcentage_solde`
+								FROM solder
+								JOIN dates
+								ON  dates.desig_date = solder.desig_date 
+								JOIN article
+								ON article.id_art = solder.id_art  WHERE date_db < NOW() and date_fn > NOW() ";
+											
+								$resultat = $pdo->query($sql2);
+								if(!$resultat->fetch()){
+									echo 'aucun article trouvé';}
+								foreach ($pdo->query($sql2) as $article) {
+							?>
 
-
-						<div class="col-sm-12 col-md-6 col-xl-6">
-							<div class="divider--lg visible-sm visible-xs"></div>
-							<!-- title -->
-							<div class="title-with-button">
-								<div class="carousel-products__button  pull-right"> <span class="btn-prev"></span> <span class="btn-next"></span> </div>
-								<h2 class="text-center text-uppercase title-under">les soldes</h2>
-							</div>
-							<!-- /title --> 
-							<!-- carousel -->
-							<div class="carousel-products row" id="carouselNew">
-
-
-								
-							
-
-
-
-
-
-								
-
-
-									
-								<div class="col-lg-3">
-										<!-- product -->
-										<div class="product">
-											<div class="product__inside">
-												<!-- product image -->
-												<div class="product__inside__image">
-													<a href="product.html"> <img src="images/product/product-8.jpg" alt=""> </a> 
-													<!-- quick-view --> 
-													<a href="#" data-toggle="modal" data-target="#quickViewModal" class="quick-view"><b>
-														<span class="icon icon-visibility"></span>details</b> </a>  
-													<!-- /quick-view --> 
-												</div>
-												<!-- /product image --> 
-												<!-- label sale -->
-												<div class="product__label product__label--left product__label--sale"> <span>solde<br>
-													-20%</span> 
-												</div>
-												<!-- /label sale --> 
-												<!-- product name -->
-												<div class="product__inside__name">
-													<h2><a href="product.html">titre de article</a></h2>
-												</div>
-												<!-- /product name --> 
-												<!-- product price -->
-												<div class="product__inside__price price-box">
-													26.000DA<span class="price-box__old">28.000DA</span></div>
-												<!-- /product price --> 
-												<div class="product__inside__hover">
-													<!-- product info -->
-													
-													<!-- /product info --> 
-													<!-- product rating -->
-													<!-- /product rating --> 
-												</div>
-											</div>
-										</div>
-										<!-- /product --> 
-									</div>
-                                 	<!--nketeb hnzaaaaaaaaaaaa--> 
-
-
-
-
-
-							</div>
-							<!-- /carousel --> 
-	
-						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						
-
-						
-						<div class="col-sm-12 col-md-6 col-xl-6">	
-												
-							<!-- title -->
-							<div class="title-with-button">
-								<div class="carousel-products__button pull-right"> <span class="btn-prev"></span> <span class="btn-next"></span> </div>
-								<h2 class="text-center text-uppercase title-under">les soldes</h2>
-							</div>
-							<!-- /title --> 
-							<!-- carousel -->
-							<div class="carousel-products row" id="carouselSale">
-
-
-
-
-
-
-								<div class="col-lg-3">
+					<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-one-six">
 									<!-- product -->
 									<div class="product">
 										<div class="product__inside">
 											<!-- product image -->
 											<div class="product__inside__image">
-												<a href="product.html"> <img src="images/product/product-8.jpg" alt=""> </a> 
+											<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" /> 
 												<!-- quick-view --> 
 												<a href="#" data-toggle="modal" data-target="#quickViewModal" class="quick-view"><b>
-													<span class="icon icon-visibility"></span>details</b> </a>  
+													<span class="icon icon-visibility"></span>voir</b> </a>  
 												<!-- /quick-view --> 
 											</div>
 											<!-- /product image --> 
 											<!-- label sale -->
-											<div class="product__label product__label--left product__label--sale"> <span>solde<br>
-												-20%</span> 
+											<div class="product__label product__label--left product__label--sale">
+												 <span>solde<br><?php echo $article['pourcentage_solde']; ?>%</span> 
 											</div>
 											<!-- /label sale --> 
 											<!-- product name -->
 											<div class="product__inside__name">
-												<h2><a href="product.html">titre de article</a></h2>
+												<h2><?php echo $article['nom_art']; ?></h2>
 											</div>
 											<!-- /product name --> 
 											<!-- product price -->
 											<div class="product__inside__price price-box">
-												26.000DA<span class="price-box__old">28.000DA</span></div>
+											<?php echo round( $article['prix_art'] - (($article['pourcentage_solde']* $article['prix_art'])/100) ); ?>		 DA<span class="price-box__old"><?php echo $article['prix_art']; ?> DA</span></div>
 											<!-- /product price --> 
 											<div class="product__inside__hover">
-												<!-- product info -->
-												
-												<!-- /product info --> 
-												<!-- product rating -->
-												<!-- /product rating --> 
-											</div>
+											
 										</div>
 									</div>
 									<!-- /product --> 
-								</div>
-
-								
-
-
-									
-								<div class="col-lg-3">
-										<!-- product -->
-										<div class="product">
-											<div class="product__inside">
-												<!-- product image -->
-												<div class="product__inside__image">
-													<a href="product.html"> <img src="images/product/product-8.jpg" alt=""> </a> 
-													<!-- quick-view --> 
-													<a href="#" data-toggle="modal" data-target="#quickViewModal" class="quick-view"><b>
-														<span class="icon icon-visibility"></span>details</b> </a>  
-													<!-- /quick-view --> 
-												</div>
-												<!-- /product image --> 
-												<!-- label sale -->
-												<div class="product__label product__label--left product__label--sale"> <span>solde<br>
-													-20%</span> 
-												</div>
-												<!-- /label sale --> 
-												<!-- product name -->
-												<div class="product__inside__name">
-													<h2><a href="product.html">titre de article</a></h2>
-												</div>
-												<!-- /product name --> 
-												<!-- product price -->
-												<div class="product__inside__price price-box">
-													26.000DA<span class="price-box__old">28.000DA</span></div>
-												<!-- /product price --> 
-												<div class="product__inside__hover">
-													<!-- product info -->
-													
-													<!-- /product info --> 
-													<!-- product rating -->
-													<!-- /product rating --> 
-												</div>
-											</div>
-										</div>
-										<!-- /product --> 
-									</div>
-
-
-
-
-															<!-- /carousel --> 																
-						</div>
+								</div>			
 					</div>
+					
+					<!-- /carousel --> 
+					<?php } ?>
 				</div>
 			</div>
-		
 
 
-
-
-
-
-
-
-			<div class="modal  modal--bg fade"  id="quickViewModal">
-		  <div class="modal-dialog white-modal">
-		    <div class="modal-content container">
-		    	<div class="modal-header">
-		       	 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon icon-clear"></span></button>
-		     	 </div>
-		    	<!--  -->
-		    	<div class="product-popup">
-					<div class="product-popup-content">
-					<div class="container-fluid">
-						<div class="row product-info-outer">
-							<div class="col-xs-12 col-sm-5 col-md-6 col-lg-6">
-								<div class="product-main-image">
-									<div class="product-main-image__item"><img src ="images/product/product-big-1.jpg" alt="" /></div>
-								</div>
-							</div> 
-							<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
-								<div class="wrapper">
-									<div class="product-info__sku pull-left">SKU: <strong>mtk012c</strong></div>
-									<div class="product-info__availabilitu pull-right">Availability:   <strong class="color">In Stock</strong></div>
-								</div>
-								<div class="product-info__title">
-									<h2>Lorem ipsum dolor sit ctetur</h2>
-								</div>
-								<div class="price-box product-info__price"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
-								<div class="divider divider--xs product-info__divider"></div>
-								<div class="product-info__description">
-									<div class="product-info__description__brand"><img src="images/custom/brand.png" alt=""> </div>
-									<div class="product-info__description__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-								</div>
-								<div class="divider divider--xs product-info__divider"></div>
-								<div class="wrapper">
-									<div class="pull-left"><span class="option-label">COLOR:</span>  Red + $10.00 *</div>
-									<div class="pull-right required">* Required Fields</div>
-								</div>
-								<ul class="options-swatch options-swatch--color options-swatch--lg">
-									<li><a href="#"><span class="swatch-label"><img src="images/colors/oldlace.png" alt=""/></span></a></li>
-									<li><a href="#"><span class="swatch-label"><img src="images/colors/dark-grey.png" alt=""/></span></a></li>
-									<li><a href="#"><span class="swatch-label"><img src="images/colors/grey.png" alt=""/></span></a></li>
-									<li><a href="#"><span class="swatch-label"><img src="images/colors/light-grey.png" alt=""/></span></a></li>
-								</ul>						
-								<div class="wrapper">
-									<div class="pull-left"><span class="option-label">SIZE:</span></div>
-									<div class="pull-left required">*</div>
-								</div>
-								<ul class="options-swatch options-swatch--size options-swatch--lg">
-									<li><a href="#">S</a></li>
-									<li><a href="#">M</a></li>
-									<li><a href="#">L</a></li>
-									<li><a href="#">XL</a></li>
-									<li><a href="#">2XL</a></li>
-									<li><a href="#">XL</a></li>
-								</ul>
-								<div class="divider divider--sm"></div>
-								<div class="wrapper">
-									<div class="pull-left"><span class="qty-label">QTY:</span></div>
-									<div class="pull-left"><input type="text" name="quantity" class="input--ys qty-input pull-left" value="1"></div>
-									<div class="pull-left"><button type="submit" class="btn btn--ys btn--xxl"><span class="icon icon-shopping_basket"></span> Add to cart</button></div>
-								</div>
-								<ul class="product-link">
-									<li class="text-right"><span class="icon icon-favorite_border  tooltip-link"></span><a href="#"><span class="text">Add to wishlist</span></a></li>
-									<li class="text-left"><span class="icon icon-sort  tooltip-link"></span><a href="#"><span class="text">Add to compare</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					</div>
-				</div>
-		    	<!-- / -->
-		    </div>
-		  </div>
-		</div>
-			<!-- /brands-carousel -->
-		<!--	
-			
-		
 		<!-- End CONTENT section -->
 		<!-- FOOTER section -->
 				
