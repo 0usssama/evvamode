@@ -103,10 +103,32 @@ if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
 	</td>
 	<td class="text-right">
 	
-	<a href="" class="btn btn-outline-danger"> × Supprimer</a>
+  <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        data-target="#m<?php echo $row['id_art'] ;?>">x Supprimer</button>
 	</td>
 </tr>
+<div class="modal fade" id="m<?php echo $row['id_art'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['id_art'] ;?>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="supprimer/supprimer_article.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
+                                <h1 class="mb-5">voulez-vous supprimer article n°<?php echo $row['id_art'] ;?> </h1>
+                                <input type="submit" name="supprimer" class="btn btn-block btn-danger"
+                                    value="supprimer">
+                            </form>
 
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 <?php 
 }//fin foreach prod
 }//fin if query
