@@ -69,7 +69,8 @@ if($inserted){
 
 //verifier si on a des résultats (true or false)
 if($inserted){
-    header('location: commandes.php');
+    unset($_SESSION['produits']);
+    header('location: index.php');
 }else{
     echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 }
