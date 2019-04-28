@@ -131,9 +131,17 @@
 
            
               <li class="nav-item">
-                  <a class="nav-link" href="promotions.php">
+                  <a class="nav-link" href="solder.php">
                     <i class="fas fa-fw fa-2x fa-percentage"></i>
                     <span>Soldes</span></a>
+                </li>
+
+
+                
+              <li class="nav-item">
+                  <a class="nav-link" href="date.php">
+                    <i class="fas fa-fw fa-2x fa-calendar-alt"></i>
+                    <span>date</span></a>
                 </li>
                 
                 <li class="nav-item">
