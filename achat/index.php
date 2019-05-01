@@ -7,9 +7,8 @@
  if(!isset($_SESSION['id_client'])){
   header('location: ../evv/loginouss.php');
  }
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

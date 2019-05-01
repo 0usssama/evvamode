@@ -24,7 +24,7 @@
         <div class="modal-body">Sélectionner déconnecter si vous êtes sûre :)</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-          <a class="btn btn-primary" href="login.html">se déconnecter</a>
+          <a class="btn btn-primary" href="login_admin.php">se déconnecter</a>
         </div>
       </div>
     </div>
