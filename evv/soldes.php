@@ -278,9 +278,15 @@
 
 
 
-	<?php
+	
+<div class="carousel-products row" id="carouselRelated">
+								<div class="title-with-button"></div>
+
+		
+				
+								<?php
 			$sql = "SELECT article.id_styls,article.id_art, article.nom_art,article.nom_art,article.prix_art,
-            article.url_img_art,article.descri_art,solder.pourcentage_solde
+            article.url_img_art,article.descri_art,solder.pourcentage_solde, solder.ancien_prix
             FROM solder
             JOIN dates
             ON  dates.id_date = solder.id_date 
@@ -295,12 +301,6 @@
 			
 	
 	?>
-<div class="carousel-products row" id="carouselRelated<?php echo  $article['id_art']; ?>">
-								<div class="title-with-button"></div>
-
-		
-				
-		
 											
 											<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-one-six">
 													<!-- product -->
@@ -329,8 +329,8 @@
 															<!-- /product name --> 
                                                             <!-- product price -->
 							<div class="product__inside__price price-box">
-								<?php echo round( $article['prix_art'] - (($article['pourcentage_solde']* $article['prix_art'])/100) ); ?>
-								DA<span class="price-box__old"><?php echo $article['prix_art']; ?> DA</span></div>
+							<?php echo $article['prix_art']; ?>
+								DA<span class="price-box__old"><?php echo $article['ancien_prix']; ?> DA</span></div>
 							<!-- /product price -->                <!-- product description --> 
 															<!-- visible only in row-view mode -->
 															<!-- /product description -->                
@@ -420,6 +420,9 @@
 	</div>
 </div>
 </div>
+<?php };
+													 ?>
+
 <!-- / Modal (quickViewModal) -->
 </div>
 												
@@ -431,9 +434,7 @@
 						
 													</div>
 
-													<?php };
-													 ?>
-
+												
 
 									</div>
 
