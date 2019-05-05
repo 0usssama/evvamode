@@ -309,11 +309,7 @@
 			// y'affichi les lignes men ba3d dakhal la boucle en récupére le id 9bel mtakhlass la boucle bah njibo les produit ta3 la famille hadik berk
 
 			foreach ($pdo->query($sql) as $row) {
-				
-
-
 			$id_catg = $row['id_catg'];
-	
 	?>
 <div class="carousel-products row pt-5" id="carouselRelated<?php echo  $row['id_catg']; ?>">
 								<div class="title-with-button"></div>
