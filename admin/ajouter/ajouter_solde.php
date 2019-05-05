@@ -13,11 +13,11 @@ if(isset($_POST['ajouter'])){
     $sql= "INSERT INTO solder ( 
         `pourcentage_solde`, 
         `id_art`,
-        `desig_date`)
+        `id_date`)
      VALUES (
          :pourcentage,
          :idart,
-         :desigdate)";
+         :iddate)";
 
 
 
@@ -28,13 +28,16 @@ $pourcentage =  $_POST['pourcentage_solde'];
    
  
    
-   $idart= strpos($_POST['id_art'], '-');
+   $idart= strpos($_POST['id_art'], '/');
    $idart = substr($_POST['id_art'], 0, $idart);
-$desigdate = $_POST['desig_date'];
+
+   $iddate= strpos($_POST['id_date'], '/');
+   $iddate = substr($_POST['id_date'], 0, $iddate);
+
 
    /*
-   $datesolde= strpos($_POST['desig_date'], '-');
-      $idcatg = substr($_POST['desig_date'], 0, $datesolde);
+   $datesolde= strpos($_POST['id_date'], '-');
+      $idcatg = substr($_POST['id_date'], 0, $datesolde);
 */
   
    $id_admin = 1;
@@ -43,7 +46,7 @@ $desigdate = $_POST['desig_date'];
     //  var_dump($idstyl);
    $statement->bindValue(':pourcentage', $pourcentage);
    $statement->bindValue(':idart', $idart);
-   $statement->bindValue(':desigdate', $desigdate);
+   $statement->bindValue(':iddate', $iddate);
 
 
 //Execute the statement and insert our values.

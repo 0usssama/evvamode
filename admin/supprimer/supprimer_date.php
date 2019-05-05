@@ -3,10 +3,10 @@ require_once('../../includes/config.php');
 if(isset($_POST['supprimer'])){
 
     // need to sanitize
-    $idadmin = $_GET['desig_date'] ?? NULL ;
+    $iddate = $_GET['id_date'] ?? NULL ;
 
-    if(!is_null($desigdate)){
-        $sql = "DELETE FROM dates WHERE desig_date= " . $desigdate;
+    if(!is_null($iddate)){
+        $sql = "DELETE FROM dates WHERE id_date= " . $iddate;
 
        $resultat=  $pdo->query($sql);
 

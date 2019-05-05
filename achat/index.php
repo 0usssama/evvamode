@@ -59,7 +59,7 @@
               <a class="nav-link" href="pannier.php"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle"><?php echo count($_SESSION['produits']); ?></span> articles </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
+              <a class="nav-link" href="commandes.php"><i class="fas fa-clipboard-list"></i>&nbsp;Commande</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;<?php echo  $_SESSION['nom_client'] ?? 'utilisateur'; ?></a>

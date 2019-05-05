@@ -3,7 +3,7 @@ require_once('../../includes/config.php');
 if(isset($_POST['supprimer'])){
 
     // need to sanitize
-    $idadmin = $_GET['pourcentage_solde'] ?? NULL ;
+    $pourcentage = $_GET['pourcentage_solde'] ?? NULL ;
 
     if(!is_null($pourcentage)){
         $sql = "DELETE FROM solder WHERE pourcentage_solde= " . $pourcentage;

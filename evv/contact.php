@@ -277,7 +277,7 @@
 
 									<h5><i class="fa fa-1x icon-person"></i>&nbsp;<?php echo $row['nom_styls'] . " " .  $row['prenom_styls'] ; ?></h5>
 										<h5><i class="fa fa-1x fa-phone"></i>&nbsp;<?php echo $row['tel_styls'] ; ?></h5>
-										<h5><i class="fa fa-1x icon-email"></i>&nbsp;<?php echo $row['email_styls'] ; ?></h5>
+										<h5><i class="fa fa-1x icon-email"></i> <a  href="mailto:info@mydomain.com">&nbsp;<?php echo $row['email_styls'] ; ?> </a></h5>
 									</div>
 									
 

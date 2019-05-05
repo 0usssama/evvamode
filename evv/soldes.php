@@ -255,18 +255,15 @@
 					<!-- /title --> 
 					<!-- carousel -->
 					<div class="carousel-products row" id="carouselFeatured">
-					
-
-		
+						
 							<?php 
 								$sql2 = "
-								SELECT `date_db`,`date_fn`,`nom_art`,`prix_art`,`url_img_art`,`descri_art`,`pourcentage_solde`
+								SELECT `nom_art`,`prix_art`,`url_img_art`,`descri_art`,`pourcentage_solde`
 								FROM solder
 								JOIN dates
-								ON  dates.desig_date = solder.desig_date 
+								ON  dates.id_date = solder.id_date 
 								JOIN article
-								ON article.id_art = solder.id_art  WHERE date_db < NOW() and date_fn > NOW() ";
-											
+								ON article.id_art = solder.id_art  WHERE date_db < NOW() and date_fn > NOW() ";			
 								$resultat = $pdo->query($sql2);
 								if(!$resultat->fetch()){
 									echo 'aucun article trouvé';}
@@ -281,8 +278,10 @@
 											<div class="product__inside__image">
 											<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" /> 
 												<!-- quick-view --> 
-												<a href="#" data-toggle="modal" data-target="#quickViewModal" class="quick-view"><b>
-													<span class="icon icon-visibility"></span>voir</b> </a>  
+												<a href="#" data-toggle="modal" data-target="#quickViewModal<?php echo $article['id_art']; ?>"
+																 class="quick-view"><b><span class="icon icon-visibility">
+						
+																 </span> VOIR</b> </a>  
 												<!-- /quick-view --> 
 											</div>
 											<!-- /product image --> 
@@ -304,12 +303,18 @@
 											
 										</div>
 									</div>
+										<?php } ?>
+
 									<!-- /product --> 
 								</div>			
 					</div>
 					
 					<!-- /carousel --> 
-					<?php } ?>
+				
+
+
+
+					
 				</div>
 			</div>
 
@@ -353,7 +358,7 @@
 				<div class="col-sm-8 col-md-4">
 					<!-- -->
 					<div class="mobile-collapse">
-						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contact</h4>
+						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">le groupe evvamode</h4>
 						<div class=" mobile-collapse__content">							
 							<!-- address -->
 							<address class="box-address">

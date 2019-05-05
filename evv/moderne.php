@@ -375,88 +375,84 @@
 
 
 
-												
-<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
+														
+		<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
 
-<div class="modal-dialog white-modal">
-	<div class="modal-content container">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" 
-			aria-hidden="true"><span class="icon icon-clear"></span></button>
-		</div>
-		<!--  -->
-		<div class="product-popup">
-			<div class="product-popup-content">
-			<div class="container-fluid">
-				<div class="row product-info-outer">
-					<div class="col-xs-12  col-md-6 col-lg-6"> 
-						<div class="product-main-image">
-							<div class="product-main-image__item">
-								<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" /></div>
-						</div>
-					</div>
-					<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
-					
-						<div class="product-info__title">
-							<h2><?php echo $article['nom_art']; ?></h2>
-						</div>
-						<div class="price-box product-info__price">
-							<span class="price-box__new"><?php echo $article['prix_art']; ?> DA</span> 
-						</div>
-						
-						<div class="divider divider--xs product-info__divider">
-							
-						</div>
-						<div class="product-info__description">
+				<div class="modal-dialog white-modal">
+					<div class="modal-content container">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" 
+									aria-hidden="true"><span class="icon icon-clear"></span></button>
+								</div>
+					<!--  -->
+									<div class="product-popup">
+										<div class="product-popup-content">
+											<div class="container-fluid">
+												<div class="row product-info-outer">
+																<div class="col-xs-12  col-md-6 col-lg-6"> 
+																	<div class="product-main-image">
+																			<div class="product-main-image__item">
+																			<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" />
+																			</div>
+																	</div>
+																</div>
+																<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
+																
+																								<div class="product-info__title">
+																									<h2><?php echo $article['nom_art']; ?></h2>
+																								</div>
+																								<div class="price-box product-info__price">
+																									<span class="price-box__new"><?php echo $article['prix_art']; ?> DA</span> 
+																								</div>
+																	
+																								<div class="divider divider--xs product-info__divider">	
+																								</div>
+																								<div class="product-info__description">
 
-						 <!--hna logo-->
-							<div class="product-info__description__brand">
-								<img src="log.png" alt=""> </div>
-							
-							<div class="product-info__description__text">
-							<?php echo $article['descri_art']; ?>
-						</div>
+																									<div class="product-info__description__brand">
 
-						<div class="divider divider--xs product-info__divider"> </div>
-				
-					
-						<br>
-						<div class="wrapper">
-						 <div class="pull-left">
-						 <a href="loginouss.php">	<button type="submit" class="btn btn--ys btn--xxl">Commande</button>
-						 </a>
-						</div>
-						</div>
-					 
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<!-- / -->
-	</div>
-</div>
-</div>
-<!-- / Modal (quickViewModal) -->
-</div>
-												<?php } ?>
-													<!-- el mouuudaaal --> 
-								
-												
-		
-		
-						
-													</div>
+																												<?php
+																												$sql_styliste = "SELECT * FROM styliste WHERE id_styls='" . $article['id_styls'] . "'";
 
-													<?php };
-													 ?>
+																												if($pdo->query($sql_styliste)){
+																												foreach ($pdo->query($sql_styliste) as $styliste) {
+																												?>
+																												<img src="<?php echo '../admin/ajouter/uploads/'. $styliste['url_logo_styls']; ?>" alt="" style="height: 150px; width: 90px;"> </div>
+																											
 
+																					
+																												<div class="product-info__description__text">
+																												<?php echo $article['descri_art']; ?>
+																												</div>
 
+																												<div class="divider divider--xs product-info__divider"><?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?>
+																												</div>
+																												<?php } }else{ echo 'ça marche pas';}?>	<br>
+																												<div class="wrapper">
+																													<div class="pull-left">
+																													<a href="loginouss.php">	<button type="submit" class="btn btn--ys btn--xxl">Commande</button>
+																													</a>
+																													</div>
+																												</div>
+																									</div>
+																								</div>
+																</div>
+												</div>
+											</div>
+										<!-- / -->
+										</div>
 									</div>
-
-			</section>
-			
+					</div>
+			<!-- / Modal (quickViewModal) -->
+				</div>
+				<?php } ?>
 		</div>
+		<?php }; ?>
+		</div>
+
+</div>
+</section>
+</div>
 
 
 

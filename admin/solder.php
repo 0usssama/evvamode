@@ -49,11 +49,11 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         
         <?php
         $sql = "SELECT article.id_art,
-        article.nom_art,dates.desig_date, dates.date_db,
+        article.nom_art,dates.id_date, dates.date_db,
         solder.pourcentage_solde 
         FROM solder 
         JOIN dates on 
-        dates.desig_date = solder.desig_date
+        dates.id_date = solder.id_date
         join article
         ON  article.id_art = solder.id_art ";
        
@@ -77,8 +77,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
                 <td><?php echo $row['pourcentage_solde'] ;?></td>
-                <td><?php echo $row['id_art']. '-'. $row['nom_art'];?></td>
-                <td><?php echo $row['desig_date']. '-'. $row['date_db'];?></td>
+                <td><?php echo $row['id_art']. '/'. $row['nom_art'];?></td>
+                <td><?php echo $row['id_date']. '/'. $row['date_db'];?></td>
                 
                
 
@@ -154,8 +154,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                      foreach  ($pdo->query($sql) as $row) {
                   ?>
 
-                  <option value="<?php echo $row['id_art']. '-'. $row['nom_art'];?>">
-                  <?php echo $row['id_art']. '-'. $row['nom_art'];?>
+                  <option value="<?php echo $row['id_art']. '/'. $row['nom_art'];?>">
+                  <?php echo $row['id_art']. '/'. $row['nom_art'];?>
                   </option>
                      <?php 
                      }
@@ -171,15 +171,15 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   ?>
            <div class="form-group">
                     <div class="form-label-group">
-                    <select name="desig_date" id="desig_date" class="form-control" required="required">
+                    <select name="id_date" id="id_date" class="form-control" required="required">
                     <option value="">date solde</option>
                     <?php 
                     if($pdo->query($sql)){
                        foreach  ($pdo->query($sql) as $row) {
                     ?>
   
-                    <option value="<?php echo $row['desig_date'];?>">
-                    <?php echo $row['desig_date'];?>
+                    <option value="<?php echo $row['id_date'].'/'. $row['date_db'].'/'. $row['date_fn'];?>">
+                    <?php echo $row['id_date'].'/'. $row['date_db'].'/'. $row['date_fn'];?>
                     </option>
                        <?php 
                        }

@@ -11,11 +11,11 @@ if(isset($_POST['ajouter'])){
 
 
     $sql= "INSERT INTO dates ( 
-        `desig_date`, 
+        `id_date`, 
         `date_db`,
         `date_fn`)
      VALUES (
-         :desigdate,
+         :iddate,
          :datedb,
          :datefn)";
 
@@ -24,14 +24,14 @@ if(isset($_POST['ajouter'])){
 //Prepare our statement.
 $statement = $pdo->prepare($sql);
 
-   $desigdate = $_POST['desig_date'];
+   $iddate = $_POST['id_date'];
    $datedb = $_POST['date_db'];
    $datefn = $_POST['date_fn'];
    $id_admin = 1;
 
    
     //  var_dump($idstyl);
-   $statement->bindValue(':desigdate', $desigdate);
+   $statement->bindValue(':iddate', $iddate);
    $statement->bindValue(':datedb', $datedb);
    $statement->bindValue(':datefn', $datefn);
 

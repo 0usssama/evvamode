@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="fr" style=" background-color:#cd111a;">
+<html lang="fr">
 <?php session_start(); 
 
 ?>
@@ -25,11 +25,11 @@
 
 </head>
 
-<body  style=" background-color:#cd111a;">
+<body >
 
   <div class="container " style="margin-top:150px ">
     <div class="card card-login mx-auto">
-      <div class="card-header "   style="color:#ffffff;" ><img src="log.png" width="60" height="80"  >  se connecter </div>
+      <div class="card-header "   style="color:#ffffff;" > se connecter </div>
 		
       <div class="card-body">
         <form method="post" action=" test_login.php">

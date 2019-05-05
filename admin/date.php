@@ -2,10 +2,10 @@
  if(isset($_POST['supprimer'])){
 
     // need to sanitize
-    $idadmin = $_GET['desig_date'] ?? NULL ;
+    $idadmin = $_GET['id_date'] ?? NULL ;
 
-    if(!is_null($desigdate)){
-        $sql = "DELETE FROM admin WHERE desig_date= " . $desigdate;
+    if(!is_null($iddate)){
+        $sql = "DELETE FROM admin WHERE id_date= " . $iddate;
 
        $resultat=  $pdo->query($sql);
 
@@ -59,7 +59,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                       <thead>
                       
                           <tr>
-                              <th>désignation</th>
+                              <th>id</th>
                               <th>date début</th>
                               <th>date de fin</th>
                               <th class="text-center">Action</th>
@@ -71,18 +71,18 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             if($pdo->query($sql)){
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
-                <td><?php echo $row['desig_date'] ;?></td>
+                <td><?php echo $row['id_date'] ;?></td>
                 <td><?php echo $row['date_db'] ;?></td>
                 <td><?php echo $row['date_fn'] ;?></td>
                 
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['desig_date'] ;?>">Supprimer</button></td>
+                        data-target="#m<?php echo $row['id_date'] ;?>">Supprimer</button></td>
             </tr>
        
-            <div class="modal fade" id="m<?php echo $row['desig_date'] ;?>" tabindex="-1" role="dialog"
-                aria-labelledby="m<?php echo $row['desig_date'] ;?>" aria-hidden="true">
+            <div class="modal fade" id="m<?php echo $row['id_date'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['id_date'] ;?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -92,8 +92,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_solde.php?desig_date=<?php echo $row['desig_date'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer la date n°<?php echo $row['desig_date'] ;?> </h1>
+                            <form action="supprimer/supprimer_date.php?id_date=<?php echo $row['id_date'] ;?> " method="post">
+                                <h1 class="mb-5">voulez-vous supprimer <?php echo $row['id_date'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -128,12 +128,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             <form method="POST" action="ajouter/ajouter_date.php" >
                 
                  
-                <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="desig_date" name="desig_date" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="desig_date">désignation </label>
-                    </div>
-                  </div>
+               
                     
                  
                   

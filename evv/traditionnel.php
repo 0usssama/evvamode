@@ -264,18 +264,35 @@
 						<h2 class="text-center   text-uppercase  title-under">haute couture traditionnel</h2>
 					</div>
 
+					
 					<nav class="navbar navbar-default">
 						<div class="container-fluid">
 						 
 						  <ul class="nav navbar-nav">
-							 <li><a href="#1">Caftan</a></li> 
-							 <!-- lazem trécupérer men bdd les catégoriesw dynamisé had el ul
-							oui -->
-							 <li><a href="#2">Robe</a></li>
-							<li><a href="#3">Karakou</a></li>
+						  <?php 
+						  $sql ="SELECT * FROM categories;";
+			             	$show = 0;
+			  
+						  if($pdo->query($sql)){
+							foreach  ($pdo->query($sql) as $categorie) {
+							  $show++;
+			  
+							?>
+							
+				<li class="nav-item">
+				  <a class="nav-link <?php if($show == 1){echo 'active';}; ?>"
+				   href="#carouselRelated<?php echo $categorie['id_catg']; ?>" 
+				   role="tab" aria-controls="showall" aria-selected="true"><?php echo $categorie['desi_catg']; ?></a>
+				</li>
+			  
+			  <?php
+							};
+						  };
+			   ?>
 						  </ul>
 						</div>
 					  </nav>
+
 
 					<!-- /title --> 
 					<!-- carousel -->
@@ -364,7 +381,7 @@
 													</div>
 													<!-- /product --> 
 												</div>
-												<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
+<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
 
 <div class="modal-dialog white-modal">
 	<div class="modal-content container">
@@ -399,19 +416,29 @@
 
 						 <!--hna logo-->
 							<div class="product-info__description__brand">
-								<img src="log.png" alt=""> </div>
+							<?php
+									$sql_styliste = "SELECT * FROM styliste WHERE id_styls='" . $article['id_styls'] . "'";
+
+									if($pdo->query($sql_styliste)){
+                                    foreach ($pdo->query($sql_styliste) as $styliste) {
+                                        ?>
+								<img src="<?php echo '../admin/ajouter/uploads/'. $styliste['url_logo_styls']; ?>" alt="" style="height: 150px; width: 90px;"> </div>
+								 </div>
 							
 							<div class="product-info__description__text">
 							<?php echo $article['descri_art']; ?>
 						</div>
 
-						<div class="divider divider--xs product-info__divider"></div>
-				
-					
+						<div class="divider divider--xs product-info__divider"><?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
+						<?php
+                                    } }else{
+																			echo 'ça marche pas';
+																		}?>
+
 						<br>
 						<div class="wrapper">
 						 <div class="pull-left">
-						<button type="submit" class="btn btn--ys btn--xxl"> Devis</button></div>
+						<button type="submit" class="btn btn--ys btn--xxl"> Commande</button></div>
 						</div>
 					 
 					</div>

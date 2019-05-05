@@ -65,11 +65,14 @@ if($inserted){
             $id_commande
         ); ";
         //echo $sql_jout_art_commande . "<br>";
-        $inserted = $pdo->query($sql_jout_art_commande);
+        $inserted2 = $pdo->query($sql_jout_art_commande);
 
 //verifier si on a des résultats (true or false)
-if($inserted){
+if($inserted2){
     unset($_SESSION['produits']);
+    $_SESSION['produits']= [];
+
+    //var_dump($_SESSION['produits']);
     header('location: index.php');
 }else{
     echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
