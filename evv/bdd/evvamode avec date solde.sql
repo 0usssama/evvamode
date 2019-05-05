@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 28 avr. 2019 à 10:14
+-- Généré le :  Dim 05 mai 2019 à 10:39
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -38,14 +38,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `username_adm` varchar(45) NOT NULL,
   `password_adm` varchar(255) NOT NULL,
   PRIMARY KEY (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nom_adm`, `prenom_adm`, `email_adm`, `tel_adm`, `username_adm`, `password_adm`) VALUES
-(1, 'yasm', 'selmati', 'yasmine@hotmail.com', '0552232320', 'yasmine', '$2y$10$TK6y04JLi1Ct0cVo49LowOAcYRUL.EAgx7joHAT5k3OpRkmCQYbEW');
+(1, 'yasm', 'selmati', 'yasmine@hotmail.com', '0552232320', 'yasmine', '$2y$10$TK6y04JLi1Ct0cVo49LowOAcYRUL.EAgx7joHAT5k3OpRkmCQYbEW'),
+(2, 'nou', 'ss', 'nou@ss.gmail', '02134587', 'nouss', '$2y$10$/DPD1tx4Gw267wA7EzJD2.XsV//S6.6Sd1vzqckK94OjmmLEeb/zG');
 
 -- --------------------------------------------------------
 
@@ -69,19 +70,16 @@ CREATE TABLE IF NOT EXISTS `article` (
   KEY `id_catg` (`id_catg`),
   KEY `id_styls` (`id_styls`),
   KEY `id_styl` (`id_styl`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`id_art`, `nom_art`, `prix_art`, `url_img_art`, `descri_art`, `id_admin`, `id_catg`, `id_styls`, `id_styl`) VALUES
-(11, 'abaya noir', '25000', '3abaya1.jpg', 'elle fdhwfgtjlpxhpjmhf\r\nghjhglk^xkjd^gjgfx^jkgljdhlfgjcpgh', NULL, 4, 6, 2),
-(12, '3abaya', '25444', '3abaya4.jpg', 'dgjfgxjghckjgchkgc', NULL, 4, 6, 2),
-(13, 'testing', '23242', '48363380_316040035915372_5073887983388590080_n.jpg', 'fzefhoezfoiezhiohief', NULL, 2, 7, 1),
-(14, 'robe kabyle', '240000', 'usEbXYD.png', 'kech description ', NULL, 1, 7, 1),
-(15, 'datni sakra article', '89000', '2000px-Mudflap_girl.svg.png', 'benounnas oussama', NULL, 3, 6, 2),
-(16, 'dodo', '24000', '15.jpg', 'dhjrstphrs^jy\r\nhrlgjhpmrk^stjsr^tjkpsr^yupdtjkydtp', NULL, 2, 4, 2);
+(17, 'caftan noir et blanc', '30000', 'nadia.jpg', 'Ce caftan est en tissu de soie blanche avec un galon noir \r\net des petits piÃ¨ces de dentelle,les perles', NULL, 6, 9, 2),
+(18, 'caftan avec dentelle ', '27000', 'nadia2.jpg', '\r\nCe caftan est en tissu de soie mauve et noir  avec un galon noir \r\net des petits piÃ¨ces de dentelle noir ,les perles', NULL, 6, 9, 2),
+(19, 'karakou ', '32000', 'majj.jpg', 'Ce karakou est en tissu satin, est fait Ã  la main ', NULL, 8, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +97,39 @@ CREATE TABLE IF NOT EXISTS `article_commande` (
   KEY `id_commande` (`id_commande`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `article_commande`
+--
+
+INSERT INTO `article_commande` (`prix_article_commande`, `quantite_article_commande`, `id_art`, `id_commande`) VALUES
+(240000, 4, 14, 1),
+(23242, 1, 13, 1),
+(89000, 1, 15, 1),
+(25000, 1, 11, 1),
+(240000, 1, 14, 2),
+(25000, 1, 11, 3),
+(25444, 2, 12, 3),
+(89000, 1, 15, 4),
+(240000, 1, 14, 5),
+(23242, 1, 13, 6),
+(24000, 1, 16, 6),
+(89000, 1, 15, 6),
+(23242, 1, 13, 8),
+(24000, 4, 16, 8),
+(25000, 1, 11, 10),
+(25444, 1, 12, 10),
+(25444, 1, 12, 11),
+(25000, 1, 11, 11),
+(89000, 1, 15, 11),
+(25000, 1, 11, 13),
+(240000, 2, 14, 14),
+(23242, 4, 13, 14),
+(240000, 1, 14, 15),
+(23242, 1, 13, 15),
+(24000, 1, 16, 15),
+(89000, 1, 15, 15),
+(25000, 1, 11, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -112,17 +143,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id_admin` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_catg`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id_catg`, `desi_catg`, `id_admin`) VALUES
-(1, 'robe', NULL),
-(2, 'caftan', NULL),
-(3, 'datniSakraDatni', NULL),
-(4, 'abayat', NULL);
+(6, 'Caftan', NULL),
+(7, 'Robe', NULL),
+(8, 'Karakou', NULL);
 
 -- --------------------------------------------------------
 
@@ -171,7 +201,28 @@ CREATE TABLE IF NOT EXISTS `commande` (
   KEY `id_client` (`id_client`),
   KEY `id_admin` (`id_admin`),
   KEY `id_pv` (`id_pv`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `date_commande`, `etat_commande`, `id_client`, `id_admin`, `id_pv`) VALUES
+(1, '2019-04-28', 'en cours', 3, 1, 1),
+(2, '2019-04-28', 'en cours', 3, 1, 1),
+(3, '2019-04-28', 'en cours', 3, 1, 1),
+(4, '2019-04-29', 'en cours', 3, 1, 1),
+(5, '2019-04-29', 'en cours', 3, 1, 1),
+(6, '2019-04-29', 'en cours', 3, 1, 1),
+(7, '2019-04-29', 'en cours', 3, 1, 1),
+(8, '2019-04-29', 'en cours', 3, 1, 1),
+(9, '2019-04-29', 'en cours', 3, 1, 1),
+(10, '2019-04-29', 'en cours', 3, 1, 1),
+(11, '2019-04-29', 'en cours', 3, 1, 1),
+(12, '2019-04-29', 'en cours', 3, 1, 1),
+(13, '2019-04-29', 'en cours', 3, 1, 1),
+(14, '2019-05-02', 'en cours', 3, 1, 1),
+(15, '2019-05-02', 'en cours', 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -181,24 +232,22 @@ CREATE TABLE IF NOT EXISTS `commande` (
 
 DROP TABLE IF EXISTS `dates`;
 CREATE TABLE IF NOT EXISTS `dates` (
-  `desig_date` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `id_date` int(11) NOT NULL AUTO_INCREMENT,
   `date_db` date NOT NULL,
   `date_fn` date NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`desig_date`),
+  PRIMARY KEY (`id_date`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `dates`
 --
 
-INSERT INTO `dates` (`desig_date`, `date_db`, `date_fn`, `id_admin`) VALUES
-('bakhta', '2019-04-20', '2019-04-22', NULL),
-('ghedwa', '2019-04-29', '2019-04-30', NULL),
-('lazrag bin w bin', '2019-04-20', '2019-04-30', NULL),
-('lyom', '2019-04-28', '2019-04-30', NULL),
-('sa9i ba9i', '2019-04-30', '2019-05-06', NULL);
+INSERT INTO `dates` (`id_date`, `date_db`, `date_fn`, `id_admin`) VALUES
+(2, '2019-05-04', '2019-05-05', NULL),
+(4, '2019-05-06', '2019-05-08', NULL),
+(5, '2019-05-05', '2019-05-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -248,7 +297,14 @@ CREATE TABLE IF NOT EXISTS `point_de_vente` (
   PRIMARY KEY (`id_pv`),
   KEY `id_admin` (`id_admin`),
   KEY `id_styls` (`id_styls`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `point_de_vente`
+--
+
+INSERT INTO `point_de_vente` (`id_pv`, `adresse_pv`, `nom_res_pv`, `prenom_res_pv`, `email_res_pv`, `tel_pv`, `id_admin`, `id_styls`) VALUES
+(1, 'alger, sahet cho', 'ouss', 'ousss', 'ouss@gmail.com', '0554 12 12 13', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -284,10 +340,10 @@ DROP TABLE IF EXISTS `solder`;
 CREATE TABLE IF NOT EXISTS `solder` (
   `pourcentage_solde` int(3) NOT NULL,
   `id_art` int(11) DEFAULT NULL,
-  `desig_date` varchar(40) CHARACTER SET utf8 DEFAULT NULL,
+  `id_date` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
   KEY `id_art` (`id_art`),
-  KEY `date_solde` (`desig_date`),
+  KEY `date_solde` (`id_date`),
   KEY `id_admin` (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -295,12 +351,10 @@ CREATE TABLE IF NOT EXISTS `solder` (
 -- Déchargement des données de la table `solder`
 --
 
-INSERT INTO `solder` (`pourcentage_solde`, `id_art`, `desig_date`, `id_admin`) VALUES
-(10, 11, 'bakhta', NULL),
-(20, 14, 'lazrag bin w bin', NULL),
-(5, 16, 'lazrag bin w bin', NULL),
-(50, 15, 'ghedwa', NULL),
-(50, 11, 'lyom', NULL);
+INSERT INTO `solder` (`pourcentage_solde`, `id_art`, `id_date`, `id_admin`) VALUES
+(40, 18, 2, NULL),
+(30, 17, 2, NULL),
+(14, 19, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -342,17 +396,16 @@ CREATE TABLE IF NOT EXISTS `styliste` (
   `email_styls` varchar(60) NOT NULL,
   PRIMARY KEY (`id_styls`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `styliste`
 --
 
 INSERT INTO `styliste` (`id_styls`, `nom_styls`, `prenom_styls`, `tel_styls`, `url_photo_styls`, `url_logo_styls`, `descri_styls`, `id_admin`, `email_styls`) VALUES
-(4, 'mas3odi', 'saide', '0555555555', '3.jpg', '8.jpg', 'fgjfykgulumougilhkkkkkkkkkkkkkk', NULL, 'mes3oooood@gmail.com'),
-(5, 'gfjfkjgh', 'gjcfcghj', '0554141414', '4.jpg', '5.jpg', 'hhhhhhhhhhhhkgculujl\r\nfyhiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiikkkkkkkkkkkkkkkkkkkkkkk', NULL, 'jfgjfckgky@gmail.com'),
-(6, 'riaa', 'amira', '0555121414', 'mira.jpg', 'logo_amira.jpg', 'Amira Riaa: personnalitÃ© connues\r\n sur le net et  elle a une marque \r\npersonnelles,grandissants en AlgÃ©rieâ€¦\r\nModest fashion , \r\nBeauty and lifestyle.\r\n23ans', NULL, 'amirariaapro@gmail.com'),
-(7, 'oussama', 'benounnas', '0558905764', '44896272_112107189781718_6729057551930884096_o.jpg', 'logo_edisoft.png', 'va bÃ©nÃ©', NULL, 'benounnas.oussama@pm.me');
+(8, 'Kadid', 'Karim', '0554 12 24 75', 'Profile.kadid.png', 'Logo_Kadid.png', 'Un virtuose de la haute couture\r\nKarim Kadid a commencÃ© son voyage dans sa ville dâ€™origine\r\n Ã  Miliana (Ã  lâ€™ouest de lâ€™AlgÃ©rie) en 1997 comme un simple \r\nartisan , il se perfectionne et gagne rapidement une \r\nreconnaissance internationale. ', NULL, 'karim.kadid@gmail.com'),
+(9, 'Nadia ', 'Boutaleb', '0778 14 78 25', 'nadia_photo.jpg', 'Logo-Nadia-Boutaleb-01.png', ' jâ€™ai toujours aimÃ© dessiner\r\n et coudre des vÃªtements, si bien que jâ€™en ai fait,\r\n finalement, mon mÃ©tier et ma passion. \r\nRien ne me paraÃ®t plus captivant, plus stimulant que de\r\nsaisir la beautÃ© complexe et mystÃ©rieuse du corps humain', NULL, 'nadia.boutaleb@gmail.com'),
+(10, ' Zeggane', 'Majda ', '0775 85 47 98', 'majdaa.jpg', 'majda.jpg', ' Jâ€™ai reprÃ©sentÃ© la culture algÃ©rienne avec brillance,\r\n ce qui mâ€™a valu beaucoup dâ€™encouragementÂ», raconte-t-elle. \r\nMajda sâ€™est distinguÃ©e tout au long de ses annÃ©es par un style \r\nunique. FiÃ¨re de sa culture algÃ©rienne, ', NULL, 'majda_ Zeggane@gmail.com');
 
 -- --------------------------------------------------------
 
