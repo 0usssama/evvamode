@@ -1,15 +1,13 @@
-﻿-- phpMyAdmin SQL Dump
--- version 4.7.4
+-- phpMyAdmin SQL Dump
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 05 mai 2019 à 10:39
--- Version du serveur :  5.7.19
--- Version de PHP :  7.1.9
+-- Host: localhost:3307
+-- Generation Time: May 05, 2019 at 04:35 PM
+-- Server version: 5.7.26-0ubuntu0.18.04.1
+-- PHP Version: 7.2.17-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,29 +17,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `evvamode`
+-- Database: `evvamode`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id_admin` int(1) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id_admin` int(1) NOT NULL,
   `nom_adm` varchar(30) NOT NULL,
   `prenom_adm` varchar(30) NOT NULL,
   `email_adm` varchar(30) NOT NULL,
   `tel_adm` varchar(15) NOT NULL,
   `username_adm` varchar(45) NOT NULL,
-  `password_adm` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `password_adm` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `nom_adm`, `prenom_adm`, `email_adm`, `tel_adm`, `username_adm`, `password_adm`) VALUES
@@ -51,12 +47,11 @@ INSERT INTO `admin` (`id_admin`, `nom_adm`, `prenom_adm`, `email_adm`, `tel_adm`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article`
+-- Table structure for table `article`
 --
 
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE IF NOT EXISTS `article` (
-  `id_art` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `article` (
+  `id_art` int(11) NOT NULL,
   `nom_art` varchar(30) NOT NULL,
   `prix_art` decimal(10,0) NOT NULL,
   `url_img_art` varchar(100) NOT NULL,
@@ -64,89 +59,47 @@ CREATE TABLE IF NOT EXISTS `article` (
   `id_admin` int(11) DEFAULT NULL,
   `id_catg` int(11) DEFAULT NULL,
   `id_styls` int(11) DEFAULT NULL,
-  `id_styl` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_art`),
-  KEY `id_admin` (`id_admin`),
-  KEY `id_catg` (`id_catg`),
-  KEY `id_styls` (`id_styls`),
-  KEY `id_styl` (`id_styl`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `id_styl` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `article`
+-- Dumping data for table `article`
 --
 
 INSERT INTO `article` (`id_art`, `nom_art`, `prix_art`, `url_img_art`, `descri_art`, `id_admin`, `id_catg`, `id_styls`, `id_styl`) VALUES
-(17, 'caftan noir et blanc', '30000', 'nadia.jpg', 'Ce caftan est en tissu de soie blanche avec un galon noir \r\net des petits piÃ¨ces de dentelle,les perles', NULL, 6, 9, 2),
-(18, 'caftan avec dentelle ', '27000', 'nadia2.jpg', '\r\nCe caftan est en tissu de soie mauve et noir  avec un galon noir \r\net des petits piÃ¨ces de dentelle noir ,les perles', NULL, 6, 9, 2),
-(19, 'karakou ', '32000', 'majj.jpg', 'Ce karakou est en tissu satin, est fait Ã  la main ', NULL, 8, 10, 1);
+(17, 'caftan noir et blanc', '24000', 'nadia.jpg', 'Ce caftan est en tissu de soie blanche avec un galon noir \r\net des petits piÃ¨ces de dentelle,les perles', NULL, 6, 9, 2),
+(18, 'caftan avec dentelle ', '30000', 'nadia2.jpg', '\r\nCe caftan est en tissu de soie mauve et noir  avec un galon noir \r\net des petits piÃ¨ces de dentelle noir ,les perles', NULL, 6, 9, 2),
+(19, 'karakou ', '20000', 'majj.jpg', 'Ce karakou est en tissu satin, est fait Ã  la main ', NULL, 8, 10, 1),
+(22, 'oussama', '12800', 'usEbXYD.png', 'djaeojdpzojoj', NULL, 6, 10, 2),
+(23, 'karakou ', '54000', 'majj.jpg', 'Ce karakou est en tissu satin, est fait Ã  la main ', NULL, 8, 10, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article_commande`
+-- Table structure for table `article_commande`
 --
 
-DROP TABLE IF EXISTS `article_commande`;
-CREATE TABLE IF NOT EXISTS `article_commande` (
+CREATE TABLE `article_commande` (
   `prix_article_commande` int(11) DEFAULT NULL,
   `quantite_article_commande` int(11) DEFAULT NULL,
   `id_art` int(11) DEFAULT NULL,
-  `id_commande` int(11) DEFAULT NULL,
-  KEY `id_art` (`id_art`),
-  KEY `id_commande` (`id_commande`)
+  `id_commande` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `article_commande`
---
-
-INSERT INTO `article_commande` (`prix_article_commande`, `quantite_article_commande`, `id_art`, `id_commande`) VALUES
-(240000, 4, 14, 1),
-(23242, 1, 13, 1),
-(89000, 1, 15, 1),
-(25000, 1, 11, 1),
-(240000, 1, 14, 2),
-(25000, 1, 11, 3),
-(25444, 2, 12, 3),
-(89000, 1, 15, 4),
-(240000, 1, 14, 5),
-(23242, 1, 13, 6),
-(24000, 1, 16, 6),
-(89000, 1, 15, 6),
-(23242, 1, 13, 8),
-(24000, 4, 16, 8),
-(25000, 1, 11, 10),
-(25444, 1, 12, 10),
-(25444, 1, 12, 11),
-(25000, 1, 11, 11),
-(89000, 1, 15, 11),
-(25000, 1, 11, 13),
-(240000, 2, 14, 14),
-(23242, 4, 13, 14),
-(240000, 1, 14, 15),
-(23242, 1, 13, 15),
-(24000, 1, 16, 15),
-(89000, 1, 15, 15),
-(25000, 1, 11, 15);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id_catg` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categories` (
+  `id_catg` int(3) NOT NULL,
   `desi_catg` varchar(45) NOT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_catg`),
-  KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `id_admin` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id_catg`, `desi_catg`, `id_admin`) VALUES
@@ -157,24 +110,21 @@ INSERT INTO `categories` (`id_catg`, `desi_catg`, `id_admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `client`
+-- Table structure for table `client`
 --
 
-DROP TABLE IF EXISTS `client`;
-CREATE TABLE IF NOT EXISTS `client` (
-  `id_client` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `client` (
+  `id_client` int(5) NOT NULL,
   `nom_client` varchar(30) NOT NULL,
   `prenom_client` varchar(30) NOT NULL,
   `email_client` varchar(45) NOT NULL,
   `tel_client` varchar(15) NOT NULL,
   `password_client` varchar(255) NOT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_client`),
-  KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `id_admin` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `client`
+-- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `tel_client`, `password_client`, `id_admin`) VALUES
@@ -186,62 +136,33 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commande`
+-- Table structure for table `commande`
 --
 
-DROP TABLE IF EXISTS `commande`;
-CREATE TABLE IF NOT EXISTS `commande` (
-  `id_commande` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `commande` (
+  `id_commande` int(11) NOT NULL,
   `date_commande` date DEFAULT NULL,
   `etat_commande` varchar(45) DEFAULT NULL,
   `id_client` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `id_pv` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_commande`),
-  KEY `id_client` (`id_client`),
-  KEY `id_admin` (`id_admin`),
-  KEY `id_pv` (`id_pv`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `commande`
---
-
-INSERT INTO `commande` (`id_commande`, `date_commande`, `etat_commande`, `id_client`, `id_admin`, `id_pv`) VALUES
-(1, '2019-04-28', 'en cours', 3, 1, 1),
-(2, '2019-04-28', 'en cours', 3, 1, 1),
-(3, '2019-04-28', 'en cours', 3, 1, 1),
-(4, '2019-04-29', 'en cours', 3, 1, 1),
-(5, '2019-04-29', 'en cours', 3, 1, 1),
-(6, '2019-04-29', 'en cours', 3, 1, 1),
-(7, '2019-04-29', 'en cours', 3, 1, 1),
-(8, '2019-04-29', 'en cours', 3, 1, 1),
-(9, '2019-04-29', 'en cours', 3, 1, 1),
-(10, '2019-04-29', 'en cours', 3, 1, 1),
-(11, '2019-04-29', 'en cours', 3, 1, 1),
-(12, '2019-04-29', 'en cours', 3, 1, 1),
-(13, '2019-04-29', 'en cours', 3, 1, 1),
-(14, '2019-05-02', 'en cours', 3, 1, 1),
-(15, '2019-05-02', 'en cours', 3, 1, 1);
+  `id_pv` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `dates`
+-- Table structure for table `dates`
 --
 
-DROP TABLE IF EXISTS `dates`;
-CREATE TABLE IF NOT EXISTS `dates` (
-  `id_date` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dates` (
+  `id_date` int(11) NOT NULL,
   `date_db` date NOT NULL,
   `date_fn` date NOT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_date`),
-  KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `id_admin` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `dates`
+-- Dumping data for table `dates`
 --
 
 INSERT INTO `dates` (`id_date`, `date_db`, `date_fn`, `id_admin`) VALUES
@@ -252,12 +173,11 @@ INSERT INTO `dates` (`id_date`, `date_db`, `date_fn`, `id_admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `evenement`
+-- Table structure for table `evenement`
 --
 
-DROP TABLE IF EXISTS `evenement`;
-CREATE TABLE IF NOT EXISTS `evenement` (
-  `id_event` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `evenement` (
+  `id_event` int(3) NOT NULL,
   `titre_event` varchar(45) NOT NULL,
   `date_event` date NOT NULL,
   `heure_event` time NOT NULL,
@@ -265,14 +185,11 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `descri_event` varchar(255) NOT NULL,
   `url_img_event` varchar(100) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `id_styls` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_event`),
-  KEY `id_admin` (`id_admin`),
-  KEY `id_styls` (`id_styls`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `id_styls` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `evenement`
+-- Dumping data for table `evenement`
 --
 
 INSERT INTO `evenement` (`id_event`, `titre_event`, `date_event`, `heure_event`, `adresse_event`, `descri_event`, `url_img_event`, `id_admin`, `id_styls`) VALUES
@@ -281,26 +198,22 @@ INSERT INTO `evenement` (`id_event`, `titre_event`, `date_event`, `heure_event`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `point_de_vente`
+-- Table structure for table `point_de_vente`
 --
 
-DROP TABLE IF EXISTS `point_de_vente`;
-CREATE TABLE IF NOT EXISTS `point_de_vente` (
-  `id_pv` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `point_de_vente` (
+  `id_pv` int(5) NOT NULL,
   `adresse_pv` varchar(45) NOT NULL,
   `nom_res_pv` varchar(30) NOT NULL,
   `prenom_res_pv` varchar(30) NOT NULL,
   `email_res_pv` varchar(45) NOT NULL,
   `tel_pv` varchar(15) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `id_styls` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_pv`),
-  KEY `id_admin` (`id_admin`),
-  KEY `id_styls` (`id_styls`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `id_styls` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `point_de_vente`
+-- Dumping data for table `point_de_vente`
 --
 
 INSERT INTO `point_de_vente` (`id_pv`, `adresse_pv`, `nom_res_pv`, `prenom_res_pv`, `email_res_pv`, `tel_pv`, `id_admin`, `id_styls`) VALUES
@@ -309,20 +222,17 @@ INSERT INTO `point_de_vente` (`id_pv`, `adresse_pv`, `nom_res_pv`, `prenom_res_p
 -- --------------------------------------------------------
 
 --
--- Structure de la table `slider`
+-- Table structure for table `slider`
 --
 
-DROP TABLE IF EXISTS `slider`;
-CREATE TABLE IF NOT EXISTS `slider` (
-  `id_slider` int(3) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `slider` (
+  `id_slider` int(3) NOT NULL,
   `url_img_slider` varchar(255) NOT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_slider`),
-  KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `id_admin` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `slider`
+-- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`id_slider`, `url_img_slider`, `id_admin`) VALUES
@@ -333,44 +243,30 @@ INSERT INTO `slider` (`id_slider`, `url_img_slider`, `id_admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `solder`
+-- Table structure for table `solder`
 --
 
-DROP TABLE IF EXISTS `solder`;
-CREATE TABLE IF NOT EXISTS `solder` (
+CREATE TABLE `solder` (
   `pourcentage_solde` int(3) NOT NULL,
   `id_art` int(11) DEFAULT NULL,
   `id_date` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  KEY `id_art` (`id_art`),
-  KEY `date_solde` (`id_date`),
-  KEY `id_admin` (`id_admin`)
+  `ancien_prix` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `solder`
---
-
-INSERT INTO `solder` (`pourcentage_solde`, `id_art`, `id_date`, `id_admin`) VALUES
-(40, 18, 2, NULL),
-(30, 17, 2, NULL),
-(14, 19, 5, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `style`
+-- Table structure for table `style`
 --
 
-DROP TABLE IF EXISTS `style`;
-CREATE TABLE IF NOT EXISTS `style` (
-  `id_styl` int(1) NOT NULL AUTO_INCREMENT,
-  `type_styl` varchar(12) NOT NULL,
-  PRIMARY KEY (`id_styl`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `style` (
+  `id_styl` int(1) NOT NULL,
+  `type_styl` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `style`
+-- Dumping data for table `style`
 --
 
 INSERT INTO `style` (`id_styl`, `type_styl`) VALUES
@@ -380,12 +276,11 @@ INSERT INTO `style` (`id_styl`, `type_styl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `styliste`
+-- Table structure for table `styliste`
 --
 
-DROP TABLE IF EXISTS `styliste`;
-CREATE TABLE IF NOT EXISTS `styliste` (
-  `id_styls` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `styliste` (
+  `id_styls` int(5) NOT NULL,
   `nom_styls` varchar(30) NOT NULL,
   `prenom_styls` varchar(30) NOT NULL,
   `tel_styls` varchar(15) NOT NULL,
@@ -393,13 +288,11 @@ CREATE TABLE IF NOT EXISTS `styliste` (
   `url_logo_styls` varchar(100) NOT NULL,
   `descri_styls` varchar(255) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `email_styls` varchar(60) NOT NULL,
-  PRIMARY KEY (`id_styls`),
-  KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `email_styls` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `styliste`
+-- Dumping data for table `styliste`
 --
 
 INSERT INTO `styliste` (`id_styls`, `nom_styls`, `prenom_styls`, `tel_styls`, `url_photo_styls`, `url_logo_styls`, `descri_styls`, `id_admin`, `email_styls`) VALUES
@@ -410,30 +303,193 @@ INSERT INTO `styliste` (`id_styls`, `nom_styls`, `prenom_styls`, `tel_styls`, `u
 -- --------------------------------------------------------
 
 --
--- Structure de la table `voter`
+-- Table structure for table `voter`
 --
 
-DROP TABLE IF EXISTS `voter`;
-CREATE TABLE IF NOT EXISTS `voter` (
+CREATE TABLE `voter` (
   `id_client` int(11) DEFAULT NULL,
   `id_art` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `nbr_etoile` int(1) NOT NULL,
-  KEY `id_admin` (`id_admin`),
-  KEY `id_client` (`id_client`),
-  KEY `id_art` (`id_art`)
+  `nbr_etoile` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contraintes pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Contraintes pour la table `dates`
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id_art`),
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_catg` (`id_catg`),
+  ADD KEY `id_styls` (`id_styls`),
+  ADD KEY `id_styl` (`id_styl`);
+
+--
+-- Indexes for table `article_commande`
+--
+ALTER TABLE `article_commande`
+  ADD KEY `id_art` (`id_art`),
+  ADD KEY `id_commande` (`id_commande`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id_catg`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id_client`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`id_commande`),
+  ADD KEY `id_client` (`id_client`),
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_pv` (`id_pv`);
+
+--
+-- Indexes for table `dates`
+--
+ALTER TABLE `dates`
+  ADD PRIMARY KEY (`id_date`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`id_event`),
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_styls` (`id_styls`);
+
+--
+-- Indexes for table `point_de_vente`
+--
+ALTER TABLE `point_de_vente`
+  ADD PRIMARY KEY (`id_pv`),
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_styls` (`id_styls`);
+
+--
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id_slider`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `solder`
+--
+ALTER TABLE `solder`
+  ADD KEY `id_art` (`id_art`),
+  ADD KEY `date_solde` (`id_date`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `style`
+--
+ALTER TABLE `style`
+  ADD PRIMARY KEY (`id_styl`);
+
+--
+-- Indexes for table `styliste`
+--
+ALTER TABLE `styliste`
+  ADD PRIMARY KEY (`id_styls`),
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `voter`
+--
+ALTER TABLE `voter`
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_client` (`id_client`),
+  ADD KEY `id_art` (`id_art`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id_art` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id_catg` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `client`
+--
+ALTER TABLE `client`
+  MODIFY `id_client` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `commande`
+--
+ALTER TABLE `commande`
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `dates`
+--
+ALTER TABLE `dates`
+  MODIFY `id_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `id_event` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `point_de_vente`
+--
+ALTER TABLE `point_de_vente`
+  MODIFY `id_pv` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id_slider` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `style`
+--
+ALTER TABLE `style`
+  MODIFY `id_styl` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `styliste`
+--
+ALTER TABLE `styliste`
+  MODIFY `id_styls` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `dates`
 --
 ALTER TABLE `dates`
   ADD CONSTRAINT `dates_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
