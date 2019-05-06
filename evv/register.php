@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start();?>
 
 <head>
 
@@ -74,6 +75,17 @@
          
          
          <input type="submit" value="s'inscrire" class="btn btn-primary btn-block" name="inscrire">
+         <div class="<?php if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs'])){  echo 'mt-3 alert alert-warning';} ?>" role="alert">
+      <ul>
+      <?php if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs'])){  
+        //var_dump($_SESSION);
+        foreach ($_SESSION['erreurs'] as $erreurs) {
+          echo '<li>'.  $erreurs .'</li>';
+        }} 
+        ?>
+     
+      </ul>
+</div>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="loginouss.php">se connecter?</a>
@@ -82,6 +94,12 @@
     </div>
   </div>
 
+
+<?php
+  unset($_SESSION['erreurs']);
+  $_SESSION['erreurs'] = '';
+
+?>
   <!-- Bootstrap core JavaScript-->
   <script src="../admin/vendor/jquery/jquery.min.js"></script>
   <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -1,5 +1,9 @@
 <?php 
  require_once('../../includes/config.php');
+session_start();
+
+ $erreurs = [];
+$erreurs[] = 'it works';
 
 
  if(isset($_POST['inscrire'])){
@@ -16,7 +20,11 @@ $statement = $pdo->prepare($sql);
 
 
    //validation mazal makhssossa aprés ndirha 
-   $nomClient = $_POST['nom_client'];
+   $nomClient = strip_tags(trim($_POST['nom_client']));
+    
+
+
+
    $prenomClient = $_POST['prenom_client'];
    $emailClient = $_POST['email_client'];
    $adresseClient = $_POST['tel_client'];
@@ -41,6 +49,8 @@ $statement = $pdo->prepare($sql);
    //}
 
    
+  
+
 //Execute the statement and insert our values.
 $inserted = $statement->execute();
  
