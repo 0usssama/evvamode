@@ -83,10 +83,10 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   <th>styliste</th>
                   
                   <th>style</th>
-                  <th>categories</th>
+                  <th >categories</th>
                   
                   
-                  <th class="text-center">Action</th>
+                  <th class="text-center" colspan="2">Action</th>
                 </tr>
             </thead>
             <?php 
@@ -108,9 +108,21 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     echo 'moderne';
                 }
                 ;?></td>
+               
+              
+
+
+
+
                 <td><?php echo $row['desi_catg'] ;?></td>
-                <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
+                <td class="text-center"><button type="button" class="btn btn-warning" data-toggle="modal"
+                        data-target="#modifier<?php echo $row['id_art'] ;?>">Modifier</button></td>
+                        <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
                         data-target="#m<?php echo $row['id_art'] ;?>">Supprimer</button></td>
+
+
+
+                        
             </tr>
        
             <div class="modal fade" id="m<?php echo $row['id_art'] ;?>" tabindex="-1" role="dialog"
@@ -128,6 +140,131 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                                 <h1 class="mb-5">voulez-vous supprimer article n°<?php echo $row['id_art'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="modifier<?php echo $row['id_art'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['id_art'] ;?>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+
+                        <div class="modal-body">
+                            <form action="modifier/modifier_article.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
+                                 <div class="form-group">
+
+                                 <?php
+                                 $sql_modifier = "SELECT * FROM article WHERE id_art = '". $row['id_art'] . "'";
+                                 if($pdo->query($sql_modifier)){
+                                  foreach  ($pdo->query($sql_modifier) as $modifier_article) {
+
+                                 ?>
+                          <div class="form-label-group">
+                            <input type="text" id="nom_art" name="nom_art" class="form-control" value="<?php echo $modifier_article['nom_art'] ?>" required="required" autofocus="autofocus">
+                            <label for="nom_art">nom article</label>
+                          </div>
+                        </div>
+                       
+                    
+                      <div class="form-group">
+                          <div class="form-label-group">
+                            <input type="text" id="prix_art" name="prix_art" class="form-control" value="<?php echo $modifier_article['prix_art'] ?>" required="required" autofocus="autofocus">
+                            <label for="prix_art">Prix</label>
+                          </div>
+                        </div>
+                       
+   
+                        <div class="form-group">
+                    <div >
+                    <label for="">votre description</label>
+                      <textarea cols="70" type="text" id="descri_art" name="descri_art" class="form-control"  required="required" autofocus="autofocus"><?php echo $modifier_article['descri_art'] ?></textarea>
+
+                    </div>
+                  </div>
+                    
+
+                   
+                  
+              
+                  
+                    <div class="form-group">
+                    <div class="form-label-group">
+                     <select name="id_styl" id="id_styl" class="form-control" required="required">
+                        <option value="">Style</option>
+                        <option value="1" <?php if($modifier_article['id_styl'] == 1){echo 'selected';} ?>>traditionnel</option>
+                        <option value="2" <?php if($modifier_article['id_styl'] == 2){echo 'selected';} ?>>moderne</option>
+                        
+                     </select> 
+                    </div>
+                  </div>
+                    
+              
+
+                  
+              
+
+                 <?php
+                         $sql = "SELECT * FROM categories";
+                         ?>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                     <select name="id_catg" id="id_catg" class="form-control" required="required">
+                         <option value="">categories</option>
+                         <?php 
+                         if($pdo->query($sql)){
+                            foreach  ($pdo->query($sql) as $row) {
+                         ?>
+
+                         <option value="<?php echo $row['id_catg']. '-'. $row['desi_catg'];?>"  <?php if($modifier_article['id_catg']== $row['id_catg']){echo 'selected';} ?>  >
+                         <?php echo $row['id_catg']. '-'. $row['desi_catg'];?>
+                         </option>
+                            <?php 
+                            }
+                        } ?>
+                     </select>
+                    </div>
+                  </div>
+                    
+                  <?php
+                         $sql = "SELECT * FROM styliste";
+                         ?>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                     <select name="id_styls" id="id_styls" class="form-control" required="required">
+                         <option value="">Styliste</option>
+                         <?php 
+                         if($pdo->query($sql)){
+                            foreach  ($pdo->query($sql) as $row) {
+                         ?>
+
+                         <option value="<?php echo $row['id_styls']. '-'. $row['nom_styls']. ' '.$row['prenom_styls'] ;?>" <?php if($modifier_article['id_styls']== $row['id_styls']){echo 'selected';} ?> >
+                         <?php echo $row['id_styls']. '-'. $row['nom_styls']. ' '.$row['prenom_styls'] ;?>
+                         </option>
+                            <?php 
+                            }
+                        } ?>
+                     </select>
+                    </div>
+                  </div>
+
+               
+                <input type="submit" class="btn btn-primary btn-block" name="modifier" value="modifier">
+           
+                <?php 
+                            }
+                        } ?>
                             </form>
 
                         </div>
