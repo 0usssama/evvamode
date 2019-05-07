@@ -304,16 +304,16 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             
             <div class="form-group">
                           <div class="form-label-group">
-                            <input type="text" id="nom_art" name="nom_art" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus">
-                            <label for="nom_art">nom article</label>
+                            <input type="text" id="nom_artmod" name="nom_art" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus">
+                            <label for="nom_artmod">nom article</label>
                           </div>
                         </div>
                        
                     
                       <div class="form-group">
                           <div class="form-label-group">
-                            <input type="text" id="prix_art" name="prix_art" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus">
-                            <label for="prix_art">Prix</label>
+                            <input type="text" id="prix_art2" name="prix_art" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus">
+                            <label for="prix_art2">Prix</label>
                           </div>
                         </div>
                        
