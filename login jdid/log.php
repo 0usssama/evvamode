@@ -159,17 +159,17 @@ a{color:inherit;text-decoration:none}
 </head>
 <?php session_start(); ?>
 <body>
-<form method="post" action=" ../evv/test_login.php">
+<form method="post" action="test.php">
 
 	<div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"> Se connecter</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">S'nscrire</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
 		<div class="login-form">
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Utilisateur</label>
-					<input id="user" name="inputEmail" type="text" class="input">
+					<input id="user" name="inputusername" type="text" class="input">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Mot de passe</label>
@@ -178,44 +178,11 @@ a{color:inherit;text-decoration:none}
 				
 				<div class="group">
 					<input type="submit"  name="connecter" class="button" value="Connecter">
-					<a class="" href="../achat/index.php"> </a>
+					<a class="" href="../admin/admin.php"> </a>
 				</div>
 				</div>
 			</form>
-			<form method="post" action="../admin/ajouter/ajouter_client.php" class="needs-validation">
-
 			
-			<div class="sign-up-htm">
-				<div class="group">
-					<label for="user" class="label">Nom</label>
-					<input id="user" name="nom_client" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="user" class="label">Prénom</label>
-					<input id="user" name="prenom_client" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email</label>
-					<input id="pass" type="text" name="email_client" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">telephone</label>
-					<input id="pass"  name="tel_client"type="text" class="input" data-type="text">
-				</div>
-				
-				<div class="group">
-					<label for="pass" class="label">Mot de passe</label>
-					<input id="pass" name="password_client" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" name="inscrire" value="S'inscrire">
-				</div>
-				
-				<div class="group">
- 				<a class="d-block small mt-3" href="log.php">se connecter?</a>
-     		   </div>
-			</div>
-			</form>
 		</div>
 		<div class="<?php if(isset($_SESSION['erreurs']) && !empty($_SESSION['erreurs']))
         {echo 'alert alert-danger mt-4';} ?>" role="alert">
@@ -229,6 +196,11 @@ a{color:inherit;text-decoration:none}
           }
           ?>
         </div>
+		
+		<div class="row" >
+				<a ><span  style="color: #fff" >&copy; 2019. tous les droit sont réservers.EvvaMode. </span></a> 	
+			<!-- /footer-copyright --> 
+			</div>
 	</div>
 	
 </div>

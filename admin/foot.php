@@ -21,10 +21,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Sélectionner déconnecter si vous êtes sûre :)</div>
+        <div class="modal-body">Sélectionner déconnecter si vous êtes sûr :)</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-          <a class="btn btn-primary" href="login_admin.php">se déconnecter</a>
+          <a class="btn btn-primary" href="../login jdid/log.php">se déconnecter</a>
         </div>
       </div>
     </div>
