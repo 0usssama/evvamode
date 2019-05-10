@@ -1,27 +1,6 @@
 
-<?php include 'head.php';
+<?php include 'head.php'?>
 
-
-if(isset($_POST['supprimer'])){
-
-    // need to sanitize
-    $id_commd = $_GET['id_commd'] ?? NULL ;
-
-    if(!is_null($id_commd)){
-        $sql = "DELETE FROM styliste WHERE id_commd= " . $id_commd;
-
-       $resultat=  $pdo->query($sql);
-
-       if($resultat){
-           header('location:styliste.php');
-       }else{
-echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
-
-       }
-    }
-
-}
-?>
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -54,48 +33,78 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         <table class="table table-striped custab">
             <thead>
             
-                <tr>
-                    <th>ID</th>
+                <tr>    
+                    <th>Id</th>  
+                    <th>date</th>              
                     <th>Client</th>
-                    <th>date</th>
+                    <th>Les articles commandés</th>
                     <th>etat</th>
-                 
-                  <th></th>
-                  <th></th>
-                 
-                 
+                    <th>Action</th>
                 </tr>
             </thead>
-            <?php 
-            if($pdo->query($sql)){
-            foreach  ($pdo->query($sql) as $row) { ?>
-               <tr>
-                <td><?php echo $row['id_commd'] ;?></td>
-                <td><?php echo $row['nom_styl'] . " " .  $row['prenom_styl'] ;?></td>
-                <td><?php echo $row['tel_styl'] ;?></td>
-                <td><?php echo $row['url_photo_styl'] ;?></td>
-                <td><?php echo $row['url_logo_styl'] ;?></td>
-                <td><?php echo $row['descri_styl'] ;?></td>
-                <td><?php echo $row['specialite_styl'] ;?></td>
+
+                <?php 
+                $sql_commande = "SELECT commande.id_commande, commande.date_commande, commande.etat_commande, 
+                commande.id_client, commande.id_pv, client.nom_client, client.prenom_client
+                        
+                FROM commande
+                JOIN client
+                ON client.id_client = commande.id_client
+                
+                ;";
+ if($pdo->query($sql_commande)){
+            foreach  ($pdo->query($sql_commande) as $commande) { ?>
+
+
+               
+            <tr>
+            <td><?php echo $commande['id_commande']; ?></td>
+            <td><?php echo $commande['date_commande']; ?></td>
+            <td><?php echo $commande['nom_client']. " ". $commande['prenom_client'] ; ?></td>
+            <td>
+            <ul>
+           <?php
+            $sql_article = "SELECT 
+            article.nom_art, article_commande.prix_article_commande, 
+            article_commande.quantite_article_commande, article_commande.id_commande,
+            article_commande.id_art
+            FROM article_commande 
+            JOIN article 
+            ON article.id_art = article_commande.id_art
+            WHERE article_commande.id_commande='". $commande['id_commande'] . "'";
+            
+            if($pdo->query($sql_article)){
+                foreach  ($pdo->query($sql_article) as $article) {
+                    ?>
+            <li><?php echo $article['nom_art']; ?> <b>(<?php echo $article['quantite_article_commande']; ?>)</b></li>
+            <?php }
+            }; ?>
+            
+            </ul>
+            
+            </td>
+            <td class="text-center"><button type="button" class="btn btn-info" data-toggle="modal"
+                 data-target="#m<?php echo $row['id_commande'] ;?>">Valider </button></td>
+           
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['id_commd'] ;?>">Supprimer</button></td>
+                 data-target="#m<?php echo $row['id_commande'] ;?>">Supprimer</button></td>
             </tr>
        
-            <div class="modal fade" id="m<?php echo $row['id_commd'] ;?>" tabindex="-1" role="dialog"
-                aria-labelledby="m<?php echo $row['id_commd'] ;?>" aria-hidden="true">
+            <div class="modal fade" id="m<?php echo $row['id_commande'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['id_commande'] ;?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">command</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_commandes.php?id_commd=<?php echo $row['id_commd'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer commandes n°<?php echo $row['id_commd'] ;?> </h1>
+                            <form action="supprimer/supprimer_commandes.php?id_commande=<?php echo $row['id_commande'] ;?> " method="post">
+                                <h1 class="mb-5">voulez-vous supprimer commandes n°<?php echo $row['id_commande'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -105,128 +114,17 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     </div>
                 </div>
             </div>
+         
+                   
             <?php }
             }; ?>
-                       
-                   
-                   
+                          
                    
             </table>
    
 
        
-<!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-           
-            <form method="POST" action="ajouter/ajouter_commandes.php" >
-                
-                 
-                <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="id_client" name="id_client" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="id_client">Nom client </label>
-                    </div>
-                  </div>
-                    
-                 
-                  
-                <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="prenom_styl" name="prenom_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="prenom_styl">  prenom</label>
-                    </div>
-                  </div>
-                    
-                 
-                 
-                  <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="tel_styl" name="tel_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="tel_styl"> telephone</label>
-                    </div>
-                  </div>
-                    
-               
-                    
-
-                     <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="file" id="url_photo_styl" name="url_photo_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="url_photo_styl"> photo styliste</label>
-                    </div>
-                  </div>
-                    
-
-                     <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="file" id="url_logo_styl" name="url_logo_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="url_logo_styl"> logo styliste</label>
-                    </div>
-                  </div>
-                    
-
-
-                     <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="descri_styl" name="descri_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="descri_styl"> description </label>
-                    </div>
-                  </div>
-                    
-
-                      <div class="form-group">
-                    <div class="form-label-group">
-                      <input type="text" id="specialite_styl" name="specialite_styl" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
-                      <label for="specialite_styl"> fonction  </label>
-                    </div>
-                  </div>
-                    
-               
-                <input type="submit" class="btn btn-primary btn-block" value="ajouter" name="ajouter">
-              </form>
-        </div>
-              
-       
-    </div>
-  </div>
-      </div>
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-     
-
-    </div>
-    <!-- /.content-wrapper -->
-    <?php include 'foot.php' ;?>
-
-                    <tr>
-
-
-        <a  class="btn btn-success btn-block " href="#">transférer</a>
-
-                        </td>
-                       
-
-                       
-                    </tr>
-                   
-                   
-          
-
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-     
-
-    </div>
+            </div>
+   
     <!-- /.content-wrapper -->
 <?php include 'foot.php'; ?>
