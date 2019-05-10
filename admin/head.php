@@ -16,9 +16,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <link rel="shortcut icon" href="nvlog.png">
+
   <meta name="author" content="">
 
-  <title>espac admin</title>
+  <title>EvvaMode</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
