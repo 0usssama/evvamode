@@ -115,8 +115,8 @@
 						<div class="account-row-list pull-right mobile-menu-off">
 							
 							<ul>
-								<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-								<li><a href="loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
+								<li><a href="wishlist.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
+								<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 							</ul>
 						</div>
 						<!-- /fin de menu inscrire -->
@@ -482,7 +482,9 @@
 								<a href="soldes.php" ><span class="act-underline">Soldes</span></a> <br>
 					
 							
-								<a href="contact.php" ><span class="act-underline">Contact</span></a> 
+								<a href="contact.php" ><span class="act-underline">Contact</span></a> <br>
+								
+								<a href="cgv.php" ><span class="act-underline">CGV</span></a> 
 
 						
 						</div>
@@ -497,7 +499,7 @@
 				<div class="col-sm-8 col-md-4">
 					<!-- -->
 					<div class="mobile-collapse">
-						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contact</h4>
+						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contactez nous</h4>
 						<div class=" mobile-collapse__content">							
 							<!-- address -->
 							<address class="box-address">

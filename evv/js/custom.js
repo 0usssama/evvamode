@@ -190,16 +190,18 @@
 				  slidesToScroll: 1,
 				  arrows: false,
 				  fade: true,
+				  centerMode: true,
 				   centerPadding: '40px',
 				   infinite: true,
 				  asNavFor: '.slider-product-small'
 				});
 				$j('.slider-product-small').slick({
-				  slidesToShow: 4,
+				  slidesToShow: 2,
 				  slidesToScroll: 1,
 				  infinite: true,
 				  asNavFor: '.slider-product-large',
 				  dots: true,
+				  centerMode: true,
 				 centerPadding: '40px',
 				  focusOnSelect: true
 				});
@@ -491,8 +493,8 @@
 	    carousel.slick({
 	        infinite: true,
 	        dots: false,
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
+	        slidesToShow: 2,
+	        slidesToScroll: 2,
 	        responsive: [{
 				breakpoint: 768,
 				settings: {
@@ -516,8 +518,8 @@
 	    carousel.slick({
 	        infinite: true,
 	        dots: false,
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
+	        slidesToShow: 2,
+	        slidesToScroll: 2,
 	        responsive: [{
 				breakpoint: 1200,
 				settings: {
@@ -665,14 +667,14 @@
 				},{
 				breakpoint: 1199,
 				settings: {
-	                slidesToShow: 3,
-	                slidesToScroll: 3
+	                slidesToShow: 2,
+	                slidesToScroll: 2
 					}
 				},{
 				breakpoint: 768,
 				settings: {
-	                slidesToShow: 3,
-	                slidesToScroll: 3
+	                slidesToShow: 2,
+	                slidesToScroll: 2
 					}
 				}, 
 				{
@@ -709,7 +711,7 @@
 			responsive: [{
 				breakpoint: 1200,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 2,
 					slidesToScroll: 1
 				}
 			},{

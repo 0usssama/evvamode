@@ -53,7 +53,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-           <a href="index.php" id="espace"> <h4 class="text-light"><i class="fas fa-shopping-bag mr-1"></i>Espace achats</h4></a>
+           <a href="index.php" id="espace"> <h4 class="text-light"><i class="fas fa-shopping-bag mr-1"></i>Espace commande </h4></a>
 
           <ul class="navbar-nav  ml-auto">
             

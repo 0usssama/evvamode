@@ -110,8 +110,8 @@
 							<div class="account-row-list pull-right mobile-menu-off">
 								
 								<ul>
-									<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-									<li><a href="loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
+									<li><a href="wishlist.php"><span class="icon icon-place"></span> <b>Nos point de vent</b></a></li>
+									<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 								</ul>
 							</div>
 							<!-- /fin de menu inscrire -->
@@ -254,7 +254,7 @@
 			<h2 class="hidden">Slider Section</h2>
 			<div class="tp-banner-container">
 		
-				<div class="tp-banner">
+				<div class="tp-banner" >
 					<ul>
 						<!-- SLIDE -1 -->
 						<?php
@@ -274,7 +274,8 @@
 								data-start="700" 
 								data-easing="Power1.easeOut" 
 								data-endeasing="Power1.easeIn" 
-								style="z-index: 2;">
+								style="z-index: 2;
+								">
 					     
 								<div class="tp-caption1--wd-3" >EvvaMode <br>groube de styliste</div>
 							
@@ -303,46 +304,33 @@
 		
 					<div class="row">
 						<div class="category-carousel">
-							<div class="col-sm-4 col-md-4 col-lg-4">
-								<a  href="moderne.html"  class="banner zoom-in" >
+                          
+							<div  class="col-sm-6 col-md-6 col-lg-6">
+								<a  href="moderne.php"  class="banner zoom-in" >
 								
 									<span class="figure">
-										<img src="images/custom/ig.jpg" alt=""/>
+										<img  height="600" src="caaa.jpg" alt=""/>
 										<span class="figcaption">
-											<span class="block-table">
+											<span class="block-table" style="background-color: rgba(0,0,0,0.4);">
 												<span class="block-table-cell">
-													<span class="banner__title size5">Moderne</span>
-													<span class="btn btn--ys btn--xl">voir!</span>
+													<span class="banner__title size5">Modernne</span>
+												
 												</span>
 											</span>
 										</span>
 									</span>
 								</a>
 							</div>
-							<div class="col-sm-4 col-md-4 col-lg-4">
-								<a href="images/custom/ig1.jpg" class="banner zoom-in">
+						
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<a href="traditionnel.php" class="banner zoom-in">
 								<span class="figure">
-									<img src="images/custom/ig1.jpg" alt=""/>
-									<span class="figcaption">
-										<span class="block-table">
-											<span class="block-table-cell">
-												<span class="btn btn--ys btn--xl">voir!</span>
-											
-											</span>
-										</span>
-									</span>
-								</span>
-								</a>
-							</div>
-							<div class="col-sm-4 col-md-4 col-lg-4">
-								<a href="traditionnel.html" class="banner zoom-in">
-								<span class="figure">
-									<img src="images/custom/ig3.jpg" alt=""/>
-									<span class="figcaption">
-										<span class="block-table">
+									<img  height="600" src="carak.jpg" alt=""/>
+									<span class="figcaption" >
+										<span class="block-table"  style="background-color: rgba(0,0,0,0.4);">
 											<span class="block-table-cell">
 												<span class="banner__title size5">Traditionnel</span>
-												<span class="btn btn--ys btn--xl">voir!</span>
+												
 											</span>
 										</span>
 									</span>
@@ -391,9 +379,9 @@
 									<!--  -->
 									<div class="recent-post-box">
 										<div class="col-lg-12 col-xl-6">
-											<a href="blog-post-right-column.html">
+											
 												<span class="figure">
-													<img src="images/custom/layout11/ig8.jpg" alt="">
+													<img src="robe_karim.jpg" alt="">
 													<span class="figcaption label-top-left">
 														<span>
 															<b>top</b>
@@ -401,7 +389,7 @@
 														</span>
 													</span>
 												</span>
-											</a>
+										
 										</div>
 										<div class="col-lg-12 col-xl-6">
 											<div class="recent-post-box__text">
@@ -416,9 +404,9 @@
 									<!--  -->
 									<div class="recent-post-box">
 										<div class="col-lg-12 col-xl-6">
-											<a href="blog-post-right-column.html">
+										
 											<span class="figure">
-											<img src="images/custom/layout11/ig7.jpg" alt="">
+											<img src="caftan11.jpg" alt="">
 											<span class="figcaption label-top-left">
 											<span>
 											<b>top</b>
@@ -426,7 +414,7 @@
 											</span>
 											</span>
 											</span>
-											</a>
+											
 										</div>
 										
 									</div>
@@ -438,9 +426,9 @@
 									<!--  -->
 									<div class="recent-post-box">
 										<div class="col-lg-12 col-xl-6">
-											<a href="blog-post-right-column.html">
+										
 												<span class="figure">
-													<img src="images/custom/layout11/ig4.jpg" alt="">
+													<img src="carako_modern_rayan.jpg" alt="">
 													<span class="figcaption label-top-left">
 														<span>
 															<b>top</b>
@@ -448,7 +436,7 @@
 														</span>
 													</span>
 												</span>
-											</a>
+										
 										</div>
 										
 									</div>
@@ -544,11 +532,10 @@
 									<a href="evenement.php"><span class="act-underline">Evenement</span></a><br>
 								
 									<a href="soldes.php" ><span class="act-underline">Soldes</span></a> <br>
-						
-								
-									<a href="contact.php" ><span class="act-underline">Contact</span></a> 
 
-							
+									<a href="contact.php" ><span class="act-underline">Contact</span></a> <br>
+
+							        <a href="cgv.php" ><span class="act-underline">CGV</span></a> 
 							</div>
 						</div>
 						<!-- / -->
@@ -561,7 +548,7 @@
 					<div class="col-sm-8 col-md-4">
 						<!-- -->
 						<div class="mobile-collapse">
-							<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contact</h4>
+							<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contactez nous</h4>
 							<div class=" mobile-collapse__content">							
 								<!-- address -->
 								<address class="box-address">
