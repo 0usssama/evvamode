@@ -16,18 +16,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <link rel="shortcut icon" href="nvlog.png">
+
   <meta name="author" content="">
 
-  <title>espac admin</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <title>EvvaMode</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
 <style>
 .form-control-borderless {
     border: none;
@@ -46,7 +56,7 @@
   <nav class="navbar navbar-expand sticky-top navbar-dark bg-dark ">
 
     <a class="navbar-brand mr-1" href="index.html">
-      <img src="log.png" width="40" height="55">     Espace admin</a>
+      <img src="log.png" width="40" height="55">  EvvaMode</a>
 
    
 
@@ -76,63 +86,63 @@
 <ul class="sidebar navbar-nav">
 <li class="nav-item">
     <a class="nav-link" href="admin.php">
-      <i class="fas fa-fw fa-2x fa-user-lock"></i>
+      <i class="fas fa-fw fa-2x fa-user-lock text-danger" ></i>
       <span>Admins</span>
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="client.php">
-      <i class="fas fa-fw fa-2x fa-users"></i>
+      <i class="fas fa-fw fa-2x fa-users text-danger" ></i>
       <span>Clients</span>
     </a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="article.php">
-    <i class="far fa-2x fa-id-card"></i>    
+    <i class="far fa-2x fa-id-card text-danger"></i>    
       <span>Article</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="categories.php">
-    <i class="fas fa-2x fa-align-justify"></i>
+    <i class="fas fa-2x fa-align-justify text-danger"></i>
       <span>categories</span></a>
   </li>
 
   <li class="nav-item">
       <a class="nav-link" href="styliste.php">
-      <i class="fas fa-2x  fa-address-book"></i>
+      <i class="fas fa-2x  fa-address-book text-danger"></i>
         <span>Stylistes</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="commandes.php">
-        <i class="fas fa-2x fa-shopping-cart"></i>
+        <i class="fas fa-2x fa-shopping-cart text-danger"></i>
           <span>Commandes</span></a>
       </li>
 
       <li class="nav-item">
           <a class="nav-link" href="point_de_ventes.php">
-          <i class="fas fa-2x fa-map-marker-alt"></i>
+          <i class="fas fa-2x fa-map-marker-alt text-danger"></i>
             <span>Points de ventes</span></a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="slider.php">
-            <i class="far fa-2x fa-images"></i>
+            <i class="far fa-2x fa-images text-danger"></i>
               <span>Slider</span></a>
           </li>
 
 
           <li class="nav-item">
               <a class="nav-link" href="evenement.php">
-              <i class="fas fa-2x fa-camera-retro"></i>
+              <i class="fas fa-2x fa-camera-retro text-danger"></i>
                 <span>Evenement</span></a>
             </li>
 
            
               <li class="nav-item">
                   <a class="nav-link" href="solder.php">
-                    <i class="fas fa-fw fa-2x fa-percentage"></i>
+                    <i class="fas fa-fw fa-2x fa-percentage  text-danger"></i>
                     <span>Soldes</span></a>
                 </li>
 
@@ -140,13 +150,13 @@
                 
               <li class="nav-item">
                   <a class="nav-link" href="date.php">
-                    <i class="fas fa-fw fa-2x fa-calendar-alt"></i>
+                    <i class="fas fa-fw fa-2x fa-calendar-alt text-danger"></i>
                     <span>date</span></a>
                 </li>
                 
                 <li class="nav-item">
                     <a class="nav-link" href="votes.php">
-                    <i class="fas  fa-2x fa-star-half-alt"></i>
+                    <i class="fas  fa-2x fa-star-half-alt text-danger"></i>
                       <span>Votes</span></a>
                   </li>
 

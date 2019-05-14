@@ -10495,7 +10495,7 @@ body {
 
 .sidebar {
   
-  background-color: hsl(0, 100%, 29%);
+  background-color:#000000;
   height: 100vh !important;
   overflow: scroll;  
   position:fixed;

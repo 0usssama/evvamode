@@ -47,7 +47,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <h4 class="text-light"><i class="fas fa-shopping-bag mr-1"></i>Espace achats</h4>
+            <h4 class="text-light"><i class="fas fa-shopping-bag mr-1"></i>Espace commande </h4>
 
                 <form class="form-inline my-2 my-lg-0 ml-5">
                         <input class="form-control mr-sm-2" type="search" placeholder="caftan.." aria-label="Pro">

@@ -91,7 +91,11 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+<<<<<<< HEAD
                             <h5 class="modal-title" id="exampleModalLabel"></h5>
+=======
+                            <h5 class="modal-title" id="exampleModalLabel">point de vente</h5>
+>>>>>>> 43a49f043b486f074628d2f6ab680ac45832187d
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
