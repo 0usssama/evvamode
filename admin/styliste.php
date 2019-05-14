@@ -23,26 +23,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
     <div class="container-fluid">
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters align-items-center">
-
-                        <!--end of col-->
-                        <div class="col">
-                            <input class="form-control form-control-lg form-control-borderless" type="search"
-                                placeholder="Rechercher une famille">
-                        </div>
-                        <!--end of col-->
-                        <div class="col-auto">
-                            <button class="btn btn-lg btn-success" type="submit">rechercher</button>
-                        </div>
-                        <!--end of col-->
-                    </div>
-                </form>
-            </div>
-            <!--end of col-->
-        </div>
+       
 
         <!-- Page Content -->
         <h1>Stylistes</h1>
@@ -99,7 +80,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">styliste</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -126,7 +107,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">styliste</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

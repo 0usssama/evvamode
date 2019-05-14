@@ -51,7 +51,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         $sql = "SELECT * FROM point_de_vente";
        
         ?>
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une category</button>
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter un point de vente</button>
        
                   <table class="table  custab">
                       <thead>
@@ -91,7 +91,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">point de vente</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

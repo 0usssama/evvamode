@@ -45,7 +45,7 @@
 
                 <?php 
                 $sql_commande = "SELECT commande.id_commande, commande.date_commande, commande.etat_commande, 
-                commande.id_client, commande.id_pv, client.nom_client, client.prenom_client
+                commande.id_client, commande.id_pv, client.nom_client, client.prenom_client, client.id_client
                         
                 FROM commande
                 JOIN client
@@ -72,28 +72,75 @@
             JOIN article 
             ON article.id_art = article_commande.id_art
             WHERE article_commande.id_commande='". $commande['id_commande'] . "'";
+                    $articles_email = "";
             
             if($pdo->query($sql_article)){
                 foreach  ($pdo->query($sql_article) as $article) {
+                    $articles_email .= $article['nom_art'] . "(". $article['quantite_article_commande'] . " piéce),";
                     ?>
             <li><?php echo $article['nom_art']; ?> <b>(<?php echo $article['quantite_article_commande']; ?>)</b></li>
-            <?php }
+            <?php 
+            
+        }
             }; ?>
             
             </ul>
             
             </td>
-            <td class="text-center"><button type="button" class="btn btn-info" data-toggle="modal"
-                 data-target="#m<?php echo $row['id_commande'] ;?>">Valider </button></td>
+               <!-- ********************************* -->
+               <td class="text-center"><button type="button" class="btn btn-info" data-toggle="modal"
+                 data-target="#valider<?php echo $article['id_commande'] ;?>">Valider</button></td>
+
+               <div class="modal fade" id="valider<?php echo $article['id_commande'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $article['id_commande'] ;?>" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">commande</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        
+                        <?php 
+                $sql_point_de_vente = "SELECT * FROM point_de_vente WHERE id_pv= '".  $commande['id_pv'] ."'";
+                if($pdo->query($sql_point_de_vente)){
+                    foreach  ($pdo->query($sql_point_de_vente) as $point_de_vente) {
+                ?>
+            
+                            <form action="modifier/valider_commande.php?id_commande=<?php echo $commande['id_commande'] ;?>&email=<?php  echo $point_de_vente['email_res_pv'];?> " method="post">
+                                <h1 class="mb-5">voulez-vous valider la  commandes n°<?php echo $commande['id_commande'] ;?> </h1>
+                                
+
+            <?php 
+                $message="Vous avez une commande N° {$commande['id_commande']} de client N° {$commande['id_client']} qui a les articles suivant: {$articles_email}";
+                
+            ?>
+                    
+          
            
+            <?php }
+            }; ?>
+                            <input type="text" name="responsable" value="<?php echo $point_de_vente['nom_res_pv']. " ". $point_de_vente['prenom_res_pv'];?>" hidden>
+                            <input type="text" name="message" value="<?php echo $message ;?>" hidden>
+                                <button type="submit" class="btn btn-block btn-info" name="valider">valider</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
                
+               <!-- ****************** -->
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                 data-target="#m<?php echo $row['id_commande'] ;?>">Supprimer</button></td>
+                 data-target="#m<?php echo $article['id_commande'] ;?>">Supprimer</button></td>
             </tr>
        
-            <div class="modal fade" id="m<?php echo $row['id_commande'] ;?>" tabindex="-1" role="dialog"
-                aria-labelledby="m<?php echo $row['id_commande'] ;?>" aria-hidden="true">
+            <div class="modal fade" id="m<?php echo $article['id_commande'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $article['id_commande'] ;?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -103,8 +150,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_commandes.php?id_commande=<?php echo $row['id_commande'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer commandes n°<?php echo $row['id_commande'] ;?> </h1>
+                            <form action="supprimer/supprimer_commandes.php?id_commande=<?php echo $article['id_commande'] ;?> " method="post">
+                                <h1 class="mb-5">voulez-vous supprimer commandes n°<?php echo $article['id_commande'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -126,5 +173,11 @@
        
             </div>
    
+   <script>
+   $('a').click(function(){
+       console.log('pressed');
+       
+   })
+   </script>
     <!-- /.content-wrapper -->
 <?php include 'foot.php'; ?>
