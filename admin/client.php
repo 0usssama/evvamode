@@ -7,23 +7,7 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-          <div class="row justify-content-center">
-              <div class="col-12 col-md-10 col-lg-8">
-                  <form class="card card-sm">
-                      <div class="card-body row no-gutters align-items-center">
-                         
-                          <!--end of col-->
-                          <div class="col">
-                              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Rechercher un client">
-                          </div>
-                          <!--end of col-->
-                          <div class="col-auto">
-                              <button class="btn btn-lg btn-success" type="submit">rechercher</button>
-                          </div>
-                          <!--end of col-->
-                      </div>
-                  </form>
-              </div>
+         
               <!--end of col-->
           </div>
        

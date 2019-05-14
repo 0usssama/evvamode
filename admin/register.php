@@ -23,7 +23,7 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header"  style= color:#ffffff; > Créer un compte</div>
+      <div class="card-header" style="color:white;" > Créer un compte</div>
       <div class="card-body">
         <form method="post" action="ajouter/ajouter_client.php" class="needs-validation">
           <div class="form-group">
