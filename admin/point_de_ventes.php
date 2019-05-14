@@ -51,7 +51,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         $sql = "SELECT * FROM point_de_vente";
        
         ?>
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une category</button>
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter point_de_vente</button>
        
                   <table class="table  custab">
                       <thead>
@@ -74,8 +74,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                <tr>
                 <td><?php echo $row['id_pv'] ;?></td>
                 <td><?php echo $row['adresse_pv'] ;?></td>
-                <td><?php echo $row['nom_res_pv'] ;?></td>
-                <td><?php echo $row['prenom_res_pv'] ;?></td>
+                <td><?php echo $row['nom_res_pv'] . " " . $row['prenom_res_pv'] ;?></td>
+              
                 <td><?php echo $row['email_res_pv'] ;?></td>
              
                 <td><?php echo $row['tel_pv'] ;?></td>
@@ -91,7 +91,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -123,7 +123,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">point_de_ventes</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -143,7 +143,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   <div class="form-group">
                     <div class="form-label-group">
                       <input type="text" id="prenom_res_pv" name="prenom_res_pv" class="form-control" placeholder="prenom..." required="required" autofocus="autofocus">
-                      <label for="prenom_res_pv">Nom </label>
+                      <label for="prenom_res_pv">prenom  du responsable </label>
                     </div>
                   </div>
                     

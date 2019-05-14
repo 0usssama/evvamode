@@ -115,8 +115,8 @@
 						<div class="account-row-list pull-right mobile-menu-off">
 							
 							<ul>
-								<li><a href="wishlist.php"><span class="icon icon-place"></span>Nos point de vente</a></li>
-								<li><a href="loginouss.php"><span class="icon icon-lock"></span>espace client</a></li>
+								<li><a href="wishlist.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
+								<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 							</ul>
 						</div>
 						<!-- /fin de menu inscrire -->
@@ -402,11 +402,11 @@
 					</div>
 					<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
 					
-						<div class="product-info__title">
-							<h2><?php echo $article['nom_art']; ?></h2>
+						<div class="product-info__title" >
+							<h2 style="color: #fff;"><?php echo $article['nom_art']; ?></h2>
 						</div>
 						<div class="price-box product-info__price">
-							<span class="price-box__new"><?php echo $article['prix_art']; ?></span> 
+							<span class="price-box__new" ><?php echo $article['prix_art']; ?> DA</span> 
 						</div>
 						
 						<div class="divider divider--xs product-info__divider">
@@ -429,14 +429,15 @@
 							<?php echo $article['descri_art']; ?>
 						</div>
 
-						<div class="divider divider--xs product-info__divider"><?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
+						<div class="divider divider--xs product-info__divider" style="color:#fff;">
+						<br> styliste: <?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
 						<?php
                                     } }else{
 																			echo 'ça marche pas';
-																		}?>
+																		}?><br>
 
-						<br>
-						<div class="wrapper">
+					
+						<div class="wrapper">	<br>
 						 <div class="pull-left">
 						<button type="submit" class="btn btn--ys btn--xxl"> Commande</button></div>
 						</div>
@@ -511,7 +512,9 @@
 								<a href="soldes.php" ><span class="act-underline">Soldes</span></a> <br>
 					
 							
-								<a href="contact.php" ><span class="act-underline">Contact</span></a> 
+								<a href="contact.php" ><span class="act-underline">Contact</span></a> <br> 
+									
+								<a href="cgv.php" ><span class="act-underline">CGV</span></a> 
 
 						
 						</div>
@@ -526,7 +529,7 @@
 				<div class="col-sm-8 col-md-4">
 					<!-- -->
 					<div class="mobile-collapse">
-						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contact</h4>
+						<h4 class="text-left text-uppercase  title-under  mobile-collapse__title text-uppercase">Contactez nous</h4>
 						<div class=" mobile-collapse__content">							
 							<!-- address -->
 							<address class="box-address">

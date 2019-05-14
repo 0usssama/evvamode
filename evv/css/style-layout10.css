@@ -12842,6 +12842,7 @@ table .input-counter .plus-btn:before {
 }
 /*==== /carousel title+arrows====*/
 .category-carousel .category img {
+ 
   width: 100%;
 }
 /*==== banner-slider-button====*/
@@ -13271,7 +13272,7 @@ table .input-counter .plus-btn:before {
 }
 .recent-post-box img {
   width: 100%;
-  height: auto;
+  height: 500px;
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, transform 0.3s;
   -webkit-transform: scale(1);
