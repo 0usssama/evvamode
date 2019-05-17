@@ -57,6 +57,10 @@
 
           <ul class="navbar-nav  ml-auto">
             
+          <li class="nav-item active">
+              <a class="nav-link" href="../evv/cgv.html"><i class="fa fa-file"></i>&nbsp;CGV</a>
+            </li>
+
             <li class="nav-item ">
               <a class="nav-link" href="pannier.php"><i class="fas fa-shopping-basket"></i>&nbsp; <span id="nbrArticle">
                   <?php

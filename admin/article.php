@@ -99,10 +99,10 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
 
                 <td><?php echo $row['desi_catg'] ;?></td>
-                <td class="text-center"><button type="button" class="btn btn-warning" data-toggle="modal"
-                        data-target="#modifier<?php echo $row['id_art'] ;?>">Modifier</button></td>
-                        <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['id_art'] ;?>">Supprimer</button></td>
+                <td class="text-center"><button type="button"class="btn btn-warning" data-toggle="modal"
+                        data-target="#modifier<?php echo $row['id_art'] ;?>"><i class="fas fa-marker"></i></button></td>
+                        <td class="text-center"><button type="button"class="btn btn-danger"data-toggle="modal"
+                        data-target="#m<?php echo $row['id_art'] ;?>"><i class="fas fa-trash"></i></button></td>
 
 
 
@@ -114,14 +114,14 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Article</h5>Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>supprimer Article</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_article.php?id_art=<?php echo $row['id_art'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer article n°<?php echo $row['id_art'] ;?> </h1>
+                                <h1 class="mb-5" style="color:#000;">voulez-vous supprimer article n°<?php echo $row['id_art'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -138,7 +138,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">modifier article</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -275,7 +275,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">article</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle"> Ajouter article</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

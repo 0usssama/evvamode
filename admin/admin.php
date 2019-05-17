@@ -76,7 +76,7 @@
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['id_admin'] ;?>">Supprimer</button></td>
+                        data-target="#m<?php echo $row['id_admin'] ;?>"><i class="fas fa-trash"></i></button></td>
             </tr>
 
             <div class="modal fade" id="m<?php echo $row['id_admin'] ;?>" tabindex="-1" role="dialog"

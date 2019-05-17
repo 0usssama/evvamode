@@ -73,7 +73,7 @@
             </td>
                <!-- ********************************* -->
                <td class="text-center"><button type="button" class="btn btn-info" data-toggle="modal"
-                 data-target="#valider<?php echo $article['id_commande'] ;?>">Valider</button></td>
+                 data-target="#valider<?php echo $article['id_commande'] ;?>"><i class="far fa-check-square"></i></button></td>
 
                <div class="modal fade" id="valider<?php echo $article['id_commande'] ;?>" tabindex="-1" role="dialog"
                 aria-labelledby="m<?php echo $article['id_commande'] ;?>" aria-hidden="true">
@@ -94,7 +94,7 @@
                 ?>
             
                             <form action="modifier/valider_commande.php?id_commande=<?php echo $commande['id_commande'] ;?>&email=<?php  echo $point_de_vente['email_res_pv'];?> " method="post">
-                                <h1 class="mb-5">voulez-vous valider la  commandes n°<?php echo $commande['id_commande'] ;?> </h1>
+                                <h1 class="mb-5" style="color:#000;">voulez-vous valider la  commandes n°<?php echo $commande['id_commande'] ;?> </h1>
                                 
 
             <?php 
@@ -119,8 +119,8 @@
                
                <!-- ****************** -->
 
-                <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                 data-target="#m<?php echo $article['id_commande'] ;?>">Supprimer</button></td>
+                <td class="text-center"><button type="button"  class="btn btn-danger" data-toggle="modal"
+                 data-target="#m<?php echo $article['id_commande'] ;?>"><i class="fas fa-trash"></i></button></td>
             </tr>
        
             <div class="modal fade" id="m<?php echo $article['id_commande'] ;?>" tabindex="-1" role="dialog"
@@ -135,7 +135,7 @@
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_commandes.php?id_commande=<?php echo $article['id_commande'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer commandes n°<?php echo $article['id_commande'] ;?> </h1>
+                                <h1 class="mb-5" style="color:#000;">voulez-vous supprimer commandes n°<?php echo $article['id_commande'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>

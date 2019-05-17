@@ -50,6 +50,7 @@ if(isset($_REQUEST['valider'])){
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message has been sent';
+      $sql= "UPDATE commande SET  etat_commande ='valider'" ;
         //hna update ta3 commande => validé
         //dirouha 
     }

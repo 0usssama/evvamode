@@ -81,7 +81,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                
 
                 <td class="text-center col"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['id_event'] ;?>">Supprimer</button></td>
+                        data-target="#m<?php echo $row['id_event'] ;?>"><i class="fas fa-trash"></i></button></td>
             </tr>
        
             <div class="modal fade" id="m<?php echo $row['id_event'] ;?>" tabindex="-1" role="dialog"

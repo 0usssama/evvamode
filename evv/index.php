@@ -406,7 +406,7 @@
 										<div class="col-lg-12 col-xl-6">
 										
 											<span class="figure">
-											<img src="caftan11.jpg" alt="">
+											<img src="nadia.jpg" alt="">
 											<span class="figcaption label-top-left">
 											<span>
 											<b>top</b>

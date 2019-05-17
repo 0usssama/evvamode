@@ -493,7 +493,7 @@
 							
 								<a href="contact.php" ><span class="act-underline">Contact</span></a> <br>
 
-								<a href="cgv.php" ><span class="act-underline">CGV</span></a> 
+								<a href="cgv.html" ><span class="act-underline">CGV</span></a> 
 
 								
 						</div>
