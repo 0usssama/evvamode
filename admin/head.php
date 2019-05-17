@@ -119,6 +119,8 @@
         <i class="fas fa-2x fa-shopping-cart text-danger"></i>
           <span>Commandes</span></a>
       </li>
+      
+    
 
       <li class="nav-item">
           <a class="nav-link" href="point_de_ventes.php">
@@ -160,5 +162,9 @@
                       <span>Votes</span></a>
                   </li>
 
-                
+                  <li class="nav-item">
+        <a class="nav-link" href="commandes_archive.php">
+        <i class="fas fa-2x fa-shopping-cart text-danger"></i>
+          <span>archive</span></a>
+      </li>
 </ul>

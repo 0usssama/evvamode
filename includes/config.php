@@ -20,5 +20,5 @@ $options = array(
 
 //Connect to MySQL and instantiate our PDO object.
 $pdo = new PDO("mysql:host=$host;dbname=$database", $user, $pass, $options);
-
+$pdo->exec("set names utf8");
 ?>

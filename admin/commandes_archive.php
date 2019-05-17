@@ -10,7 +10,7 @@
           </div>
 
         <!-- Page Content -->
-        <h1>Commandes en cours</h1>
+        <h1>Commandes validées</h1>
         <hr>
 
 
@@ -20,10 +20,11 @@
                 <tr>    
                     <th>Id</th>  
                     <th>date</th>              
+                    <td>Validée le </td>
                     <th>Client</th>
                     <th>point de vente</th>
                     <th>Les articles commandés</th>
-                    <th>validation</th>
+                    <th></th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -31,13 +32,13 @@
                 <?php 
                 $sql_commande = "SELECT commande.id_commande, commande.date_commande, commande.etat_commande, 
                 commande.id_client, commande.id_pv, client.nom_client, client.prenom_client, client.id_client,
-                point_de_vente.adresse_pv  
+                point_de_vente.adresse_pv, commande.date_validation_commande
                 FROM commande
                 JOIN client
                 ON client.id_client = commande.id_client
                 JOIN point_de_vente
                 ON commande.id_pv = point_de_vente.id_pv
-                WHERE commande.etat_commande != 'validée'
+                WHERE commande.etat_commande = 'validée'
                 ;";
  if($pdo->query($sql_commande)){
             foreach  ($pdo->query($sql_commande) as $commande) { ?>
@@ -47,7 +48,8 @@
             <tr>
             <td><?php echo $commande['id_commande']; ?></td>
             <td><?php echo $commande['date_commande']; ?></td>
-            <td><?php echo $commande['nom_client']. " ". $commande['prenom_client'] ; ?></td>
+              <td><?php echo $commande['date_validation_commande']; ?></td>
+              <td><?php echo $commande['nom_client']. " ". $commande['prenom_client'] ; ?></td>
            <td><?php echo $commande['adresse_pv']; ?></td>  <td>
             <ul>
            <?php
@@ -75,51 +77,9 @@
             
             </td>
                <!-- ********************************* -->
-               <td class="text-center"><button type="button" class="btn btn-info" data-toggle="modal"
-                 data-target="#valider<?php echo $article['id_commande'] ;?>"><i class="far fa-check-square"></i></button></td>
+               <td class="text-center"></td>
 
-               <div class="modal fade" id="valider<?php echo $article['id_commande'] ;?>" tabindex="-1" role="dialog"
-                aria-labelledby="m<?php echo $article['id_commande'] ;?>" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">commande</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                        
-                        <?php 
-                $sql_point_de_vente = "SELECT * FROM point_de_vente WHERE id_pv= '".  $commande['id_pv'] ."'";
-                if($pdo->query($sql_point_de_vente)){
-                    foreach  ($pdo->query($sql_point_de_vente) as $point_de_vente) {
-                ?>
-            
-                            <form action="modifier/valider_commande.php?id_commande=<?php echo $commande['id_commande'] ;?>&email=<?php  echo $point_de_vente['email_res_pv'];?> " method="post">
-                                <h1 class="mb-5" style="color:#000;">voulez-vous valider la  commandes n°<?php echo $commande['id_commande'] ;?> </h1>
-                                
-
-            <?php 
-                $message="Vous avez une commande N° {$commande['id_commande']} de client N° {$commande['id_client']} qui a les articles suivant: {$articles_email}";
-                
-            ?>
-                    
-          
            
-            <?php }
-            }; ?>
-                            <input type="text" name="responsable" value="<?php echo $point_de_vente['nom_res_pv']. " ". $point_de_vente['prenom_res_pv'];?>" hidden>
-                            <input type="text" name="message" value="<?php echo $message ;?>" hidden>
-                                <button type="submit" class="btn btn-block btn-info" name="valider">valider</button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-               
                <!-- ****************** -->
 
                 <td class="text-center"><button type="button"  class="btn btn-danger" data-toggle="modal"
@@ -137,7 +97,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_commandes.php?id_commande=<?php echo $article['id_commande'] ;?> " method="post">
+                            <form action="supprimer/supprimer_commandes_archive.php?id_commande=<?php echo $article['id_commande'] ;?> " method="post">
                                 <h1 class="mb-5" style="color:#000;">voulez-vous supprimer commandes n°<?php echo $article['id_commande'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 mai 2019 à 15:11
+-- Généré le :  ven. 17 mai 2019 à 22:41
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   KEY `id_catg` (`id_catg`),
   KEY `id_styls` (`id_styls`),
   KEY `id_styl` (`id_styl`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `article`
@@ -79,8 +79,7 @@ INSERT INTO `article` (`id_art`, `nom_art`, `prix_art`, `url_img_art`, `descri_a
 (17, 'caftan noir et blanc', '20000', 'nadia.jpg', 'Ce caftan est en tissu de soie blanche avec un galon noir \r\net des petits piÃ¨ces de dentelle,les perles', NULL, 6, 9, 2),
 (18, 'caftan avec dentelle ', '30000', 'nadia2.jpg', '\r\nCe caftan est en tissu de soie mauve et noir  avec un galon noir \r\net des petits piÃ¨ces de dentelle noir ,les perles', NULL, 6, 9, 2),
 (19, 'karakou ', '20000', 'majj.jpg', 'Ce karakou est en tissu satin, est fait Ã  la main ', NULL, 8, 10, 1),
-(24, 'caftan ', '21600', 'caftan2.jpg', 'gnxfg,nmg,gml,xgphjkdtcgulycilc\r\nfxgjxfhkcugykyfodyererihjeÃ hpt,hpethjqepjt\r\nhnwfophrspthjwet)h^psjosr)j^p)srtkj^)srjkrsjok', NULL, 6, 8, 2),
-(25, 'robe', '12000', '2.jpg', 'ssssssssssssssssssssss', NULL, 6, 9, 2);
+(27, 'caftan', '30000', '26994150_390985691329144_6009809659336943125_n.jpg', 'ce caftan perler avec des pierre de swarovski ,le tissu de soie de couleur rose', NULL, 6, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -112,7 +111,13 @@ INSERT INTO `article_commande` (`prix_article_commande`, `quantite_article_comma
 (30000, 1, 18, 18),
 (24000, 1, 24, 18),
 (20000, 4, 19, 19),
-(24000, 4, 24, 19);
+(24000, 4, 24, 19),
+(20000, 3, 17, 20),
+(30000, 1, 18, 20),
+(21600, 4, 24, 20),
+(21600, 1, 24, 21),
+(20000, 3, 17, 22),
+(30000, 2, 18, 22);
 
 -- --------------------------------------------------------
 
@@ -182,21 +187,20 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `id_client` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
   `id_pv` int(11) DEFAULT NULL,
+  `date_validation_commande` date DEFAULT NULL,
   PRIMARY KEY (`id_commande`),
   KEY `id_client` (`id_client`),
   KEY `id_admin` (`id_admin`),
   KEY `id_pv` (`id_pv`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `commande`
 --
 
-INSERT INTO `commande` (`id_commande`, `date_commande`, `etat_commande`, `id_client`, `id_admin`, `id_pv`) VALUES
-(16, '2019-05-06', 'en cours', 3, 1, 1),
-(17, '2019-05-07', 'en cours', 3, 1, 1),
-(18, '2019-05-08', 'en cours', 8, 1, 1),
-(19, '2019-05-09', 'en cours', 8, 1, 1);
+INSERT INTO `commande` (`id_commande`, `date_commande`, `etat_commande`, `id_client`, `id_admin`, `id_pv`, `date_validation_commande`) VALUES
+(16, '2019-05-06', 'validée', 3, 1, 1, '2019-05-17'),
+(17, '2019-05-07', 'en cours', 3, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -272,14 +276,15 @@ CREATE TABLE IF NOT EXISTS `point_de_vente` (
   PRIMARY KEY (`id_pv`),
   KEY `id_admin` (`id_admin`),
   KEY `id_styls` (`id_styls`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `point_de_vente`
 --
 
 INSERT INTO `point_de_vente` (`id_pv`, `adresse_pv`, `nom_res_pv`, `prenom_res_pv`, `email_res_pv`, `tel_pv`, `id_admin`, `id_styls`) VALUES
-(1, 'alger, sahet cho', 'ouss', 'ousss', 'ouss@gmail.com', '0554 12 12 13', 1, NULL);
+(1, 'alger, sahet cho', 'ouss', 'ousss', 'ouss@gmail.com', '0554 12 12 13', 1, NULL),
+(3, 'khrayssia', 'Ouadjaout', 'sabrina', 'ouadjaout.sabrinna@gmail.com', '0558905764', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -294,16 +299,16 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `id_admin` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_slider`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `slider`
 --
 
 INSERT INTO `slider` (`id_slider`, `url_img_slider`, `id_admin`) VALUES
-(8, 'ev1.jpg', 1),
-(9, 'g1.jpg', 1),
-(11, 'dif.jpg', 1);
+(12, 'caf5.jpg', 1),
+(13, 'cafd.jpg', 1),
+(14, 'robe.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -365,20 +370,19 @@ CREATE TABLE IF NOT EXISTS `styliste` (
   `tel_styls` varchar(15) NOT NULL,
   `url_photo_styls` varchar(100) NOT NULL,
   `url_logo_styls` varchar(100) NOT NULL,
-  `descri_styls` varchar(255) NOT NULL,
+  `descri_styls` text NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
   `email_styls` varchar(60) NOT NULL,
   PRIMARY KEY (`id_styls`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `styliste`
 --
 
 INSERT INTO `styliste` (`id_styls`, `nom_styls`, `prenom_styls`, `tel_styls`, `url_photo_styls`, `url_logo_styls`, `descri_styls`, `id_admin`, `email_styls`) VALUES
-(8, 'Kadid', 'Karim', '0554 12 24 75', 'Profile.kadid.png', 'Logo_Kadid.png', 'Un virtuose de la haute couture\r\nKarim Kadid a commencÃ© son voyage dans sa ville dâ€™origine\r\n Ã  Miliana (Ã  lâ€™ouest de lâ€™AlgÃ©rie) en 1997 comme un simple \r\nartisan , il se perfectionne et gagne rapidement une \r\nreconnaissance internationale. ', NULL, 'karim.kadid@gmail.com'),
-(9, 'Nadia ', 'Boutaleb', '0778 14 78 25', 'nadia_photo.jpg', 'Logo-Nadia-Boutaleb-01.png', ' jâ€™ai toujours aimÃ© dessiner\r\n et coudre des vÃªtements, si bien que jâ€™en ai fait,\r\n finalement, mon mÃ©tier et ma passion. \r\nRien ne me paraÃ®t plus captivant, plus stimulant que de\r\nsaisir la beautÃ© complexe et mystÃ©rieuse du corps humain', NULL, 'nadia.boutaleb@gmail.com'),
+(9, 'Nadia', 'Boutaleb', '0778 14 78 25', 'nadia_photo.jpg', 'Logo-Nadia-Boutaleb-01.png', 'jâ€™ai toujours aimÃ© dessiner\r\n et coudre des vÃªtements, si bien que jâ€™en ai fait,\r\n finalement, mon mÃ©tier et ma passion. \r\nRien ne me paraÃ®t plus captivant, plus stimulant que de\r\nsaisir la beautÃ© complexe et mystÃ©rieuse du corps humain', NULL, 'nadia.boutaleb@gmail.com'),
 (10, ' Zeggane', 'Majda ', '0775 85 47 98', 'majdaa.jpg', 'majda.jpg', ' Jâ€™ai reprÃ©sentÃ© la culture algÃ©rienne avec brillance,\r\n ce qui mâ€™a valu beaucoup dâ€™encouragementÂ», raconte-t-elle. \r\nMajda sâ€™est distinguÃ©e tout au long de ses annÃ©es par un style \r\nunique. FiÃ¨re de sa culture algÃ©rienne, ', NULL, 'majda_ Zeggane@gmail.com');
 
 -- --------------------------------------------------------

@@ -50,7 +50,17 @@ if(isset($_REQUEST['valider'])){
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         echo 'Message has been sent';
-      $sql= "UPDATE commande SET  etat_commande ='valider'" ;
+        $today = date('Y-m-d');
+      $sql= "UPDATE commande SET  etat_commande ='validée', date_validation_commande='". $today. "'"  ." WHERE id_commande='". $id_commande ." '";
+        $updated = $pdo->query($sql);
+        
+//verifier si on a des résultats (true or false)
+if($updated){
+    header('location: ../commandes.php');
+}else{
+   echo "erreur sql";
+}
+
         //hna update ta3 commande => validé
         //dirouha 
     }
