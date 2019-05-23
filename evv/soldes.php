@@ -288,8 +288,8 @@
 			$sql = "SELECT article.id_styls,article.id_art, article.nom_art,article.nom_art,article.prix_art,
             article.url_img_art,article.descri_art,solder.pourcentage_solde, solder.ancien_prix
             FROM solder
-            JOIN dates
-            ON  dates.id_date = solder.id_date 
+            JOIN periode
+            ON  periode.id_pr = solder.id_pr 
             JOIN article
             ON article.id_art = solder.id_art  WHERE date_db < NOW() and date_fn > NOW()";
 			// y'affichi les lignes men ba3d dakhal la boucle en récupére le id 9bel mtakhlass la boucle bah njibo les produit ta3 la famille hadik berk

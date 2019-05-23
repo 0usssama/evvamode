@@ -13,7 +13,7 @@ if(isset($_POST['ajouter'])){
     $sql= "INSERT INTO solder ( 
         `pourcentage_solde`, 
         `id_art`,
-        `id_date`,
+        `id_pr`,
         `ancien_prix`)
      VALUES (
          :pourcentage,
@@ -33,13 +33,13 @@ $pourcentage =  $_POST['pourcentage_solde'];
    $idart= strpos($_POST['id_art'], '/');
    $idart = substr($_POST['id_art'], 0, $idart);
 
-   $iddate= strpos($_POST['id_date'], '/');
-   $iddate = substr($_POST['id_date'], 0, $iddate);
+   $iddate= strpos($_POST['id_pr'], '/');
+   $iddate = substr($_POST['id_pr'], 0, $iddate);
 
 
    /*
-   $datesolde= strpos($_POST['id_date'], '-');
-      $idcatg = substr($_POST['id_date'], 0, $datesolde);
+   $datesolde= strpos($_POST['id_pr'], '-');
+      $idcatg = substr($_POST['id_pr'], 0, $datesolde);
 */
   
    $id_admin = 1;

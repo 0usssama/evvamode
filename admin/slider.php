@@ -75,7 +75,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_slider.php?id_slider=<?php echo $row['id_slider'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer slider n°<?php echo $row['id_slider'] ;?> </h1>
+                                <h1 class="mb-5"  style="color:#000;">voulez-vous supprimer slider n°<?php echo $row['id_slider'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>

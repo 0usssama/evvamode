@@ -58,7 +58,7 @@
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_client.php?id_client=<?php echo $row['id_client'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer client n°<?php echo $row['id_client'] ;?> </h1>
+                                <h1 class="mb-5"  style="color:#000;">voulez-vous supprimer client n°<?php echo $row['id_client'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>

@@ -80,7 +80,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">styliste</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"> Supprimer styliste</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -89,7 +89,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                                 <form
                                     action="supprimer/supprimer_styliste.php?id_styls=<?php echo $row['id_styls'] ;?> "
                                     method="post">
-                                    <h1 class="mb-5">voulez-vous supprimer styliste n°<?php echo $row['id_styls'] ;?>
+                                    <h1 class="mb-5" style=color:#000;>voulez-vous supprimer styliste n°<?php echo $row['id_styls'] ;?>
                                     </h1>
                                     <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                         value="supprimer">
@@ -107,7 +107,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">styliste</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"> Modifier styliste</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -200,7 +200,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Ajouter Sytliste</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

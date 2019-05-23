@@ -33,11 +33,11 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
         
         <?php
         $sql = "SELECT article.id_art,
-        article.nom_art,dates.id_date, dates.date_db,
+        article.nom_art,periode.id_pr, periode.date_db,
         solder.pourcentage_solde 
         FROM solder 
-        JOIN dates on 
-        dates.id_date = solder.id_date
+        JOIN periode on 
+        periode.id_pr = solder.id_pr
         join article
         ON  article.id_art = solder.id_art ";
        
@@ -62,7 +62,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                <tr>
                 <td><?php echo $row['pourcentage_solde'] ;?></td>
                 <td><?php echo $row['id_art']. '/'. $row['nom_art'];?></td>
-                <td><?php echo $row['id_date']. '/'. $row['date_db'];?></td>
+                <td><?php echo $row['id_pr']. '/'. $row['date_db'];?></td>
                 
                
 
@@ -82,7 +82,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_solde.php" method="post">
-                                <h1 class="mb-5">voulez-vous supprimer solde n°<?php echo $row['pourcentage_solde'] ;?> </h1>
+                                <h1 class="mb-5"  style="color:#000;">voulez-vous supprimer solde n°<?php echo $row['pourcentage_solde'] ;?> </h1>
                                 
                                 <input type="text" name="pourcentage_solde"  value="<?php echo $row['pourcentage_solde'] ;?>" hidden>
                                 <input type="text" name="id_art" value="<?php echo $row['id_art'] ;?>" hidden>
@@ -154,19 +154,19 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                  
 
            <?php
-                  $sql = "SELECT * FROM dates";
+                  $sql = "SELECT * FROM periode";
                   ?>
            <div class="form-group">
                     <div class="form-label-group">
-                    <select name="id_date" id="id_date" class="form-control" required="required">
+                    <select name="id_pr" id="id_pr" class="form-control" required="required">
                     <option value="">date solde</option>
                     <?php 
                     if($pdo->query($sql)){
                        foreach  ($pdo->query($sql) as $row) {
                     ?>
   
-                    <option value="<?php echo $row['id_date'].'/'. $row['date_db'].'/'. $row['date_fn'];?>">
-                    <?php echo $row['id_date'].'/'. $row['date_db'].'/'. $row['date_fn'];?>
+                    <option value="<?php echo $row['id_pr'].'/'. $row['date_db'].'/'. $row['date_fn'];?>">
+                    <?php echo $row['id_pr'].'/'. $row['date_db'].'/'. $row['date_fn'];?>
                     </option>
                        <?php 
                        }

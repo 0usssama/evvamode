@@ -2,15 +2,15 @@
  if(isset($_POST['supprimer'])){
 
     // need to sanitize
-    $idadmin = $_GET['id_date'] ?? NULL ;
+    $idadmin = $_GET['id_pr'] ?? NULL ;
 
     if(!is_null($iddate)){
-        $sql = "DELETE FROM admin WHERE id_date= " . $iddate;
+        $sql = "DELETE FROM admin WHERE id_pr= " . $iddate;
 
        $resultat=  $pdo->query($sql);
 
        if($resultat){
-           header('location:date.php');
+           header('location:periode.php');
        }else{
 echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
@@ -28,16 +28,16 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
           </div>
 
         <!-- Page Content -->
-        <h1>les dates </h1>
+        <h1>les periodes </h1>
         <hr>
         
         <?php
-        $sql = "SELECT * FROM dates ";
+        $sql = "SELECT * FROM periode ";
         ?>
 
-<!-- SELECT *FROM  dates WHERE date_db < NOW() AND date_fn > NOW() -->
+<!-- SELECT *FROM  periode WHERE date_db < NOW() AND date_fn > NOW() -->
 
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une date</button>
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une periode</button>
        
                   <table class="table  custab">
                       <thead>
@@ -55,18 +55,18 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
             if($pdo->query($sql)){
             foreach  ($pdo->query($sql) as $row) { ?>
                <tr>
-                <td><?php echo $row['id_date'] ;?></td>
+                <td><?php echo $row['id_pr'] ;?></td>
                 <td><?php echo $row['date_db'] ;?></td>
                 <td><?php echo $row['date_fn'] ;?></td>
                 
                
 
                 <td class="text-center"><button type="button" class="btn btn-danger" data-toggle="modal"
-                        data-target="#m<?php echo $row['id_date'] ;?>"><i class="fas fa-trash"></i></button></td>
+                        data-target="#m<?php echo $row['id_pr'] ;?>"><i class="fas fa-trash"></i></button></td>
             </tr>
        
-            <div class="modal fade" id="m<?php echo $row['id_date'] ;?>" tabindex="-1" role="dialog"
-                aria-labelledby="m<?php echo $row['id_date'] ;?>" aria-hidden="true">
+            <div class="modal fade" id="m<?php echo $row['id_pr'] ;?>" tabindex="-1" role="dialog"
+                aria-labelledby="m<?php echo $row['id_pr'] ;?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -76,8 +76,8 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="supprimer/supprimer_date.php?id_date=<?php echo $row['id_date'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer <?php echo $row['id_date'] ;?> </h1>
+                            <form action="supprimer/supprimer_periode.php?id_pr=<?php echo $row['id_pr'] ;?> " method="post">
+                                <h1 class="mb-5"  style="color:#000;">voulez-vous supprimer la periode n°<?php echo $row['id_pr'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
@@ -102,14 +102,14 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">date soldes</h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Les piriodes des soldes</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
            
-            <form method="POST" action="ajouter/ajouter_date.php" >
+            <form method="POST" action="ajouter/ajouter_periode.php" >
                 
                  
                

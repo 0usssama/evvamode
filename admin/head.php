@@ -151,9 +151,9 @@
 
                 
               <li class="nav-item">
-                  <a class="nav-link" href="date.php">
+                  <a class="nav-link" href="periode.php">
                     <i class="fas fa-fw fa-2x fa-calendar-alt text-danger"></i>
-                    <span>date</span></a>
+                    <span>periode</span></a>
                 </li>
                 
                 <li class="nav-item">

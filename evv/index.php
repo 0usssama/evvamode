@@ -485,7 +485,7 @@
 		<br><br>
 			 <div class="title-with-button">
 			<span class="btn-next"></span> </div>
-	  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos partenaires </h2>
+	  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos stylistes </h2>
 				<div class="content section-indent-bottom">
 				<div class="brands-carousel">
 		

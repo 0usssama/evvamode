@@ -96,7 +96,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                         </div>
                         <div class="modal-body">
                             <form action="supprimer/supprimer_evenement.php?id_event=<?php echo $row['id_event'] ;?> " method="post">
-                                <h1 class="mb-5">voulez-vous supprimer evenement n°<?php echo $row['id_event'] ;?> </h1>
+                                <h1 class="mb-5"  style="color:#000;">voulez-vous supprimer evenement n°<?php echo $row['id_event'] ;?> </h1>
                                 <input type="submit" name="supprimer" class="btn btn-block btn-danger"
                                     value="supprimer">
                             </form>
