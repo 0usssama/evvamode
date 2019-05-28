@@ -356,9 +356,31 @@
 																
 																<!-- /product info --> 
 																<!-- product rating  ta3 les etoileeeee-->
-																<div class="rating row-mode-hide"> <span class="icon-star"></span> 
-																	<span class="icon-star"></span> <span class="icon-star"></span> 
-																	<span class="icon-star"></span> <span class="icon-star empty-star"></span> </div>
+																<div class="rating row-mode-hide"> 
+
+														<?php 
+			$sql = "SELECT AVG(nbr_etoile) as somme_etoile FROM voter WHERE id_art = '" .  $article['id_art'] . "'";
+			
+			if($pdo->query($sql)){
+				foreach ($pdo->query($sql) as $row) {	
+					$nbretoile = round( $row['somme_etoile']);
+					if($nbretoile == 0 ){
+				echo '	<span class="icon-star"></span> ';
+
+					}
+					for ($i=0; $i < $nbretoile; $i++) { 
+						echo '	<span class="icon-star"></span> ';
+						}
+				}
+			}
+			
+
+														?>
+															
+																 
+
+																	
+																	</div>
 																<!-- /product rating --> 
 															</div>
 														</div>

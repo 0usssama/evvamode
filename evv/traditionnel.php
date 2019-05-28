@@ -7,22 +7,20 @@
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
 		<link rel="shortcut icon" href="favicon.ico">
-		<!-- Mobile Specific Metas -->
+		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- External Plugins CSS -->
-		<link rel="stylesheet" href="external/slick/slick.css">
-		<link rel="stylesheet" href="external/slick/slick-theme.css">
+		<!-- Externe CSS -->
+	
 		<link rel="stylesheet" href="external/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="external/bootstrap-select/bootstrap-select.css">
-		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<!-- SLIDER ->
 		<link rel="stylesheet" type="text/css" href="external/rs-plugin/css/settings.css" media="screen" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style-layout10.css">
 		<!-- Icon Fonts  -->
 		<link rel="stylesheet" href="font/style.css">
 		<!-- Head Libs -->	
-		<!-- Modernizr -->
-		<script src="external/modernizr/modernizr.js"></script>
+	
 
 
 		
@@ -359,23 +357,23 @@
 															<div class="product__inside__name">
 																<h2><a href="#"><?php echo $article['nom_art']; ?></a></h2>
 															</div>
-															<!-- /product name -->                 <!-- product description --> 
-															<!-- visible only in row-view mode -->
+															<!-- /produit name -->                 <!-- product description --> 
+															<!-- visible  -->
 															<!-- /product description -->                 <!-- product price -->
 															<div class="product__inside__price price-box"><?php echo $article['prix_art']; ?></div>
 															<!-- /product price -->                 <!-- product review --> 
-															<!-- visible only in row-view mode -->
+															<!-- visible -->
 															
 															<!-- /product review --> 
 															<div class="product__inside__hover">
 																<!-- product info -->
 																
-																<!-- /product info --> 
+																<!-- sab mana yabda /product info --> 
 																<!-- product rating  ta3 les etoileeeee-->
 																<div class="rating row-mode-hide"> <span class="icon-star"></span> 
 																	<span class="icon-star"></span> <span class="icon-star"></span> 
 																	<span class="icon-star"></span> <span class="icon-star empty-star"></span> </div>
-																<!-- /product rating --> 
+																<!-- hna ykhlas  /product rating --> 
 															</div>
 														</div>
 													</div>
@@ -454,7 +452,7 @@
 <!-- / Modal (quickViewModal) -->
 </div>
 												<?php } ?>
-													<!-- el mouuudaaal --> 
+													<!-- el mouuudaaala --> 
 								
 												
 		
@@ -591,15 +589,14 @@
 	<script src="external/jquery/jquery-2.1.4.min.js"></script> 
 		<!-- Bootstrap 3--> 
 		<script src="external/bootstrap/bootstrap.min.js"></script> 
-		<!-- Specific Page External Plugins --> 
+		<!-- bot --> 
 		<script src="external/slick/slick.min.js"></script>
 		<script src="external/bootstrap-select/bootstrap-select.min.js"></script>  
 		<script src="external/countdown/jquery.plugin.min.js"></script> 
 		<script src="external/countdown/jquery.countdown.min.js"></script>  	  		
 		<script src="external/magnific-popup/jquery.magnific-popup.min.js"></script>  		
-		<script src="external/isotope/isotope.pkgd.min.js"></script> 
-		<script src="external/imagesloaded/imagesloaded.pkgd.min.js"></script>
-		<script src="external/colorbox/jquery.colorbox-min.js"></script>
+		
+		<script src="external/colorbox/jquery.colorbox-min.js"></script
 		<!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
 		<script type="text/javascript" src="external/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
 		<script type="text/javascript" src="external/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 

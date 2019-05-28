@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <?php require_once('../includes/config.php') ;?>
-
 <html lang="Fr">
 	<head>
-		<!-- Basic -->
+		<!-- meta -->
 		<meta charset="utf-8">
 		<title>Evvamode</title>
 		<meta name="keywords" content="HTML5 " />
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
 		<link rel="shortcut icon" href="nvlog.png">
-		<!-- Mobile Specific Metas -->
+		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- External Plugins CSS -->
-		<link rel="stylesheet" href="external/slick/slick.css">
-		<link rel="stylesheet" href="external/slick/slick-theme.css">
+		<!-- Externe CSS -->
+		
 		<link rel="stylesheet" href="external/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="external/bootstrap-select/bootstrap-select.css">
 		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 		<link rel="stylesheet" type="text/css" href="external/rs-plugin/css/settings.css" media="screen" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style-layout10.css">
+		
 		<!-- Icon Fonts  -->
 		<link rel="stylesheet" href="font/style.css">
+		<!-- Head Libs -->	
+	
 	
 	</head>
 	<body class="index" style="text-align: left;">
-			<span style="text-align: center"></span>
-		<div id="loader-wrapper">
-			
-		</div>
+		<span style="text-align: center"></span>
+	
 		<!-- Back to top couleur de background -->	  
 		<div class="back-to-top"> <span class="icon-keyboard_arrow_up"></span></div>
 		<!-- /Back to top -->
@@ -108,7 +107,7 @@
 							<div class="account-row-list pull-right mobile-menu-off">
 								
 								<ul>
-									<li><a href="point_pv.php"><span class="icon icon-place"></span> <b>Nos point de vent</b></a></li>
+									<li><a href="point_pv.php"><span class="icon icon-place"></span>No<b>s point de vente</b></a></li>
 									<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 								</ul>
 							</div>
@@ -239,238 +238,79 @@
 			</header>
 	
 	</div>
+				
 					
-		
-		
-					
-		<!-- fin HEADER section -->
+		<!-- End HEADER section -->
 		<!-- Slider section --> 
-		<section class="content offset-top-0 tp-banner-button1 slider-layout-3" id="slider">
-			<!--
-			
-			<!--  SLIDER  -->
-			<h2 class="hidden">Slider Section</h2>
-			<div class="tp-banner-container">
 		
-				<div class="tp-banner" >
-					<ul>
-						<!-- SLIDE -1 -->
-						<?php
-								$sql = "SELECT * FROM slider";
-								if($pdo->query($sql)){
-									foreach  ($pdo->query($sql) as $row) {
-							?>
-						<li data-transition="fade"  data-masterspeed="10" data-saveperformance="on"  data-title="Slide">
-							<!-- MAIN IMAGE --> 
-							<img   width="2048" height="855"  src="<?php echo '../admin/ajouter/uploads/'.$row['url_img_slider'] ;?>">  
-            
-							<div class="tp-caption lfl stb" 
-								data-x="205"              
-								data-y="center"    
-								data-voffset="60" 
-								data-speed="600" 
-								data-start="700" 
-								data-easing="Power1.easeOut" 
-								data-endeasing="Power1.easeIn" 
-								style="z-index: 2;
-								">
-					     
-								<div class="tp-caption1--wd-3" >EvvaMode <br>groube de styliste</div>
-							
-							</div>
-					</li>
-					<?php }
-            }; ?>
-					</ul>
-				</div>
-			
 
+
+
+
+
+
+
+
+
+		<div class="content">
+			<div class="container ">
+			
+			<div class="row ">
+
+			
+							<div class="col-md-6 col-sm-6">
+							<h1>Alger,cheraga el karia</h1>
+							<iframe  style="margin: 0 auto;display: block;"  width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.8605651855468754%2C36.72113628411144%2C2.9920578002929688%2C36.80392443303824&amp;layer=mapnik&amp;marker=36.76248870778358%2C2.9263621000000057" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.7625&amp;mlon=2.9264#map=13/36.7625/2.9264">Afficher une carte plus grande</a></small>
+							</div>
+
+							<div class="col-md-6 col-sm-6">
+							<h1>Oran,cité les palmiers </h1>
+							<iframe style="margin: 0 auto;display: block;"  width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.6749725341796875%2C35.652484112208924%2C-0.6092262268066407%2C35.69445848270644&amp;layer=mapnik&amp;marker=35.673474056778716%2C-0.6420993804931641" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=35.6735&amp;mlon=-0.6421#map=14/35.6735/-0.6421">Afficher une carte plus grande</a></small>
+							</div>
+
+							<div class="col-md-6 col-sm-6">
+							<h1>Alger,ain taya</h1>
+							<iframe style="margin: 0 auto;display: block;" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.225173950195313%2C36.74562447699797%2C3.3566665649414062%2C36.82838619837316&amp;layer=mapnik&amp;marker=36.78701651141783%2C3.2909202575683594" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.7870&amp;mlon=3.2909#map=13/36.7870/3.2909">Afficher une carte plus grande</a></small>
+							</div>
+							
+					
+
+							<div class="col-md-6 col-sm-6">
+							<h1>Bejaia</h1>
+							<iframe style="margin: 0 auto;display: block;" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=4.961700439453126%2C36.730079507078415%2C5.09319305419922%2C36.81285800626765&amp;layer=mapnik&amp;marker=36.77147992861716%2C5.027446746826172" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.7715&amp;mlon=5.0274#map=13/36.7715/5.0274">Afficher une carte plus grande</a></small>							</div>
+
+"" 
 			</div>
-		</section>
+
+
+			
+		</div>
+	</div>
+
+
+
+
+	<br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
 		<!-- END REVOLUTION SLIDER --> 
 		<!-- CONTENT section -->
-		<div id="pageContent">
-	<div class="content">
-	<div class="container">
-					<!-- title -->
-	  <div class="title-with-button">
-			<span class="btn-next"></span> </div>
-	  <h2 class="text-center text-uppercase title-under" style="color: #000000">la Mode </h2>
-		<p style="color: #000000; font-size: 20px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center;">Des stylistes algériens de la haute couture décline dans les matiéres les plus noble et les plus rares,les collections precieuse a portée dans la mode traditionnelle et moderne qui fait de l'elegance une harmonie qui s'ambolise la femme </p>
 		
-		
-		
-					<div class="row">
-						<div class="category-carousel">
-                          
-							<div  class="col-sm-6 col-md-6 col-lg-6">
-								<a  href="moderne.php"  class="banner zoom-in" >
-								
-									<span class="figure">
-										<img  height="600" src="caaa.jpg" alt=""/>
-										<span class="figcaption">
-											<span class="block-table" style="background-color: rgba(0,0,0,0.4);">
-												<span class="block-table-cell">
-													<span class="banner__title size5">Modernne</span>
-												
-												</span>
-											</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						
-							<div class="col-sm-6 col-md-6 col-lg-6">
-								<a href="traditionnel.php" class="banner zoom-in">
-								<span class="figure">
-									<img  height="600" src="carak.jpg" alt=""/>
-									<span class="figcaption" >
-										<span class="block-table"  style="background-color: rgba(0,0,0,0.4);">
-											<span class="block-table-cell">
-												<span class="banner__title size5">Traditionnel</span>
-												
-											</span>
-										</span>
-									</span>
-								</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				
-			
-					</div>
-					</div>
-			
-			
-			
-			
-			
-			</div>
-			
-				
-								
-			<!--=== box-baners ===-->
-			<div class="container box-baners content">
-				<div class="row">					
-					<div class="col-xs-12">
-				<div class="title-with-button" style="color: #fff">
-				  <h2 class="text-center text-uppercase title-under"><strong>top modele</strong></h2>
-				</div>
-						<!-- banner des top modele-->
-					<div class="content carusel--parallax"  data-image="images/custom/layout11/tof.jpg">
-						<div class="title-with-button">
-								<h2 class="text-center text-uppercase title-under"></h2>
-								
-								
-					  </div>
-								
-					<div class="row">
-						<div class="col-lg-12">
-							<!-- title -->
-							
-							<!-- /title -->
-							<!-- carousel-new -->
-							<div class="carousel-products row" id="postsCarousel">
-
-
-							<?php 
-							$sql = "
-							SELECT  
-        article.id_art
-       , article.url_img_art
-       
-       , ( SELECT AVG(voter.nbr_etoile) 
-           FROM voter
-           WHERE voter.id_art = article.id_art
-         )
-         AS moyen_nbr_etoile 
-     FROM
-      article
-         
-     GROUP BY
-         article.id_art
-         ORDER BY moyen_nbr_etoile DESC LIMIT 3
-							";
-							foreach ($pdo->query($sql) as $row) {
-							
-							?>
-								<!-- slide-->
-								<div class="col-sm-3 col-xl-6">
-									<!--  -->
-									<div class="recent-post-box">
-										<div class="col-lg-12 col-xl-6">
-											
-												<span class="figure">
-													<img src="../admin/ajouter/uploads/<?php echo $row['url_img_art']; ?>" alt="">
-													<span class="figcaption label-top-left">
-														<span>
-															<b>top</b>
-															<em>model</em>
-														</span>
-													</span>
-												</span>
-										
-										</div>
-										<div class="col-lg-12 col-xl-6">
-											<div class="recent-post-box__text">
-											</div>
-										</div>
-									</div>
-									<!-- / -->
-								</div>
-								<!-- /slide -->
-								<?php 
-							}
-							
-							?>
-								
-								
-							</div>
-							
-						</div>
-					</div>
-				
-			</div>
-						</div>
-			</div>
-			</div>
-		
-						<!-- /banner  fin de top modele-->						
+							<!-- /banner  fin de top modele-->						
 					
 			
 			
 	  <!--=== /box-baners ===-->			
 	  <!-- brands-carousel nos partenaire -->
-		<br><br>
-			 <div class="title-with-button">
-			<span class="btn-next"></span> </div>
-	  <h2 class="text-center text-uppercase title-under" style="color: #000000">Nos stylistes </h2>
-				<div class="content section-indent-bottom">
-				<div class="brands-carousel">
 		
-				<?php
-                         $sql = "SELECT url_logo_styls FROM styliste ";
-                      	 ?>
-					     <?php 
-         			     if($pdo->query($sql)){
-          				  foreach  ($pdo->query($sql) as $row) { ?>
-							<div>
-							 <img  width="120" height="120" src="<?php echo '../admin/ajouter/uploads/'.$row['url_logo_styls'] ;?>" alt="">
-							
-						    </div> 
-							
-						<?php  } }?>
-
-						</div>
-
-			</div>
-			
-			<!-- /brands-carousel -->
-		<!--	
-			
-		
-		<!- End CONTENT section -->
+		<!-- End CONTENT section -->
 		<!-- FOOTER section -->
 				
 		<footer class="layout-4 fill-bg">
@@ -492,10 +332,11 @@
 									<a href="evenement.php"><span class="act-underline">Evenement</span></a><br>
 								
 									<a href="soldes.php" ><span class="act-underline">Soldes</span></a> <br>
-
+						
+								
 									<a href="contact.php" ><span class="act-underline">Contact</span></a> <br>
-
-							        <a href="cgv.html" ><span class="act-underline">CGV</span></a> 
+									<a href="cgv.html" ><span class="act-underline">CGV</span></a> 
+							
 							</div>
 						</div>
 						<!-- / -->
@@ -570,18 +411,12 @@
 	<script src="external/jquery/jquery-2.1.4.min.js"></script> 
 		<!-- Bootstrap 3--> 
 		<script src="external/bootstrap/bootstrap.min.js"></script> 
-		<!-- boot --> 
-		<script src="external/slick/slick.min.js"></script>
+		<!-- bootstrap--> 
+		
 		<script src="external/bootstrap-select/bootstrap-select.min.js"></script>  
-		<script src="external/countdown/jquery.plugin.min.js"></script> 
-		<script src="external/countdown/jquery.countdown.min.js"></script>  	  		
+			  		
 		<script src="external/magnific-popup/jquery.magnific-popup.min.js"></script>  		
-		<script src="external/isotope/isotope.pkgd.min.js"></script> 
-		<script src="external/imagesloaded/imagesloaded.pkgd.min.js"></script>
-		<script src="external/colorbox/jquery.colorbox-min.js"></script>
-		<!-- SLIDER  SCRIPTS  --> 
-		<script type="text/javascript" src="external/rs-plugin/js/jquery.themepunch.tools.min.js"></script> 
-		<script type="text/javascript" src="external/rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+	
 		<!-- Custom --> 
 		<script src="js/custom.js"></script>
 		<script src="js/js-index-10.js"></script>					

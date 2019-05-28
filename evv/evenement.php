@@ -9,22 +9,19 @@
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
 		<link rel="shortcut icon" href="favicon.ico">
-		<!-- Mobile Specific Metas -->
+		<!-- Mobile  Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- External Plugins CSS -->
-		<link rel="stylesheet" href="external/slick/slick.css">
-		<link rel="stylesheet" href="external/slick/slick-theme.css">
+		<!-- Externe CSS -->
+		
 		<link rel="stylesheet" href="external/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="external/bootstrap-select/bootstrap-select.css">
-		<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+		<!-- SLIDER  -->
 		<link rel="stylesheet" type="text/css" href="external/rs-plugin/css/settings.css" media="screen" />
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style-layout10.css">
 		<!-- Icon Fonts  -->
 		<link rel="stylesheet" href="font/style.css">
-		<!-- Head Libs -->	
-		<!-- Modernizr -->
-		<script src="external/modernizr/modernizr.js"></script>
+		
 
 
 		

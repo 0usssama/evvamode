@@ -24,7 +24,73 @@
 </head>
 
 <body>
+<style>
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
 
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #ffc107;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #ffc107;
+}
+</style>
 <!--     
     <header id="header" class="header-layout-03 fill-bg-dark" style=" background: #cd111a;">
         <div class="container">
@@ -128,10 +194,71 @@
        <div class="col-4">
                                         <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
+
                                                   <div class="col-md-4">
+                                                  
                                                     <img src="../admin/ajouter/uploads/<?php echo $produit['url_img_art']; ?>" class="card-img h-100" alt="...">
                                                   </div>
                                                   <div class="col-md-8 d-flex flex-column">
+                                                <div class="d-flex justify-content-end">
+                                            
+                                                        <button type="button" class="btn btn-warning mt-1 mr-1" data-toggle="modal" data-target="#exampleModal<?php echo $produit['id_art']; ?>">★</button>
+                                                          </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal<?php echo $produit['id_art']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                          <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Voter le produit N° <?php echo $produit['id_art']; ?> </h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                              <form class="rating" method="post" action="vote.php?id_art=<?php echo $produit['id_art']; ?>&id_client=<?php echo $_SESSION['id_client']; ?>">
+                                                                  <label>
+                                                                    <input type="radio" name="stars" value="1" required/>
+                                                                    <span class="icon">★</span>
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="stars" value="2" />
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="stars" value="3" />
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>   
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="stars" value="4" />
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="stars" value="5" />
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                    <span class="icon">★</span>
+                                                                  </label>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                               
+                                                               <input type="submit" value="voter" name="voter" class="btn btn-warning">
+                                                               
+                                                               
+                                                                
+                                                              </div>
+
+                                                              </form>
+                                                            </div>
+                                                          </div>
+                                                        </div>
                                                     <div class="card-body ">
                                                       <h4 class="card-title"><?php echo $produit['nom_art']; ?></h4>
                                                       <h6 ><?php echo $produit['prix_art']; ?> DA</h6>
