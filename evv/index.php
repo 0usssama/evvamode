@@ -390,7 +390,7 @@
          
      GROUP BY
          article.id_art
-         ORDER BY moyen_nbr_etoile DESC LIMIT 3
+         ORDER BY moyen_nbr_etoile DESC LIMIT 4  
 							";
 							foreach ($pdo->query($sql) as $row) {
 							

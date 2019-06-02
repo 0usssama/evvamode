@@ -6,7 +6,7 @@
 		<meta name="keywords" content="HTML5 " />
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="nvlog.png">
 		<!-- Mobil Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Externe CSS -->
@@ -114,7 +114,7 @@
 						<div class="account-row-list pull-right mobile-menu-off">
 							
 							<ul>
-								<li><a href="wishlist.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
+								<li><a href="point_pv.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
 								<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 							</ul>
 						</div>
@@ -320,28 +320,17 @@
 							<div class="product__label product__label--left product__label--sale">
 								<span>solde<br><?php echo $article['pourcentage_solde']; ?>%</span>
 							</div>
-							<!-- /label sale -->
-															<!-- product name -->
+					
 															<div class="product__inside__name">
-																<h2><a href="#"><?php echo $article['nom_art']; ?></a></h2>
+																<h2 style="color: #fff;"><a href="#"><?php echo $article['nom_art']; ?></a></h2>
 															</div>
-															<!-- /product name --> 
-                                                            <!-- product price -->
+													
 							<div class="product__inside__price price-box">
 							<?php echo $article['prix_art']; ?>
 								DA<span class="price-box__old"><?php echo $article['ancien_prix']; ?> DA</span></div>
-							<!-- /product price -->                <!-- product description --> 
-															<!-- visible only in row-view mode -->
-															<!-- /product description -->                
-                                                                    <!-- product review --> 
-															<!-- visible only in row-view mode -->
-															
-															<!-- /product review --> 
+						
 															<div class="product__inside__hover">
-																<!-- product info -->
-																
-																<!-- /product info --> 
-																
+				
 															</div>
 														</div>
 													</div>
@@ -369,10 +358,10 @@
 					<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
 					
 						<div class="product-info__title">
-							<h2><?php echo $article['nom_art']; ?></h2>
+							<h2 style="color: #fff;"><?php echo $article['nom_art']; ?></h2>
 						</div>
 						<div class="price-box product-info__price">
-							<span class="price-box__new"><?php echo $article['prix_art']; ?></span> 
+							<span class="price-box__new"><?php echo $article['prix_art']; ?> DA</span> 
 						</div>
 						
 						<div class="divider divider--xs product-info__divider">
@@ -395,16 +384,18 @@
 							<?php echo $article['descri_art']; ?>
 						</div>
 
-						<div class="divider divider--xs product-info__divider"><?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
-						<?php
+						<div class="divider divider--xs product-info__divider"  style="color:#fff;">
+						<br> styliste:<?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
+						      <?php
                                     } }else{
 																			echo 'ça marche pas';
-																		}?>
+																		}?>	<br>
 
-						<br>
+					
 						<div class="wrapper">
 						 <div class="pull-left">
 						 <a href="loginouss.php">
+						 <br>
 						<button type="submit" class="btn btn--ys btn--xxl"> Commande</button>
 						</a>
 						</div>

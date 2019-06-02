@@ -6,7 +6,7 @@
 		<meta name="keywords" content="HTML5 " />
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="nvlog.png">
 		<!-- Mobile Specific Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- External Plugins CSS -->
@@ -115,7 +115,7 @@
 						<div class="account-row-list pull-right mobile-menu-off">
 							
 							<ul>
-								<li><a href="wishlist.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
+								<li><a href="point_pv.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
 								<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 							</ul>
 						</div>

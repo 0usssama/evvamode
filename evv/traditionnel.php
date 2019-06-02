@@ -6,7 +6,7 @@
 		<meta name="keywords" content="HTML5 " />
 		<meta name="description" content="evvamode HTML5">
 		<meta name="author" content="etheme.com">
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="nvlog.png">
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Externe CSS -->
@@ -113,7 +113,7 @@
 						<div class="account-row-list pull-right mobile-menu-off">
 							
 							<ul>
-								<li><a href="wishlist.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
+								<li><a href="point_pv.php"><span class="icon icon-place"></span><b>Nos point de vente</b></a></li>
 								<li><a href="loginouss.php"><span class="icon icon-person"></span><b>espace client</b></a></li>
 							</ul>
 						</div>
@@ -251,18 +251,17 @@
 		
 
 			<!--=== box-baners ===-->
-			
+					
 			<div id="pageContent">
 
-			<section class="content">
+		    	<section class="content">
 				<div class="container">
 					<!-- title -->
 					<div class="title-with-button">
 					
-						<h2 class="text-center   text-uppercase  title-under">haute couture traditionnel</h2>
+						<h2 class="text-center   text-uppercase  title-under">haute couture traditionnel </h2>
 					</div>
 
-					
 					<nav class="navbar navbar-default">
 						<div class="container-fluid">
 						 
@@ -291,7 +290,6 @@
 						</div>
 					  </nav>
 
-
 					<!-- /title --> 
 					<!-- carousel -->
 					
@@ -309,33 +307,19 @@
 			// y'affichi les lignes men ba3d dakhal la boucle en récupére le id 9bel mtakhlass la boucle bah njibo les produit ta3 la famille hadik berk
 
 			foreach ($pdo->query($sql) as $row) {
-				
-
-
 			$id_catg = $row['id_catg'];
-	
 	?>
-<div class="carousel-products row" id="carouselRelated<?php echo  $row['id_catg']; ?>">
+<div class="carousel-products row pt-5" id="carouselRelated<?php echo  $row['id_catg']; ?>">
 								<div class="title-with-button"></div>
 								<h2 id="3" class="title-underm"><?php echo  $row['desi_catg'] ; ?></h2>
-
-		
-				
-		
 											<?php 
-												
-										
 											$sql2 = "SELECT * FROM article WHERE id_catg = " . $id_catg;
 											$sql2 .= " AND id_styl = 1 ";
-
-
 											$resultat = $pdo->query($sql2);
 											if(!$resultat->fetch()){
 												echo 'aucun article trouvé';
 											}
 											foreach ($pdo->query($sql2) as $article) {
-												
-											
 											?>
 		
 											<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-one-six">
@@ -344,7 +328,7 @@
 														<div class="product__inside">
 															<!-- product image -->
 															<div class="product__inside__image">
-																<a href="#"> <img src="../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>" alt=""> </a> 
+																<img src="../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>" alt="">
 																<!-- quick-view --> 
 																<a href="#" data-toggle="modal" data-target="#quickViewModal<?php echo $article['id_art']; ?>"
 																 class="quick-view"><b><span class="icon icon-visibility">
@@ -357,124 +341,139 @@
 															<div class="product__inside__name">
 																<h2><a href="#"><?php echo $article['nom_art']; ?></a></h2>
 															</div>
-															<!-- /produit name -->                 <!-- product description --> 
-															<!-- visible  -->
+															<!-- /product name -->                 <!-- product description --> 
+															<!-- visible only in row-view mode -->
 															<!-- /product description -->                 <!-- product price -->
-															<div class="product__inside__price price-box"><?php echo $article['prix_art']; ?></div>
+															<div class="product__inside__price price-box"><?php echo $article['prix_art']; ?> DA</div>
 															<!-- /product price -->                 <!-- product review --> 
-															<!-- visible -->
+															<!-- visible only in row-view mode -->
 															
 															<!-- /product review --> 
 															<div class="product__inside__hover">
 																<!-- product info -->
 																
-																<!-- sab mana yabda /product info --> 
+																<!-- /product info --> 
 																<!-- product rating  ta3 les etoileeeee-->
-																<div class="rating row-mode-hide"> <span class="icon-star"></span> 
-																	<span class="icon-star"></span> <span class="icon-star"></span> 
-																	<span class="icon-star"></span> <span class="icon-star empty-star"></span> </div>
-																<!-- hna ykhlas  /product rating --> 
+																<div class="rating row-mode-hide"> 
+
+														<?php 
+			$sql = "SELECT AVG(nbr_etoile) as somme_etoile FROM voter WHERE id_art = '" .  $article['id_art'] . "'";
+			
+			if($pdo->query($sql)){
+				foreach ($pdo->query($sql) as $row) {	
+					$nbretoile = round( $row['somme_etoile']);
+					if($nbretoile == 0 ){
+				echo '	<span class="icon-star"></span> ';
+
+					}
+					for ($i=0; $i < $nbretoile; $i++) { 
+						echo '	<span class="icon-star"></span> ';
+						}
+				}
+			}
+			
+
+														?>
+															
+																 
+
+																	
+																	</div>
+																<!-- /product rating --> 
 															</div>
 														</div>
 													</div>
 													<!-- /product --> 
-												</div>
-<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
-
-<div class="modal-dialog white-modal">
-	<div class="modal-content container">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" 
-			aria-hidden="true"><span class="icon icon-clear"></span></button>
-		</div>
-		<!--  -->
-		<div class="product-popup">
-			<div class="product-popup-content">
-			<div class="container-fluid">
-				<div class="row product-info-outer">
-					<div class="col-xs-12  col-md-6 col-lg-6"> 
-						<div class="product-main-image">
-							<div class="product-main-image__item">
-								<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" /></div>
-						</div>
-					</div>
-					<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
-					
-						<div class="product-info__title" >
-							<h2 style="color: #fff;"><?php echo $article['nom_art']; ?></h2>
-						</div>
-						<div class="price-box product-info__price">
-							<span class="price-box__new" ><?php echo $article['prix_art']; ?> DA</span> 
-						</div>
-						
-						<div class="divider divider--xs product-info__divider">
-							
-						</div>
-						<div class="product-info__description">
-
-						 <!--hna logo-->
-							<div class="product-info__description__brand">
-							<?php
-									$sql_styliste = "SELECT * FROM styliste WHERE id_styls='" . $article['id_styls'] . "'";
-
-									if($pdo->query($sql_styliste)){
-                                    foreach ($pdo->query($sql_styliste) as $styliste) {
-                                        ?>
-								<img src="<?php echo '../admin/ajouter/uploads/'. $styliste['url_logo_styls']; ?>" alt="" style="height: 150px; width: 90px;"> </div>
-								 </div>
-							
-							<div class="product-info__description__text">
-							<?php echo $article['descri_art']; ?>
-						</div>
-
-						<div class="divider divider--xs product-info__divider" style="color:#fff;">
-						<br> styliste: <?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?> </div>
-						<?php
-                                    } }else{
-																			echo 'ça marche pas';
-																		}?><br>
-
-					
-						<div class="wrapper">	<br>
-						 <div class="pull-left">
-						<button type="submit" class="btn btn--ys btn--xxl"> Commande</button></div>
-						</div>
-					 
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<!-- / -->
-	</div>
-</div>
-</div>
-<!-- / Modal (quickViewModal) -->
-</div>
-												<?php } ?>
-													<!-- el mouuudaaala --> 
-								
+											</div>
 												
-		
-		
-						
-													</div>
-
-													<?php };
-													 ?>
 
 
+
+
+
+														
+		<div class="modal  modal--bg fade"  id="quickViewModal<?php echo $article['id_art']; ?>">
+
+				<div class="modal-dialog white-modal">
+					<div class="modal-content container">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" 
+									aria-hidden="true"><span class="icon icon-clear"></span></button>
+								</div>
+					<!--  -->
+									<div class="product-popup">
+										<div class="product-popup-content">
+											<div class="container-fluid">
+												<div class="row product-info-outer">
+																<div class="col-xs-12  col-md-6 col-lg-6"> 
+																	<div class="product-main-image">
+																			<div class="product-main-image__item">
+																			<img src='../admin/ajouter/uploads/<?php echo $article['url_img_art']; ?>' alt="" />
+																			</div>
+																	</div>
+																</div>
+																<div class="product-info col-xs-12 col-sm-7 col-md-6 col-lg-6">
+																
+																								<div class="product-info__title">
+																									<h2 style="color: #fff;"><?php echo $article['nom_art']; ?></h2>
+																								</div>
+																								<div class="price-box product-info__price">
+																									<span class="price-box__new"><?php echo $article['prix_art']; ?> DA</span> 
+																								</div>
+																	
+																								<div class="divider divider--xs product-info__divider">	
+																								</div>
+																								<div class="product-info__description">
+
+																									<div class="product-info__description__brand">
+
+																												<?php
+																												$sql_styliste = "SELECT * FROM styliste WHERE id_styls='" . $article['id_styls'] . "'";
+
+																												if($pdo->query($sql_styliste)){
+																												foreach ($pdo->query($sql_styliste) as $styliste) {
+																												?>
+																												<img src="<?php echo '../admin/ajouter/uploads/'. $styliste['url_logo_styls']; ?>" alt="" style="height: 150px; width: 90px;"> </div>
+																											
+
+																					
+																												<div class="product-info__description__text">
+																												<?php echo $article['descri_art']; ?>
+																												</div>
+																												
+																												<div class="divider divider--xs product-info__divider" style="color:#fff;"> 
+																												 <br> styliste:  <?php echo $styliste['nom_styls'] . " ". $styliste['prenom_styls']; ; ?>
+																												</div>
+																												<?php } }else{ echo 'ça marche pas';}?>	<br>
+																												<div class="wrapper">
+																													<div class="pull-left">
+																													<br>	<a href="loginouss.php">	<button type="submit" class="btn btn--ys btn--xxl">Commande</button>
+																													</a>
+																													</div>
+																												</div>
+																									</div>
+																								</div>
+																</div>
+												</div>
+											</div>
+										<!-- / -->
+										</div>
 									</div>
-
-			</section>
-			
+					</div>
+			<!-- / Modal (quickViewModal) -->
+				</div>
+				<?php } ?>
 		</div>
+		<?php }; ?>
+		</div>
+
+</div>
+</section>
+</div>
 
 
 
 	
-
-
 
 
 

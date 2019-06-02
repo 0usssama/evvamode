@@ -38,7 +38,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 <!-- SELECT *FROM  periode WHERE date_db < NOW() AND date_fn > NOW() -->
 
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalScrollable">Ajouter une periode</button>
-       
+      
                   <table class="table  custab">
                       <thead>
                       
@@ -131,6 +131,22 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
                   </div>
           
                 <input type="submit" class="btn btn-primary btn-block" value="ajouter" name="ajouter">
+                <div class="<?php 
+             if(isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])){
+               echo 'alert alert-danger mt-3';
+             }
+                
+                ?>" role="alert">
+            <?php 
+             if(isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])){
+
+              
+              foreach ($_SESSION['erreur'] as $erreur) {
+                echo $erreur;
+              }
+            }
+            ?>
+</div>
               </form>
         </div>
               
@@ -145,5 +161,18 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
     </div>
     <!-- /.content-wrapper -->
+
+
+    <script>
+  
+  //
+    <?php
+    if(isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])){
+
+      echo "$('#exampleModalScrollable').modal('show');";
+    }
+    unset($_SESSION['erreur']);
+    ?>
+    </script>
     <?php include 'foot.php' ;?>
 

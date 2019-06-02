@@ -269,14 +269,12 @@
 							</div>
 
 							<div class="col-md-6 col-sm-6">
-							<h1>Alger,ain taya</h1>
+							<h1>Alger,ain taya center </h1>
 							<iframe style="margin: 0 auto;display: block;" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.225173950195313%2C36.74562447699797%2C3.3566665649414062%2C36.82838619837316&amp;layer=mapnik&amp;marker=36.78701651141783%2C3.2909202575683594" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.7870&amp;mlon=3.2909#map=13/36.7870/3.2909">Afficher une carte plus grande</a></small>
 							</div>
-							
-					
 
 							<div class="col-md-6 col-sm-6">
-							<h1>Bejaia</h1>
+							<h1>Bejaia,cité salemi </h1>
 							<iframe style="margin: 0 auto;display: block;" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=4.961700439453126%2C36.730079507078415%2C5.09319305419922%2C36.81285800626765&amp;layer=mapnik&amp;marker=36.77147992861716%2C5.027446746826172" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=36.7715&amp;mlon=5.0274#map=13/36.7715/5.0274">Afficher une carte plus grande</a></small>							</div>
 
 "" 
