@@ -116,8 +116,8 @@
             <h4 class="text-light"><i class="fas fa-shopping-bag mr-1"></i>Espace commande </h4>
 
                 <form class="form-inline my-2 my-lg-0 ml-5">
-                        <input class="form-control mr-sm-2" type="search" placeholder="caftan.." aria-label="Pro">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+                        <input class="form-control mr-sm-2" id="filter" type="search" placeholder="caftan.." aria-label="Pro">
+                        <button class="btn btn-outline-light my-2 my-sm-0" id="rechercher">Rechercher</button>
                       </form>
           <ul class="navbar-nav  ml-auto">
           <li class="nav-item active">
@@ -174,7 +174,7 @@
 <div class="container">
 
 
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content" id="results">
   
 <?php 
   $sql = "SELECT id_catg FROM article;";
@@ -183,7 +183,7 @@
     foreach  ($pdo->query($sql) as $categorie) {
       $show++;
 ?>
-<div class="tab-pane <?php if($show == 1){echo 'active show';}; ?>  fade  " id="cat<?php echo $categorie['id_catg']; ?>" role="tabpanel" aria-labelledby="showall-tab"><!-- //debut showall -->
+<div class="tab-pane  <?php if($show == 1){echo 'active show';}; ?>  fade  " id="cat<?php echo $categorie['id_catg']; ?>" role="tabpanel" aria-labelledby="showall-tab"><!-- //debut showall -->
        <div class="row text-center text-lg-left mt-3">
          
        <?php 
@@ -192,7 +192,7 @@
         foreach  ($pdo->query($sql) as $produit) {
        ?>
        <div class="col-4">
-                                        <div class="card mb-3" style="max-width: 540px;">
+                                        <div class="card mb-3 results" style="max-width: 540px;">
                                                 <div class="row no-gutters">
 
                                                   <div class="col-md-4">
@@ -314,6 +314,26 @@
 
 <script>
 $(document).ready(function(){
+/***search */
+$('#rechercher').click(function(){
+  var searchTerm = $('#filter').val().toLowerCase();
+        $('.card').each(function(){
+            var lineStr = $(this).text().toLowerCase();
+            if(lineStr.indexOf(searchTerm) === -1){
+                $(this).hide();
+            }else{
+                $(this).show();
+            }
+        });
+})
+
+
+       
+   
+
+/*  end search */
+
+
 
   $('#nbrArticle').html('<?php 
       if(isset($_SESSION['produits'])){

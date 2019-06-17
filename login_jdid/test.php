@@ -29,8 +29,8 @@ if(isset($_POST['connecter'])){
         // Succèss!
         $_SESSION['nom_adm']=$trouv['nom_adm'];
         $_SESSION['prenom_adm']=$trouv['prenom_adm'];
-        $_SESSION['id_adm']=$trouv['id_adm'];
-        header('location:../admin/admin.php');
+        $_SESSION['id_admin']=$trouv['id_admin'];
+       header('location:../admin/admin.php');
        
 
         

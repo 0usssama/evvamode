@@ -40,6 +40,7 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
          evenement.adresse_event ,
           evenement.descri_event ,
           evenement.url_img_event ,
+          styliste.id_styls,
           styliste.nom_styls ,
           styliste.prenom_styls
            FROM evenement  JOIN styliste
@@ -82,6 +83,113 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
 
                 <td class="text-center col"><button type="button" class="btn btn-danger" data-toggle="modal"
                         data-target="#m<?php echo $row['id_event'] ;?>"><i class="fas fa-trash"></i></button></td>
+
+                    <!--************************ MODIFIER -->
+                        <td class="text-center col"><button type="button" class="btn btn-warning" data-toggle="modal"
+                        data-target="#modifier<?php echo $row['id_event'] ;?>"><i class="fas fa-marker"></i></button></td>
+<!-- Modal -->
+<div class="modal fade" id="modifier<?php echo $row['id_event'] ;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Modifier Evenement</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+            <form method="POST" action="modifier/modifier_evenement.php?id_event=<?php echo $row['id_event'] ;?>" enctype="multipart/form-data">
+                
+                 
+                <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" value="<?php echo $row['titre_event'] ;?>" id="titre_event" name="titre_event" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="titre_event">Titre evenement</label>
+                    </div>
+                  </div>
+                    
+                 
+                  
+                <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="date" value="<?php echo $row['date_event'] ;?>" id="date_event" name="date_event" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="date_event">Date </label>
+                    </div>
+                  </div>
+
+
+
+                 
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="time" value="<?php echo $row['heure_event'] ;?>"" id="heure_event" name="heure_event" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="heure_event">Heure </label>
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="form-group">
+                    <div class="form-label-group">
+                      <input type="text" value="<?php echo $row['adresse_event'] ;?>" id="adresse_event" name="adresse_event" class="form-control" placeholder="famille" required="required" autofocus="autofocus">
+                      <label for="adresse_event">Adresse</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                  <div>
+                    <label for="">votre description</label>
+                      <textarea cols="70" type="text" id="descri_event" name="descri_event" class="form-control" placeholder="Prix en détail" required="required" autofocus="autofocus"><?php echo $row['descri_event'] ;?></textarea>
+                       </div>
+                  </div>
+
+
+                  
+
+                  
+                 
+              
+                  <?php
+                         $sql = "SELECT * FROM styliste";
+                         ?>
+                  <div class="form-group">
+                    <div class="form-label-group">
+                     <select name="id_styls" id="id_styls" class="form-control">
+                         <option value="">Styliste</option>
+                         <?php 
+                         if($pdo->query($sql)){
+                            foreach  ($pdo->query($sql) as $row2) {
+                         ?>
+
+                         <option value="<?php echo $row2['id_styls']. '-'. $row2['nom_styls']. ' '.$row2['prenom_styls'] ;?>" 
+                         <?php if($row['id_styls'] == $row2['id_styls']){ echo 'selected';} ?>
+                         >
+                         <?php echo $row2['id_styls']. '-'. $row2['nom_styls']. ' '.$row2['prenom_styls'] ;?>
+                         </option>
+                            <?php 
+                            }
+                        } ?>
+                     </select>
+                    </div>
+                  </div>
+
+
+
+
+
+
+               
+                <input type="submit" class="btn btn-primary btn-block" value="modifier" name="modifier">
+              </form>
+        </div>
+              
+       
+    </div>
+  </div>
+      </div>
+                        <!-- ************************************* FIN MODIF -->
             </tr>
        
             <div class="modal fade" id="m<?php echo $row['id_event'] ;?>" tabindex="-1" role="dialog"
@@ -231,4 +339,3 @@ echo 'ohhhh :(' . "<br>" . print_r($statement->errorInfo());
     </div>
     <!-- /.content-wrapper -->
     <?php include 'foot.php' ;?>
-

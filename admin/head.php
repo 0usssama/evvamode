@@ -3,7 +3,12 @@
 <?php 
        session_start();
 
-require_once('../includes/config.php') ;?>
+require_once('../includes/config.php') ;
+
+if(!isset($_SESSION['id_admin'])){
+  header('location: ../login_jdid/log.php');
+}
+?>
 
 
 

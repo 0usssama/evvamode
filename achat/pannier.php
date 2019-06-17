@@ -195,8 +195,12 @@ if(isset($_SESSION['produits']) && !empty($_SESSION['produits'])){
     <input type="text" name="totaleQuantite" value="<?php if(isset($totaleQuantite)){echo $totaleQuantite;}else{echo '';} ?>" id="" hidden>
     <input type="text" name="totalePrix" value="<?php if(isset($totalePrix)){echo $totalePrix;}else{echo '';} ?>" id="" hidden>
 
-  <input type="submit" class="btn btn-danger btn-block" value="commander" name="commander">
-
+ <?php
+ if ( isset($_SESSION['produits']) && !empty($_SESSION['produits'])) {
+  
+  echo '<input type="submit" class="btn btn-danger btn-block" value="commander" name="commander">';
+ }
+ ?>
   </td>
   </form>
 
